@@ -17,6 +17,9 @@ import { GlobalTrust } from "./components/GlobalTrust";
 import { Testimonials } from "./components/Testimonials";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { ServicesPage } from "./components/ServicesPage";
+import { ProjectsPage } from "./components/ProjectsPage";
+import { ContactPage } from "./components/ContactPage";
 import { LoginPage } from "./components/auth/LoginPage";
 import { SignUpPage } from "./components/auth/SignUpPage";
 import { ForgotPasswordPage } from "./components/auth/ForgotPasswordPage";
@@ -88,6 +91,9 @@ function AppRouter() {
         transition={{ duration: 0.3 }}
       >
         {page === "home" && <HomePage />}
+        {page === "services" && <ServicesPage />}
+        {page === "projects" && <ProjectsPage />}
+        {page === "contact" && <ContactPage />}
         {page === "login" && <LoginPage />}
         {page === "signup" && <SignUpPage />}
         {page === "forgot-password" && <ForgotPasswordPage />}

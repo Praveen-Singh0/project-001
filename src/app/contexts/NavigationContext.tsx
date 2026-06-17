@@ -2,6 +2,9 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 
 export type Page =
   | "home"
+  | "services"
+  | "projects"
+  | "contact"
   | "login"
   | "signup"
   | "forgot-password"

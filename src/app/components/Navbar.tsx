@@ -2,23 +2,21 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, Sun, Moon, Zap } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
-import { useNavigation } from "../contexts/NavigationContext";
+import { useNavigation, type Page } from "../contexts/NavigationContext";
 import { MagneticButton } from "./MagneticButton";
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Technology", href: "#tech" },
-  { label: "Projects", href: "#projects" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+const navLinks: { label: string; page: Page }[] = [
+  { label: "Home", page: "home" },
+  { label: "Services", page: "services" },
+  { label: "Projects", page: "projects" },
+  { label: "Contact", page: "contact" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { isDark, toggle } = useTheme();
-  const { navigate } = useNavigation();
+  const { page, navigate } = useNavigation();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
@@ -74,19 +72,25 @@ export function Navbar() {
 
       {/* Desktop nav */}
       <ul className="hidden lg:flex items-center gap-7">
-        {navLinks.map((link) => (
-          <li key={link.href}>
-            <a
-              href={link.href}
-              className="text-sm transition-colors duration-200"
-              style={{ color: textColor, fontWeight: 500 }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = cyan; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = textColor; }}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {navLinks.map((link) => {
+          const isActive = page === link.page;
+          return (
+            <li key={link.page}>
+              <button
+                onClick={() => navigate(link.page)}
+                className="text-sm transition-colors duration-200 relative"
+                style={{ color: isActive ? cyan : textColor, fontWeight: 500, background: "none", border: "none", cursor: "pointer" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = cyan; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = isActive ? cyan : textColor; }}
+              >
+                {link.label}
+                {isActive && (
+                  <span className="absolute left-0 right-0 -bottom-1.5 h-0.5 rounded-full" style={{ background: cyan }} />
+                )}
+              </button>
+            </li>
+          );
+        })}
       </ul>
 
       {/* Right actions */}
@@ -195,15 +199,14 @@ export function Navbar() {
             }}
           >
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="py-3 text-sm font-medium border-b"
-                style={{ color: textColor, borderColor: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)" }}
+              <button
+                key={link.page}
+                onClick={() => { navigate(link.page); setMobileOpen(false); }}
+                className="py-3 text-sm font-medium border-b text-left"
+                style={{ color: page === link.page ? cyan : textColor, borderColor: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)", background: "none" }}
               >
                 {link.label}
-              </a>
+              </button>
             ))}
             <div className="flex gap-3 mt-3">
               <button

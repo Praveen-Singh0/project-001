@@ -1,0 +1,203 @@
+{
+  "services": {
+    "hero": {
+      "badge": "OUR SERVICES",
+      "title": "Full-Spectrum Technology Services",
+      "highlight": "Technology",
+      "subtitle": "From strategy to execution to operations — eight practice areas delivered through one seamless model that scales with your business."
+    },
+    "items": [
+      {
+        "icon": "Brain",
+        "title": "AI Solutions",
+        "desc": "Custom LLMs, AI agents, computer vision, NLP, and intelligent automation tailored to your industry.",
+        "color": "#3AE5B2",
+        "tag": "Core",
+        "features": ["Custom LLM fine-tuning", "Conversational AI agents", "Computer vision pipelines", "Predictive analytics"]
+      },
+      {
+        "icon": "Cloud",
+        "title": "Cloud Services",
+        "desc": "AWS, Azure, GCP architecture, cloud migration, Kubernetes, serverless, and infrastructure optimization.",
+        "color": "#6C63FF",
+        "tag": "Infrastructure",
+        "features": ["Multi-cloud architecture", "Zero-downtime migration", "Kubernetes orchestration", "Cost optimization"]
+      },
+      {
+        "icon": "Globe",
+        "title": "Web Development",
+        "desc": "High-performance React, Next.js, and full-stack web applications with enterprise-grade architecture.",
+        "color": "#14C99A",
+        "tag": "Development",
+        "features": ["React & Next.js apps", "Headless CMS", "API & microservices", "Performance tuning"]
+      },
+      {
+        "icon": "Smartphone",
+        "title": "Mobile App Development",
+        "desc": "Cross-platform iOS & Android apps with React Native and Flutter — beautiful, fast, and scalable.",
+        "color": "#a78bfa",
+        "tag": "Mobile",
+        "features": ["React Native & Flutter", "Native iOS & Android", "Offline-first sync", "App store delivery"]
+      },
+      {
+        "icon": "Palette",
+        "title": "UI/UX Design",
+        "desc": "Research-driven product design, design systems, prototyping, and user testing for exceptional experiences.",
+        "color": "#f472b6",
+        "tag": "Design",
+        "features": ["Design systems", "User research", "Interactive prototyping", "Usability testing"]
+      },
+      {
+        "icon": "Cog",
+        "title": "Process Automation",
+        "desc": "RPA, workflow automation, intelligent document processing, and integration platforms that eliminate manual work.",
+        "color": "#34d399",
+        "tag": "Automation",
+        "features": ["Robotic process automation", "Workflow orchestration", "Document intelligence", "System integrations"]
+      },
+      {
+        "icon": "Megaphone",
+        "title": "Digital Marketing",
+        "desc": "Data-driven SEO, performance marketing, content strategy, and analytics that convert traffic to revenue.",
+        "color": "#fbbf24",
+        "tag": "Growth",
+        "features": ["Technical SEO", "Performance marketing", "Content strategy", "Analytics & attribution"]
+      },
+      {
+        "icon": "Building2",
+        "title": "Enterprise Software",
+        "desc": "Custom ERP, CRM, and SaaS platforms engineered for scale, security, and long-term business value.",
+        "color": "#60a5fa",
+        "tag": "Enterprise",
+        "features": ["Custom ERP & CRM", "SaaS platforms", "Security & compliance", "Legacy modernization"]
+      }
+    ],
+    "process": [
+      { "step": "01", "title": "Discover", "desc": "We dig into your goals, constraints, and users to define the problem precisely before writing a line of code." },
+      { "step": "02", "title": "Design", "desc": "Architecture, UX, and a delivery roadmap — validated through prototypes and aligned with stakeholders." },
+      { "step": "03", "title": "Build", "desc": "Agile sprints, continuous delivery, and transparent progress with production-grade engineering standards." },
+      { "step": "04", "title": "Scale", "desc": "Launch, monitor, and optimize. We stay on as a long-term partner to grow what we build together." }
+    ]
+  },
+  "projects": {
+    "hero": {
+      "badge": "PROJECT SHOWCASE",
+      "title": "Work That Speaks for Itself",
+      "highlight": "for Itself",
+      "subtitle": "A selection of platforms we've engineered for global teams — measured by the outcomes they delivered."
+    },
+    "stats": [
+      { "value": "150+", "label": "Projects Delivered" },
+      { "value": "40+", "label": "Enterprise Clients" },
+      { "value": "99.99%", "label": "Avg. Uptime" },
+      { "value": "12", "label": "Countries Served" }
+    ],
+    "filters": ["All", "AI", "Cloud", "Automation", "Full-Stack"],
+    "items": [
+      {
+        "title": "Enterprise CRM Platform",
+        "category": "AI + Cloud",
+        "tags": ["AI", "Cloud"],
+        "desc": "A next-generation CRM built for a 2,000-seat global sales team. Real-time deal scoring via ML, GPT-powered meeting summaries, and a unified customer data graph reduced sales cycle by 34%.",
+        "stack": ["React", "NestJS", "PostgreSQL", "OpenAI", "AWS"],
+        "metrics": [
+          { "label": "Faster Close Rate", "value": "34%" },
+          { "label": "Users", "value": "2K+" },
+          { "label": "Uptime", "value": "99.99%" }
+        ],
+        "accent": "#3AE5B2",
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=380&fit=crop&auto=format"
+      },
+      {
+        "title": "Healthcare Automation System",
+        "category": "AI + Automation",
+        "tags": ["AI", "Automation"],
+        "desc": "End-to-end patient workflow automation for a regional hospital network. AI triage, intelligent scheduling, and NLP-powered clinical notes cut administrative overhead by 60% across 12 facilities.",
+        "stack": ["Next.js", "Python", "Claude API", "Azure", "PostgreSQL"],
+        "metrics": [
+          { "label": "Admin Time Saved", "value": "60%" },
+          { "label": "Facilities", "value": "12" },
+          { "label": "Patient Records", "value": "500K" }
+        ],
+        "accent": "#6C63FF",
+        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&h=380&fit=crop&auto=format"
+      },
+      {
+        "title": "FinTech Analytics Dashboard",
+        "category": "Data Intelligence",
+        "tags": ["AI", "Full-Stack"],
+        "desc": "Real-time risk and portfolio analytics platform for a mid-market hedge fund. Sub-50ms data pipelines, predictive volatility models, and executive dashboards that visualize $2B+ AUM in real time.",
+        "stack": ["React", "Python", "Redis", "GCP", "LangChain"],
+        "metrics": [
+          { "label": "Data Latency", "value": "<50ms" },
+          { "label": "AUM Tracked", "value": "$2B+" },
+          { "label": "Accuracy", "value": "94.2%" }
+        ],
+        "accent": "#14C99A",
+        "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=700&h=380&fit=crop&auto=format"
+      },
+      {
+        "title": "E-Commerce Growth Engine",
+        "category": "Full-Stack + AI",
+        "tags": ["Full-Stack", "AI"],
+        "desc": "Headless commerce platform with AI-driven personalization for a D2C brand doing $80M ARR. Recommendation engine, dynamic pricing, and predictive inventory management boosted revenue 28% YoY.",
+        "stack": ["Next.js", "Node.js", "MongoDB", "Redis", "OpenAI"],
+        "metrics": [
+          { "label": "Revenue Growth", "value": "28%" },
+          { "label": "Annual Revenue", "value": "$80M" },
+          { "label": "SKUs Managed", "value": "50K+" }
+        ],
+        "accent": "#a78bfa",
+        "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=380&fit=crop&auto=format"
+      },
+      {
+        "title": "Smart Logistics Cloud",
+        "category": "Cloud + Automation",
+        "tags": ["Cloud", "Automation"],
+        "desc": "A real-time fleet and warehouse orchestration platform processing 4M events per day. Route optimization and predictive maintenance reduced fuel costs by 19% across a 1,200-vehicle fleet.",
+        "stack": ["Vue", "Go", "Kafka", "Kubernetes", "AWS"],
+        "metrics": [
+          { "label": "Fuel Saved", "value": "19%" },
+          { "label": "Daily Events", "value": "4M" },
+          { "label": "Fleet Size", "value": "1.2K" }
+        ],
+        "accent": "#60a5fa",
+        "image": "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=700&h=380&fit=crop&auto=format"
+      },
+      {
+        "title": "EdTech Learning Platform",
+        "category": "Full-Stack",
+        "tags": ["Full-Stack", "AI"],
+        "desc": "An adaptive learning platform serving 300K students. AI-personalized curriculum paths and automated grading lifted course completion rates by 41% in the first academic year.",
+        "stack": ["React", "Django", "PostgreSQL", "Redis", "GCP"],
+        "metrics": [
+          { "label": "Completion Lift", "value": "41%" },
+          { "label": "Students", "value": "300K" },
+          { "label": "Courses", "value": "2.5K" }
+        ],
+        "accent": "#34d399",
+        "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&h=380&fit=crop&auto=format"
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "badge": "GET IN TOUCH",
+      "title": "Let's Build Something Intelligent",
+      "highlight": "Intelligent",
+      "subtitle": "Tell us about your challenge. Our team responds within 24 hours with a tailored proposal or a free 30-minute strategy session."
+    },
+    "info": [
+      { "icon": "MapPin", "label": "Office", "value": "Dehradun, Uttarakhand, India — 248001", "color": "#3AE5B2" },
+      { "icon": "Phone", "label": "Phone", "value": "+91 135 000 0000", "color": "#6C63FF" },
+      { "icon": "Mail", "label": "Email", "value": "hello@dtechex.com", "color": "#14C99A" },
+      { "icon": "Clock", "label": "Hours", "value": "Mon–Fri, 9:00 AM – 7:00 PM IST", "color": "#fbbf24" }
+    ],
+    "faqs": [
+      { "q": "How quickly can we get started?", "a": "Most engagements kick off within one to two weeks of our initial strategy call, depending on scope and team availability." },
+      { "q": "Do you work with early-stage startups?", "a": "Absolutely. We tailor our delivery model to fit teams of every size — from pre-seed startups to global enterprises." },
+      { "q": "What does a typical engagement cost?", "a": "Pricing depends on scope, timeline, and complexity. After a discovery call we provide a transparent, fixed-scope proposal." },
+      { "q": "Can you augment our existing team?", "a": "Yes. We offer dedicated squads and staff augmentation that integrate directly with your in-house engineering and product teams." }
+    ]
+  }
+}
