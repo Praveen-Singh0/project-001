@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Sun, Moon, Zap } from "lucide-react";
+import { Menu, X, Sun, Moon, Home, Layers, FolderKanban, Mail, type LucideIcon } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useNavigation, type Page } from "../contexts/NavigationContext";
 import { MagneticButton } from "./MagneticButton";
 
-const navLinks: { label: string; page: Page }[] = [
-  { label: "Home", page: "home" },
-  { label: "Services", page: "services" },
-  { label: "Projects", page: "projects" },
-  { label: "Contact", page: "contact" },
+const navLinks: { label: string; page: Page; icon: LucideIcon }[] = [
+  { label: "Home", page: "home", icon: Home },
+  { label: "Services", page: "services", icon: Layers },
+  { label: "Projects", page: "projects", icon: FolderKanban },
+  { label: "Contact", page: "contact", icon: Mail },
 ];
 
 export function Navbar() {
@@ -24,32 +24,39 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  const bg = isDark
-    ? scrolled ? "rgba(4,5,13,0.9)" : "transparent"
-    : scrolled ? "rgba(232,236,247,0.88)" : "transparent";
-
-  const borderBottom = scrolled
-    ? isDark ? "1px solid rgba(58,229,178,0.1)" : "1px solid rgba(108,99,255,0.12)"
-    : "none";
-
   const textColor = isDark ? "#8892b0" : "#6271a0";
   const logoText = isDark ? "#f0f4ff" : "#0d0f1e";
   const cyan = isDark ? "#3AE5B2" : "#0FA47E";
+
+  const pillBg = isDark
+    ? scrolled ? "rgba(10,14,30,0.65)" : "rgba(10,14,30,0.4)"
+    : scrolled ? "rgba(255,255,255,0.7)" : "rgba(255,255,255,0.5)";
+  const pillBorder = isDark ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(255,255,255,0.6)";
+  const pillShadow = isDark
+    ? "0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)"
+    : "0 8px 32px rgba(100,113,160,0.18), inset 0 1px 0 rgba(255,255,255,0.9)";
 
   return (
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 lg:px-16"
-      style={{
-        height: 68,
-        background: bg,
-        backdropFilter: scrolled ? "blur(24px)" : "none",
-        borderBottom,
-        transition: "background 0.4s ease, backdrop-filter 0.4s ease, border 0.4s ease",
-      }}
+      className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-5 lg:px-8 pt-3 sm:pt-4"
     >
+      <div
+        className="mx-auto flex items-center justify-between gap-4 pl-3 pr-3 sm:pl-5 sm:pr-3"
+        style={{
+          maxWidth: 1180,
+          height: 64,
+          background: pillBg,
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          border: pillBorder,
+          borderRadius: 999,
+          boxShadow: pillShadow,
+          transition: "background 0.4s ease, box-shadow 0.4s ease",
+        }}
+      >
       {/* Logo */}
       <button
         onClick={() => navigate("home")}
@@ -71,23 +78,37 @@ export function Navbar() {
       </button>
 
       {/* Desktop nav */}
-      <ul className="hidden lg:flex items-center gap-7">
+      <ul className="hidden lg:flex items-center gap-1">
         {navLinks.map((link) => {
           const isActive = page === link.page;
+          const Icon = link.icon;
           return (
             <li key={link.page}>
-              <button
+              <motion.button
                 onClick={() => navigate(link.page)}
-                className="text-sm transition-colors duration-200 relative"
-                style={{ color: isActive ? cyan : textColor, fontWeight: 500, background: "none", border: "none", cursor: "pointer" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = cyan; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = isActive ? cyan : textColor; }}
+                whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                className="relative flex items-center gap-2 px-4 py-2 rounded-full text-sm"
+                style={{ color: isActive ? (isDark ? "#f0f4ff" : "#0d0f1e") : textColor, fontWeight: 500, background: "none", border: "none", cursor: "pointer" }}
+                onMouseEnter={(e) => { if (!isActive) (e.currentTarget as HTMLElement).style.color = isDark ? "#f0f4ff" : "#0d0f1e"; }}
+                onMouseLeave={(e) => { if (!isActive) (e.currentTarget as HTMLElement).style.color = textColor; }}
               >
-                {link.label}
                 {isActive && (
-                  <span className="absolute left-0 right-0 -bottom-1.5 h-0.5 rounded-full" style={{ background: cyan }} />
+                  <motion.span
+                    layoutId="nav-active-pill"
+                    className="absolute inset-0 rounded-full"
+                    style={{
+                      background: isDark ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.7)",
+                      border: `1px solid ${isDark ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.8)"}`,
+                      boxShadow: isDark ? "inset 0 1px 0 rgba(255,255,255,0.1)" : "0 2px 8px rgba(100,113,160,0.15)",
+                    }}
+                    transition={{ type: "spring", stiffness: 500, damping: 38 }}
+                  />
                 )}
-              </button>
+                <Icon size={15} style={{ position: "relative", zIndex: 1, color: isActive ? cyan : "inherit" }} />
+                <span style={{ position: "relative", zIndex: 1 }}>{link.label}</span>
+              </motion.button>
             </li>
           );
         })}
@@ -182,6 +203,7 @@ export function Navbar() {
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
+      </div>
 
       {/* Mobile drawer */}
       <AnimatePresence>
@@ -191,23 +213,34 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 flex flex-col gap-1 px-6 py-4 lg:hidden"
+            className="flex flex-col gap-1 mt-2 px-5 py-4 lg:hidden"
             style={{
-              background: isDark ? "rgba(4,5,13,0.97)" : "rgba(232,236,247,0.97)",
+              background: isDark ? "rgba(10,14,30,0.85)" : "rgba(255,255,255,0.8)",
               backdropFilter: "blur(20px)",
-              borderBottom: isDark ? "1px solid rgba(58,229,178,0.1)" : "1px solid rgba(108,99,255,0.12)",
+              WebkitBackdropFilter: "blur(20px)",
+              border: isDark ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(255,255,255,0.6)",
+              borderRadius: 24,
+              boxShadow: isDark ? "0 8px 32px rgba(0,0,0,0.4)" : "0 8px 32px rgba(100,113,160,0.18)",
             }}
           >
-            {navLinks.map((link) => (
-              <button
-                key={link.page}
-                onClick={() => { navigate(link.page); setMobileOpen(false); }}
-                className="py-3 text-sm font-medium border-b text-left"
-                style={{ color: page === link.page ? cyan : textColor, borderColor: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)", background: "none" }}
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              const isActive = page === link.page;
+              return (
+                <button
+                  key={link.page}
+                  onClick={() => { navigate(link.page); setMobileOpen(false); }}
+                  className="flex items-center gap-3 py-3 px-3 rounded-xl text-sm font-medium text-left"
+                  style={{
+                    color: isActive ? (isDark ? "#f0f4ff" : "#0d0f1e") : textColor,
+                    background: isActive ? (isDark ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.7)") : "none",
+                  }}
+                >
+                  <Icon size={16} style={{ color: isActive ? cyan : "inherit" }} />
+                  {link.label}
+                </button>
+              );
+            })}
             <div className="flex gap-3 mt-3">
               <button
                 onClick={() => { navigate("login"); setMobileOpen(false); }}
