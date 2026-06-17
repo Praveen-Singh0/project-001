@@ -1,0 +1,183 @@
+@custom-variant dark (&:is(.dark *));
+
+/* ─── LIGHT MODE (Neomorphism + Premium) ─────────────────────── */
+:root {
+  --font-size: 16px;
+
+  /* Surfaces */
+  --background: #e8ecf7;
+  --foreground: #0d0f1e;
+  --card: #e8ecf7;
+  --card-foreground: #0d0f1e;
+  --popover: #eef1fb;
+  --popover-foreground: #0d0f1e;
+
+  /* Brand */
+  --primary: #0095bf;
+  --primary-foreground: #ffffff;
+  --secondary: #dde2f5;
+  --secondary-foreground: #0d0f1e;
+
+  /* Neutrals */
+  --muted: #d8ddf0;
+  --muted-foreground: #6271a0;
+  --accent: #6C63FF;
+  --accent-foreground: #ffffff;
+
+  /* System */
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: rgba(108, 99, 255, 0.14);
+  --input: transparent;
+  --input-background: rgba(255, 255, 255, 0.6);
+  --switch-background: rgba(108, 99, 255, 0.25);
+  --ring: rgba(0, 149, 191, 0.4);
+
+  /* Charts */
+  --chart-1: #0095bf;
+  --chart-2: #6C63FF;
+  --chart-3: #4F46E5;
+  --chart-4: #00bcd4;
+  --chart-5: #a78bfa;
+
+  --radius: 1rem;
+
+  /* Sidebar */
+  --sidebar: #dde2f5;
+  --sidebar-foreground: #0d0f1e;
+  --sidebar-primary: #0095bf;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(108, 99, 255, 0.08);
+  --sidebar-accent-foreground: #0d0f1e;
+  --sidebar-border: rgba(108, 99, 255, 0.1);
+  --sidebar-ring: rgba(0, 149, 191, 0.4);
+
+  /* ─── Custom brand tokens ─────────────────────────── */
+  --cyan: #0095bf;
+  --cyan-glow: #00E5FF;
+  --purple: #6C63FF;
+  --purple-deep: #4F46E5;
+  --neo-shadow-dark: rgba(163, 177, 198, 0.65);
+  --neo-shadow-light: rgba(255, 255, 255, 0.92);
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.6);
+}
+
+/* ─── DARK MODE (Glassmorphism + Aurora) ─────────────────────── */
+.dark {
+  --background: #04050d;
+  --foreground: #f0f4ff;
+  --card: rgba(10, 14, 30, 0.8);
+  --card-foreground: #f0f4ff;
+  --popover: #0a0e1e;
+  --popover-foreground: #f0f4ff;
+  --primary: #00E5FF;
+  --primary-foreground: #04050d;
+  --secondary: rgba(108, 99, 255, 0.15);
+  --secondary-foreground: #f0f4ff;
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #8892b0;
+  --accent: #6C63FF;
+  --accent-foreground: #f0f4ff;
+  --destructive: #ff4d6d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 229, 255, 0.12);
+  --input: transparent;
+  --input-background: rgba(255, 255, 255, 0.04);
+  --switch-background: rgba(108, 99, 255, 0.35);
+  --ring: rgba(0, 229, 255, 0.4);
+  --chart-1: #00E5FF;
+  --chart-2: #6C63FF;
+  --chart-3: #4F46E5;
+  --chart-4: #00BFFF;
+  --chart-5: #a78bfa;
+  --sidebar: #080b18;
+  --sidebar-foreground: #f0f4ff;
+  --sidebar-primary: #00E5FF;
+  --sidebar-primary-foreground: #04050d;
+  --sidebar-accent: rgba(0, 229, 255, 0.06);
+  --sidebar-accent-foreground: #f0f4ff;
+  --sidebar-border: rgba(0, 229, 255, 0.08);
+  --sidebar-ring: rgba(0, 229, 255, 0.4);
+  --cyan: #00E5FF;
+  --cyan-glow: #00E5FF;
+  --purple: #6C63FF;
+  --purple-deep: #4F46E5;
+  --neo-shadow-dark: transparent;
+  --neo-shadow-light: transparent;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(0, 229, 255, 0.15);
+}
+
+/* ─── Tailwind token map ──────────────────────────────────────── */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ─── Base layer ──────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+
+  html {
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbar, show on hover */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  h1 { font-size: var(--text-2xl); font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; }
+  h2 { font-size: var(--text-xl); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+  h3 { font-size: var(--text-lg); font-weight: 600; line-height: 1.3; }
+  h4 { font-size: var(--text-base); font-weight: 600; line-height: 1.4; }
+  label { font-size: var(--text-sm); font-weight: 500; line-height: 1.5; }
+  button { font-size: var(--text-sm); font-weight: 600; line-height: 1.5; }
+  input, textarea { font-size: var(--text-sm); font-weight: 400; line-height: 1.5; }
+}
