@@ -6,8 +6,8 @@ const pillars = [
     icon: Brain,
     title: "AI Engineering",
     desc: "Custom LLM integrations, intelligent agents, computer vision, NLP pipelines, and ML systems that transform raw data into decisive intelligence.",
-    color: "#00E5FF",
-    gradient: "linear-gradient(135deg, rgba(0,229,255,0.12) 0%, rgba(0,191,255,0.04) 100%)",
+    color: "#3AE5B2",
+    gradient: "linear-gradient(135deg, rgba(58,229,178,0.12) 0%, rgba(0,191,255,0.04) 100%)",
   },
   {
     icon: Cloud,
@@ -20,8 +20,8 @@ const pillars = [
     icon: Layers,
     title: "Digital Product Development",
     desc: "End-to-end product engineering — from discovery and design to development and DevOps — shipped in iterative cycles that reduce time-to-value.",
-    color: "#00BFFF",
-    gradient: "linear-gradient(135deg, rgba(0,191,255,0.12) 0%, rgba(0,229,255,0.04) 100%)",
+    color: "#14C99A",
+    gradient: "linear-gradient(135deg, rgba(0,191,255,0.12) 0%, rgba(58,229,178,0.04) 100%)",
   },
   {
     icon: BarChart3,
@@ -46,8 +46,8 @@ export function WhyChooseUs() {
         className="absolute inset-0 pointer-events-none opacity-20"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(0,229,255,0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,229,255,0.06) 1px, transparent 1px)
+            linear-gradient(rgba(58,229,178,0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(58,229,178,0.06) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -62,9 +62,9 @@ export function WhyChooseUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-            style={{ background: "rgba(0,229,255,0.08)", border: "1px solid rgba(0,229,255,0.2)" }}
+            style={{ background: "rgba(58,229,178,0.08)", border: "1px solid rgba(58,229,178,0.2)" }}
           >
-            <span style={{ fontSize: 11, color: "#00E5FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>WHY CHOOSE US</span>
+            <span style={{ fontSize: 11, color: "#3AE5B2", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>WHY CHOOSE US</span>
           </motion.div>
 
           <motion.h2
@@ -77,7 +77,7 @@ export function WhyChooseUs() {
             Turning Ideas into{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: "linear-gradient(135deg, #3AE5B2, #6C63FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",

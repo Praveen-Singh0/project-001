@@ -19,9 +19,9 @@ function useCounter(target: number, duration: number, start: boolean) {
 }
 
 const stats = [
-  { value: 150, suffix: "+", label: "Clients Worldwide", color: "#00E5FF" },
+  { value: 150, suffix: "+", label: "Clients Worldwide", color: "#3AE5B2" },
   { value: 50, suffix: "+", label: "Expert Engineers", color: "#6C63FF" },
-  { value: 300, suffix: "+", label: "Projects Delivered", color: "#00BFFF" },
+  { value: 300, suffix: "+", label: "Projects Delivered", color: "#14C99A" },
   { value: 98, suffix: "%", label: "Client Satisfaction", color: "#a78bfa" },
 ];
 
@@ -107,7 +107,7 @@ function WorldMap() {
         const x = nx * W;
         const y = ny * H;
         const pulse = 0.4 + 0.2 * Math.sin(t * 1.5 + i * 0.5);
-        ctx.fillStyle = `rgba(0,229,255,${pulse * 0.6})`;
+        ctx.fillStyle = `rgba(58,229,178,${pulse * 0.6})`;
         ctx.beginPath();
         ctx.arc(x, y, 2, 0, Math.PI * 2);
         ctx.fill();
@@ -138,7 +138,7 @@ function WorldMap() {
         // Moving dot
         const px = (1 - progress) * (1 - progress) * ax + 2 * (1 - progress) * progress * mx + progress * progress * bx;
         const py = (1 - progress) * (1 - progress) * ay + 2 * (1 - progress) * progress * my + progress * progress * by;
-        ctx.fillStyle = "rgba(0,229,255,0.9)";
+        ctx.fillStyle = "rgba(58,229,178,0.9)";
         ctx.beginPath();
         ctx.arc(px, py, 3, 0, Math.PI * 2);
         ctx.fill();
@@ -185,7 +185,7 @@ export function GlobalTrust() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,229,255,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(58,229,178,0.04) 0%, transparent 70%)",
         }}
       />
 
@@ -198,9 +198,9 @@ export function GlobalTrust() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-            style={{ background: "rgba(0,229,255,0.08)", border: "1px solid rgba(0,229,255,0.2)" }}
+            style={{ background: "rgba(58,229,178,0.08)", border: "1px solid rgba(58,229,178,0.2)" }}
           >
-            <span style={{ fontSize: 11, color: "#00E5FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>GLOBAL PRESENCE</span>
+            <span style={{ fontSize: 11, color: "#3AE5B2", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>GLOBAL PRESENCE</span>
           </motion.div>
 
           <motion.h2
@@ -213,7 +213,7 @@ export function GlobalTrust() {
             Trusted Across{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: "linear-gradient(135deg, #3AE5B2, #6C63FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -233,7 +233,7 @@ export function GlobalTrust() {
           className="rounded-2xl overflow-hidden mb-12 p-6"
           style={{
             background: "rgba(255,255,255,0.02)",
-            border: "1px solid rgba(0,229,255,0.1)",
+            border: "1px solid rgba(58,229,178,0.1)",
           }}
         >
           <WorldMap />

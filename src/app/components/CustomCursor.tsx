@@ -51,7 +51,7 @@ export function CustomCursor() {
     };
   }, []);
 
-  const color = isDark ? "#00E5FF" : "#0095bf";
+  const color = isDark ? "#3AE5B2" : "#0FA47E";
 
   return (
     <>

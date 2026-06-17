@@ -26,10 +26,10 @@ export function Sidebar({ active, onSelect }: SidebarProps) {
   const { navigate } = useNavigation();
 
   const bg = isDark ? "#080b18" : "#dde2f5";
-  const border = isDark ? "rgba(0,229,255,0.08)" : "rgba(108,99,255,0.12)";
+  const border = isDark ? "rgba(58,229,178,0.08)" : "rgba(108,99,255,0.12)";
   const textMuted = isDark ? "#8892b0" : "#6271a0";
   const textActive = isDark ? "#f0f4ff" : "#0d0f1e";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
 
   return (
     <div
@@ -44,7 +44,7 @@ export function Sidebar({ active, onSelect }: SidebarProps) {
       <div className="flex items-center gap-3 px-4 py-5 border-b" style={{ borderColor: border, height: 60, minHeight: 60 }}>
         <div
           className="flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center"
-          style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", boxShadow: isDark ? "0 0 12px rgba(0,229,255,0.3)" : "0 4px 10px rgba(0,149,191,0.25)" }}
+          style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", boxShadow: isDark ? "0 0 12px rgba(58,229,178,0.3)" : "0 4px 10px rgba(15,164,126,0.25)" }}
         >
           <span style={{ fontFamily: "var(--font-mono)", fontWeight: 800, fontSize: 11, color: "#04050d" }}>DX</span>
         </div>
@@ -67,9 +67,9 @@ export function Sidebar({ active, onSelect }: SidebarProps) {
               className="relative flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 text-left w-full"
               style={{
                 background: isActive
-                  ? isDark ? "rgba(0,229,255,0.1)" : "rgba(0,149,191,0.1)"
+                  ? isDark ? "rgba(58,229,178,0.1)" : "rgba(15,164,126,0.1)"
                   : "transparent",
-                border: `1px solid ${isActive ? (isDark ? "rgba(0,229,255,0.2)" : "rgba(0,149,191,0.2)") : "transparent"}`,
+                border: `1px solid ${isActive ? (isDark ? "rgba(58,229,178,0.2)" : "rgba(15,164,126,0.2)") : "transparent"}`,
                 color: isActive ? cyan : textMuted,
               }}
               onMouseEnter={(e) => {
@@ -95,14 +95,14 @@ export function Sidebar({ active, onSelect }: SidebarProps) {
                   <span style={{ fontSize: 13, fontWeight: isActive ? 600 : 500, flex: 1 }}>{item.label}</span>
                   {item.badge && (
                     <span className="w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold"
-                      style={{ background: "#00E5FF", color: "#04050d" }}>
+                      style={{ background: "#3AE5B2", color: "#04050d" }}>
                       {item.badge}
                     </span>
                   )}
                 </>
               )}
               {collapsed && item.badge && (
-                <div className="absolute top-1 right-1 w-2 h-2 rounded-full" style={{ background: "#00E5FF" }} />
+                <div className="absolute top-1 right-1 w-2 h-2 rounded-full" style={{ background: "#3AE5B2" }} />
               )}
             </button>
           );

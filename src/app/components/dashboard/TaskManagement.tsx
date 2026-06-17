@@ -21,7 +21,7 @@ const initial: Task[] = [
 
 const cols: { id: TaskStatus; label: string; color: string }[] = [
   { id: "todo", label: "To Do", color: "#8892b0" },
-  { id: "in-progress", label: "In Progress", color: "#00E5FF" },
+  { id: "in-progress", label: "In Progress", color: "#3AE5B2" },
   { id: "done", label: "Done", color: "#10b981" },
 ];
 
@@ -34,7 +34,7 @@ export function TaskManagement() {
 
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
 
   const cardStyle = isDark ? {
     background: "rgba(255,255,255,0.025)",
@@ -79,13 +79,13 @@ export function TaskManagement() {
             {(["board", "list"] as const).map((v) => (
               <button key={v} onClick={() => setView(v)}
                 className="px-3 py-1.5 text-xs font-semibold capitalize transition-all duration-200"
-                style={{ background: view === v ? (isDark ? "rgba(0,229,255,0.1)" : "rgba(0,149,191,0.1)") : "transparent", color: view === v ? cyan : muted, border: "none", cursor: "pointer" }}>
+                style={{ background: view === v ? (isDark ? "rgba(58,229,178,0.1)" : "rgba(15,164,126,0.1)") : "transparent", color: view === v ? cyan : muted, border: "none", cursor: "pointer" }}>
                 {v}
               </button>
             ))}
           </div>
           <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold"
-            style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", color: "#04050d" }}>
+            style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", color: "#04050d" }}>
             <Plus size={12} /> New Task
           </button>
         </div>
@@ -125,14 +125,14 @@ export function TaskManagement() {
                       {task.status === "done"
                         ? <CheckSquare size={13} color="#10b981" className="flex-shrink-0 mt-0.5" />
                         : task.status === "in-progress"
-                        ? <AlertCircle size={13} color="#00E5FF" className="flex-shrink-0 mt-0.5" />
+                        ? <AlertCircle size={13} color="#3AE5B2" className="flex-shrink-0 mt-0.5" />
                         : <Circle size={13} color={muted} className="flex-shrink-0 mt-0.5" />
                       }
                       <p style={{ fontSize: 12, fontWeight: 500, color: fg, lineHeight: 1.4, textDecoration: task.status === "done" ? "line-through" : "none", opacity: task.status === "done" ? 0.5 : 1 }}>
                         {task.title}
                       </p>
                     </div>
-                    {task.ai && <Brain size={11} color="#00E5FF" className="flex-shrink-0" />}
+                    {task.ai && <Brain size={11} color="#3AE5B2" className="flex-shrink-0" />}
                   </div>
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="px-1.5 py-0.5 rounded text-[10px] font-semibold"

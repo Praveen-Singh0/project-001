@@ -8,7 +8,7 @@ const testimonials = [
     role: "CTO",
     company: "HealthBridge Systems",
     avatar: "SM",
-    avatarColor: "#00E5FF",
+    avatarColor: "#3AE5B2",
     quote: "DTECHEX didn't just build us a system — they reimagined how our 12 hospitals operated. The AI triage engine alone has saved hundreds of clinical hours per week. Exceptional technical depth and the most rigorous delivery process I've worked with in 15 years.",
     rating: 5,
   },
@@ -26,7 +26,7 @@ const testimonials = [
     role: "Head of Digital",
     company: "Luminary Commerce",
     avatar: "PK",
-    avatarColor: "#00BFFF",
+    avatarColor: "#14C99A",
     quote: "The personalization engine DTECHEX built added $4M in incremental revenue in the first year. What impressed me most was how they collaborated with our team — they upskilled our engineers, not just replaced them. True partners.",
     rating: 5,
   },
@@ -89,7 +89,7 @@ export function Testimonials() {
             What Our{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: "linear-gradient(135deg, #3AE5B2, #6C63FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -190,8 +190,8 @@ export function Testimonials() {
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
                 style={{ border: "1px solid rgba(255,255,255,0.1)", color: "#8892b0" }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,229,255,0.4)";
-                  (e.currentTarget as HTMLElement).style.color = "#00E5FF";
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(58,229,178,0.4)";
+                  (e.currentTarget as HTMLElement).style.color = "#3AE5B2";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.1)";
@@ -206,8 +206,8 @@ export function Testimonials() {
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
                 style={{ border: "1px solid rgba(255,255,255,0.1)", color: "#8892b0" }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,229,255,0.4)";
-                  (e.currentTarget as HTMLElement).style.color = "#00E5FF";
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(58,229,178,0.4)";
+                  (e.currentTarget as HTMLElement).style.color = "#3AE5B2";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.1)";

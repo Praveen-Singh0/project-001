@@ -4,9 +4,9 @@ import { Search, Plus, MoreHorizontal, TrendingUp, TrendingDown, ExternalLink } 
 import { useTheme } from "../../contexts/ThemeContext";
 
 const clients = [
-  { id: 1, name: "HealthBridge Systems", contact: "Sarah Mitchell", email: "s.mitchell@hbridge.com", value: "$184K", status: "Active", trend: +12, avatar: "HB", color: "#00E5FF", industry: "Healthcare", project: "AI Triage System" },
+  { id: 1, name: "HealthBridge Systems", contact: "Sarah Mitchell", email: "s.mitchell@hbridge.com", value: "$184K", status: "Active", trend: +12, avatar: "HB", color: "#3AE5B2", industry: "Healthcare", project: "AI Triage System" },
   { id: 2, name: "NovaTrade Capital", contact: "James Okonkwo", email: "j.okonkwo@novatrade.io", value: "$220K", status: "Active", trend: +28, avatar: "NT", color: "#6C63FF", industry: "FinTech", project: "Analytics Dashboard" },
-  { id: 3, name: "Luminary Commerce", contact: "Priya Krishnamurthy", email: "p.k@luminaryco.com", value: "$96K", status: "Active", trend: +5, avatar: "LC", color: "#00BFFF", industry: "E-Commerce", project: "Growth Engine" },
+  { id: 3, name: "Luminary Commerce", contact: "Priya Krishnamurthy", email: "p.k@luminaryco.com", value: "$96K", status: "Active", trend: +5, avatar: "LC", color: "#14C99A", industry: "E-Commerce", project: "Growth Engine" },
   { id: 4, name: "EduSphere Learning", contact: "Aiko Tanaka", email: "a.tanaka@edusphere.co", value: "$72K", status: "Review", trend: -3, avatar: "ES", color: "#a78bfa", industry: "Education", project: "Learning Platform" },
   { id: 5, name: "LogiFlow Logistics", contact: "Daniel Ferrara", email: "d.ferrara@logiflow.eu", value: "$115K", status: "Active", trend: +18, avatar: "LF", color: "#10b981", industry: "Logistics", project: "Cloud Migration" },
   { id: 6, name: "ArcFlow Systems", contact: "Marcus Chen", email: "m.chen@arcflow.io", value: "$44K", status: "Onboarding", trend: 0, avatar: "AF", color: "#fbbf24", industry: "Enterprise", project: "ERP Integration" },
@@ -20,7 +20,7 @@ export function ClientManagement() {
 
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
 
   const cardStyle = isDark ? {
     background: "rgba(255,255,255,0.025)",
@@ -57,7 +57,7 @@ export function ClientManagement() {
             className="flex items-center gap-2 px-3 py-1.5 rounded-xl transition-all duration-200"
             style={{
               background: isDark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.6)",
-              border: `1px solid ${focused ? (isDark ? "rgba(0,229,255,0.3)" : "rgba(0,149,191,0.3)") : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)")}`,
+              border: `1px solid ${focused ? (isDark ? "rgba(58,229,178,0.3)" : "rgba(15,164,126,0.3)") : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)")}`,
             }}
           >
             <Search size={12} color={muted} />
@@ -71,7 +71,7 @@ export function ClientManagement() {
           </div>
           <button
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200"
-            style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", color: "#04050d" }}>
+            style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", color: "#04050d" }}>
             <Plus size={12} /> Add Client
           </button>
         </div>

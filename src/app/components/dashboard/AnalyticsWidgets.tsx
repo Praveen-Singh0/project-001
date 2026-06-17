@@ -112,9 +112,9 @@ export function AnalyticsWidgets() {
     <div className="flex flex-col gap-5">
       {/* Stat cards */}
       <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
-        <StatCard icon={DollarSign} label="Monthly Revenue" value={128000} change="+23%" positive prefix="$" color="#00E5FF" />
+        <StatCard icon={DollarSign} label="Monthly Revenue" value={128000} change="+23%" positive prefix="$" color="#3AE5B2" />
         <StatCard icon={Users} label="Active Clients" value={154} change="+8%" positive color="#6C63FF" />
-        <StatCard icon={Zap} label="AI Requests (24h)" value={284000} change="+41%" positive suffix="+" color="#00BFFF" />
+        <StatCard icon={Zap} label="AI Requests (24h)" value={284000} change="+41%" positive suffix="+" color="#14C99A" />
         <StatCard icon={Activity} label="Projects Active" value={23} change="-2" positive={false} color="#a78bfa" />
       </div>
 
@@ -131,7 +131,7 @@ export function AnalyticsWidgets() {
               <p style={{ fontSize: 12, color: muted }}>Full year 2024 — $128K peak in December</p>
             </div>
             <div className="flex gap-3">
-              {[{ color: "#00E5FF", label: "Total" }, { color: "#6C63FF", label: "AI" }].map((l) => (
+              {[{ color: "#3AE5B2", label: "Total" }, { color: "#6C63FF", label: "AI" }].map((l) => (
                 <div key={l.label} className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full" style={{ background: l.color }} />
                   <span style={{ fontSize: 11, color: muted }}>{l.label}</span>
@@ -143,8 +143,8 @@ export function AnalyticsWidgets() {
             <AreaChart data={revenueData}>
               <defs>
                 <linearGradient id="revGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#00E5FF" stopOpacity={0.2} />
-                  <stop offset="95%" stopColor="#00E5FF" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#3AE5B2" stopOpacity={0.2} />
+                  <stop offset="95%" stopColor="#3AE5B2" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="aiGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#6C63FF" stopOpacity={0.2} />
@@ -157,7 +157,7 @@ export function AnalyticsWidgets() {
                 contentStyle={{ background: isDark ? "#0a0e1e" : "#f0f4ff", border: `1px solid ${gridLine}`, borderRadius: 12, color: fg, fontSize: 12 }}
                 formatter={(v: number) => [`$${(v / 1000).toFixed(0)}K`, ""]}
               />
-              <Area type="monotone" dataKey="revenue" stroke="#00E5FF" strokeWidth={2} fill="url(#revGrad)" />
+              <Area type="monotone" dataKey="revenue" stroke="#3AE5B2" strokeWidth={2} fill="url(#revGrad)" />
               <Area type="monotone" dataKey="ai" stroke="#6C63FF" strokeWidth={2} fill="url(#aiGrad)" />
             </AreaChart>
           </ResponsiveContainer>
@@ -189,7 +189,7 @@ export function AnalyticsWidgets() {
               <div key={p.name} className="flex items-center justify-between">
                 <span style={{ fontSize: 12, color: muted }}>{p.name}</span>
                 <div className="flex items-center gap-2">
-                  <div className="h-1 rounded-full" style={{ width: p.value * 2, background: `linear-gradient(90deg, #00E5FF, #6C63FF)` }} />
+                  <div className="h-1 rounded-full" style={{ width: p.value * 2, background: `linear-gradient(90deg, #3AE5B2, #6C63FF)` }} />
                   <span style={{ fontSize: 12, fontWeight: 700, color: fg, fontFamily: "var(--font-mono)", width: 20, textAlign: "right" }}>{p.value}</span>
                 </div>
               </div>

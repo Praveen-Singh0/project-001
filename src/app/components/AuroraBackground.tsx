@@ -47,7 +47,7 @@ export function AuroraBackground() {
         drawBlob(
           W * (0.5 + 0.1 * Math.sin(t * 0.3)), H * 0.0,
           W * 0.55, H * 0.45,
-          0, 229, 255, 0.055, t * 0.05
+          58, 229, 178, 0.055, t * 0.05
         );
         drawBlob(
           W * (0.75 + 0.08 * Math.cos(t * 0.25)), H * (0.3 + 0.05 * Math.sin(t * 0.2)),
@@ -69,7 +69,7 @@ export function AuroraBackground() {
         drawBlob(
           W * (0.5 + 0.08 * Math.sin(t * 0.3)), H * -0.1,
           W * 0.6, H * 0.5,
-          0, 149, 191, 0.07, t * 0.04
+          15, 164, 126, 0.07, t * 0.04
         );
         drawBlob(
           W * (0.8 + 0.06 * Math.cos(t * 0.2)), H * (0.2 + 0.05 * Math.sin(t * 0.18)),

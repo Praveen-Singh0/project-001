@@ -64,7 +64,7 @@ export function TechStack() {
       <div
         className="absolute inset-0 pointer-events-none opacity-10"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,229,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.08) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(58,229,178,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(58,229,178,0.08) 1px, transparent 1px)`,
           backgroundSize: "80px 80px",
         }}
       />
@@ -93,7 +93,7 @@ export function TechStack() {
             Built on{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: "linear-gradient(135deg, #3AE5B2, #6C63FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -131,9 +131,9 @@ export function TechStack() {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-14"
         >
           {[
-            { label: "Frontend", techs: "React · Next.js · TypeScript", color: "#00E5FF" },
+            { label: "Frontend", techs: "React · Next.js · TypeScript", color: "#3AE5B2" },
             { label: "Backend", techs: "Node.js · NestJS · Express", color: "#6C63FF" },
-            { label: "Cloud & Infra", techs: "AWS · Azure · GCP", color: "#00BFFF" },
+            { label: "Cloud & Infra", techs: "AWS · Azure · GCP", color: "#14C99A" },
             { label: "AI & Data", techs: "OpenAI · Claude · LangChain", color: "#a78bfa" },
           ].map((cat) => (
             <div

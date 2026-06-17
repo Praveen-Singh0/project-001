@@ -3,12 +3,12 @@ import { GitCommit, CheckCircle, MessageSquare, FileText, Zap, AlertCircle, User
 import { useTheme } from "../../contexts/ThemeContext";
 
 const events = [
-  { icon: Zap, color: "#00E5FF", title: "AI model retrained", desc: "NovaTrade risk model v2.4 deployed with +2.1% accuracy improvement.", time: "09:14 AM", date: "Today" },
+  { icon: Zap, color: "#3AE5B2", title: "AI model retrained", desc: "NovaTrade risk model v2.4 deployed with +2.1% accuracy improvement.", time: "09:14 AM", date: "Today" },
   { icon: CheckCircle, color: "#10b981", title: "Task completed", desc: "HealthBridge — Patient triage API integration signed off by Sarah Mitchell.", time: "08:47 AM", date: "Today" },
   { icon: MessageSquare, color: "#6C63FF", title: "Client meeting logged", desc: "EduSphere Q1 review. 45 min. Action items: 3 features approved, timeline extended 2 weeks.", time: "07:30 AM", date: "Today" },
   { icon: FileText, color: "#fbbf24", title: "Invoice sent", desc: "INV-2024-092 · $18,500 · NovaTrade Capital · Net 30.", time: "Yesterday", date: "Dec 16" },
   { icon: Users, color: "#a78bfa", title: "New client onboarded", desc: "ArcFlow Logistics added. Cloud migration project kick-off scheduled Jan 6.", time: "Dec 15", date: "Dec 15" },
-  { icon: GitCommit, color: "#00BFFF", title: "Deployment: Production", desc: "FinTech Analytics Dashboard v3.1 — Sub-50ms latency confirmed. All health checks passed.", time: "Dec 14", date: "Dec 14" },
+  { icon: GitCommit, color: "#14C99A", title: "Deployment: Production", desc: "FinTech Analytics Dashboard v3.1 — Sub-50ms latency confirmed. All health checks passed.", time: "Dec 14", date: "Dec 14" },
   { icon: AlertCircle, color: "#fbbf24", title: "SLA alert resolved", desc: "HealthBridge uptime alert cleared. Root cause: CDN edge misconfiguration. Resolved in 4 min.", time: "Dec 13", date: "Dec 13" },
 ];
 

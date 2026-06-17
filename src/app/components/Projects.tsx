@@ -12,8 +12,8 @@ const projects = [
       { label: "Users", value: "2K+" },
       { label: "Uptime", value: "99.99%" },
     ],
-    accent: "#00E5FF",
-    bgGradient: "linear-gradient(135deg, rgba(0,229,255,0.08) 0%, rgba(108,99,255,0.05) 100%)",
+    accent: "#3AE5B2",
+    bgGradient: "linear-gradient(135deg, rgba(58,229,178,0.08) 0%, rgba(108,99,255,0.05) 100%)",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=380&fit=crop&auto=format",
   },
   {
@@ -27,7 +27,7 @@ const projects = [
       { label: "Patient Records", value: "500K" },
     ],
     accent: "#6C63FF",
-    bgGradient: "linear-gradient(135deg, rgba(108,99,255,0.08) 0%, rgba(0,229,255,0.04) 100%)",
+    bgGradient: "linear-gradient(135deg, rgba(108,99,255,0.08) 0%, rgba(58,229,178,0.04) 100%)",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&h=380&fit=crop&auto=format",
   },
   {
@@ -40,7 +40,7 @@ const projects = [
       { label: "AUM Tracked", value: "$2B+" },
       { label: "Accuracy", value: "94.2%" },
     ],
-    accent: "#00BFFF",
+    accent: "#14C99A",
     bgGradient: "linear-gradient(135deg, rgba(0,191,255,0.08) 0%, rgba(79,70,229,0.04) 100%)",
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=700&h=380&fit=crop&auto=format",
   },
@@ -55,7 +55,7 @@ const projects = [
       { label: "SKUs Managed", value: "50K+" },
     ],
     accent: "#a78bfa",
-    bgGradient: "linear-gradient(135deg, rgba(167,139,250,0.08) 0%, rgba(0,229,255,0.03) 100%)",
+    bgGradient: "linear-gradient(135deg, rgba(167,139,250,0.08) 0%, rgba(58,229,178,0.03) 100%)",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=380&fit=crop&auto=format",
   },
 ];
@@ -77,10 +77,10 @@ export function Projects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-            style={{ background: "rgba(0,229,255,0.08)", border: "1px solid rgba(0,229,255,0.2)" }}
+            style={{ background: "rgba(58,229,178,0.08)", border: "1px solid rgba(58,229,178,0.2)" }}
           >
-            <Star size={11} color="#00E5FF" />
-            <span style={{ fontSize: 11, color: "#00E5FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>PROJECT SHOWCASE</span>
+            <Star size={11} color="#3AE5B2" />
+            <span style={{ fontSize: 11, color: "#3AE5B2", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>PROJECT SHOWCASE</span>
           </motion.div>
 
           <motion.h2
@@ -93,7 +93,7 @@ export function Projects() {
             Work That Speaks{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: "linear-gradient(135deg, #3AE5B2, #6C63FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",

@@ -3,9 +3,9 @@ import { motion } from "motion/react";
 import { MapPin, Phone, Mail, Send, Calendar, CheckCircle } from "lucide-react";
 
 const contactInfo = [
-  { icon: MapPin, label: "Office", value: "Dehradun, Uttarakhand, India — 248001", color: "#00E5FF" },
+  { icon: MapPin, label: "Office", value: "Dehradun, Uttarakhand, India — 248001", color: "#3AE5B2" },
   { icon: Phone, label: "Phone", value: "+91 135 000 0000", color: "#6C63FF" },
-  { icon: Mail, label: "Email", value: "hello@dtechex.com", color: "#00BFFF" },
+  { icon: Mail, label: "Email", value: "hello@dtechex.com", color: "#14C99A" },
 ];
 
 export function Contact() {
@@ -26,11 +26,11 @@ export function Contact() {
     <section id="contact" className="relative py-28 overflow-hidden" style={{ background: "#04050d" }}>
       <div
         className="absolute top-0 left-0 right-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(0,229,255,0.3), transparent)" }}
+        style={{ background: "linear-gradient(90deg, transparent, rgba(58,229,178,0.3), transparent)" }}
       />
       <div
         className="absolute top-[10%] left-[20%] w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%)", filter: "blur(80px)" }}
+        style={{ background: "radial-gradient(ellipse, rgba(58,229,178,0.04) 0%, transparent 70%)", filter: "blur(80px)" }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-16 items-start">
@@ -42,10 +42,10 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-            style={{ background: "rgba(0,229,255,0.08)", border: "1px solid rgba(0,229,255,0.2)" }}
+            style={{ background: "rgba(58,229,178,0.08)", border: "1px solid rgba(58,229,178,0.2)" }}
           >
-            <Calendar size={11} color="#00E5FF" />
-            <span style={{ fontSize: 11, color: "#00E5FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>GET IN TOUCH</span>
+            <Calendar size={11} color="#3AE5B2" />
+            <span style={{ fontSize: 11, color: "#3AE5B2", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>GET IN TOUCH</span>
           </motion.div>
 
           <motion.h2
@@ -58,7 +58,7 @@ export function Contact() {
             Schedule a{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: "linear-gradient(135deg, #3AE5B2, #6C63FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -135,9 +135,9 @@ export function Contact() {
             <div className="flex flex-col items-center justify-center gap-5 py-12 text-center">
               <div
                 className="w-16 h-16 rounded-full flex items-center justify-center"
-                style={{ background: "rgba(0,229,255,0.12)", border: "1px solid rgba(0,229,255,0.3)" }}
+                style={{ background: "rgba(58,229,178,0.12)", border: "1px solid rgba(58,229,178,0.3)" }}
               >
-                <CheckCircle size={28} color="#00E5FF" />
+                <CheckCircle size={28} color="#3AE5B2" />
               </div>
               <div>
                 <h3 style={{ fontSize: 20, fontWeight: 700, color: "#f0f4ff", marginBottom: 8 }}>Message Received</h3>
@@ -148,7 +148,7 @@ export function Contact() {
               <button
                 onClick={() => { setSubmitted(false); setForm({ name: "", email: "", company: "", message: "" }); }}
                 className="text-sm transition-colors"
-                style={{ color: "#00E5FF" }}
+                style={{ color: "#3AE5B2" }}
               >
                 Send another message
               </button>
@@ -176,7 +176,7 @@ export function Contact() {
                         border: "1px solid rgba(255,255,255,0.1)",
                         color: "#f0f4ff",
                       }}
-                      onFocus={(e) => { e.target.style.borderColor = "rgba(0,229,255,0.4)"; e.target.style.boxShadow = "0 0 0 3px rgba(0,229,255,0.06)"; }}
+                      onFocus={(e) => { e.target.style.borderColor = "rgba(58,229,178,0.4)"; e.target.style.boxShadow = "0 0 0 3px rgba(58,229,178,0.06)"; }}
                       onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.1)"; e.target.style.boxShadow = "none"; }}
                     />
                   </div>
@@ -193,7 +193,7 @@ export function Contact() {
                   onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                   className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none"
                   style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "#f0f4ff" }}
-                  onFocus={(e) => { e.target.style.borderColor = "rgba(0,229,255,0.4)"; e.target.style.boxShadow = "0 0 0 3px rgba(0,229,255,0.06)"; }}
+                  onFocus={(e) => { e.target.style.borderColor = "rgba(58,229,178,0.4)"; e.target.style.boxShadow = "0 0 0 3px rgba(58,229,178,0.06)"; }}
                   onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.1)"; e.target.style.boxShadow = "none"; }}
                 />
               </div>
@@ -208,7 +208,7 @@ export function Contact() {
                   onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                   className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none resize-none"
                   style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "#f0f4ff" }}
-                  onFocus={(e) => { e.target.style.borderColor = "rgba(0,229,255,0.4)"; e.target.style.boxShadow = "0 0 0 3px rgba(0,229,255,0.06)"; }}
+                  onFocus={(e) => { e.target.style.borderColor = "rgba(58,229,178,0.4)"; e.target.style.boxShadow = "0 0 0 3px rgba(58,229,178,0.06)"; }}
                   onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.1)"; e.target.style.boxShadow = "none"; }}
                 />
               </div>
@@ -218,9 +218,9 @@ export function Contact() {
                 disabled={loading}
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-300"
                 style={{
-                  background: loading ? "rgba(0,229,255,0.3)" : "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                  background: loading ? "rgba(58,229,178,0.3)" : "linear-gradient(135deg, #3AE5B2, #6C63FF)",
                   color: "#04050d",
-                  boxShadow: loading ? "none" : "0 0 30px rgba(0,229,255,0.25)",
+                  boxShadow: loading ? "none" : "0 0 30px rgba(58,229,178,0.25)",
                 }}
               >
                 {loading ? (

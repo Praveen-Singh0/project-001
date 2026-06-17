@@ -17,7 +17,7 @@ export function TwoFAPage() {
 
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
 
   const full = code.join("").length === 6;
 
@@ -123,11 +123,11 @@ export function TwoFAPage() {
                 border: `2px solid ${
                   error ? "#ff4d6d" :
                   success ? "#10b981" :
-                  digit ? (isDark ? "rgba(0,229,255,0.5)" : "rgba(0,149,191,0.5)") :
+                  digit ? (isDark ? "rgba(58,229,178,0.5)" : "rgba(15,164,126,0.5)") :
                   (isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)")
                 }`,
                 color: fg,
-                boxShadow: digit && !error ? `0 0 0 3px ${isDark ? "rgba(0,229,255,0.06)" : "rgba(0,149,191,0.06)"}` : "none",
+                boxShadow: digit && !error ? `0 0 0 3px ${isDark ? "rgba(58,229,178,0.06)" : "rgba(15,164,126,0.06)"}` : "none",
               }}
             />
           ))}
@@ -154,7 +154,7 @@ export function TwoFAPage() {
           disabled={!full || loading || success}
           className="w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all duration-300"
           style={{
-            background: success ? "#10b981" : "linear-gradient(135deg, #00E5FF, #6C63FF)",
+            background: success ? "#10b981" : "linear-gradient(135deg, #3AE5B2, #6C63FF)",
             color: "#04050d",
             opacity: !full ? 0.5 : 1,
           }}

@@ -6,7 +6,7 @@ const cards = [
     icon: Eye,
     title: "Vision",
     desc: "To be the world's most trusted AI-first technology partner, enabling every enterprise to operate at the speed of intelligence.",
-    color: "#00E5FF",
+    color: "#3AE5B2",
   },
   {
     icon: Target,
@@ -18,7 +18,7 @@ const cards = [
     icon: Lightbulb,
     title: "Philosophy",
     desc: "Technology is only as powerful as the strategy behind it. We engineer with precision, empathy, and an obsession for outcomes.",
-    color: "#00BFFF",
+    color: "#14C99A",
   },
   {
     icon: TrendingUp,
@@ -121,7 +121,7 @@ export function About() {
                 { year: "2024", label: "AI-First" },
               ].map((item) => (
                 <div key={item.year} className="flex flex-col gap-1">
-                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 18, fontWeight: 700, color: "#00E5FF" }}>{item.year}</span>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 18, fontWeight: 700, color: "#3AE5B2" }}>{item.year}</span>
                   <span style={{ fontSize: 12, color: "#8892b0" }}>{item.label}</span>
                 </div>
               ))}
@@ -140,7 +140,7 @@ export function About() {
               <span
                 key={s}
                 className="px-3 py-1 rounded-full text-xs"
-                style={{ background: "rgba(0,229,255,0.06)", border: "1px solid rgba(0,229,255,0.15)", color: "#8892b0" }}
+                style={{ background: "rgba(58,229,178,0.06)", border: "1px solid rgba(58,229,178,0.15)", color: "#8892b0" }}
               >
                 {s}
               </span>

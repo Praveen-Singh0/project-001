@@ -31,12 +31,12 @@ export function Navbar() {
     : scrolled ? "rgba(232,236,247,0.88)" : "transparent";
 
   const borderBottom = scrolled
-    ? isDark ? "1px solid rgba(0,229,255,0.1)" : "1px solid rgba(108,99,255,0.12)"
+    ? isDark ? "1px solid rgba(58,229,178,0.1)" : "1px solid rgba(108,99,255,0.12)"
     : "none";
 
   const textColor = isDark ? "#8892b0" : "#6271a0";
   const logoText = isDark ? "#f0f4ff" : "#0d0f1e";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
 
   return (
     <motion.nav
@@ -63,8 +63,8 @@ export function Navbar() {
           style={{
             width: 36,
             height: 36,
-            background: "linear-gradient(135deg, #00E5FF 0%, #6C63FF 100%)",
-            boxShadow: isDark ? "0 0 16px rgba(0,229,255,0.35)" : "0 4px 12px rgba(0,149,191,0.3)",
+            background: "linear-gradient(135deg, #3AE5B2 0%, #6C63FF 100%)",
+            boxShadow: isDark ? "0 0 16px rgba(58,229,178,0.35)" : "0 4px 12px rgba(15,164,126,0.3)",
           }}
         >
           <span style={{ fontFamily: "var(--font-mono)", fontWeight: 800, fontSize: 13, color: "#04050d" }}>DX</span>
@@ -105,7 +105,7 @@ export function Navbar() {
           aria-label="Toggle theme"
           onMouseEnter={(e) => {
             (e.currentTarget as HTMLElement).style.color = cyan;
-            (e.currentTarget as HTMLElement).style.borderColor = isDark ? "rgba(0,229,255,0.3)" : "rgba(0,149,191,0.3)";
+            (e.currentTarget as HTMLElement).style.borderColor = isDark ? "rgba(58,229,178,0.3)" : "rgba(15,164,126,0.3)";
           }}
           onMouseLeave={(e) => {
             (e.currentTarget as HTMLElement).style.color = isDark ? "#8892b0" : "#6271a0";
@@ -150,9 +150,9 @@ export function Navbar() {
           onClick={() => navigate("dashboard")}
           className="rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300"
           style={{
-            background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+            background: "linear-gradient(135deg, #3AE5B2, #6C63FF)",
             color: "#04050d",
-            boxShadow: isDark ? "0 0 20px rgba(0,229,255,0.3)" : "0 4px 20px rgba(0,149,191,0.35)",
+            boxShadow: isDark ? "0 0 20px rgba(58,229,178,0.3)" : "0 4px 20px rgba(15,164,126,0.35)",
           }}
         >
           Dashboard
@@ -191,7 +191,7 @@ export function Navbar() {
             style={{
               background: isDark ? "rgba(4,5,13,0.97)" : "rgba(232,236,247,0.97)",
               backdropFilter: "blur(20px)",
-              borderBottom: isDark ? "1px solid rgba(0,229,255,0.1)" : "1px solid rgba(108,99,255,0.12)",
+              borderBottom: isDark ? "1px solid rgba(58,229,178,0.1)" : "1px solid rgba(108,99,255,0.12)",
             }}
           >
             {navLinks.map((link) => (
@@ -216,7 +216,7 @@ export function Navbar() {
               <button
                 onClick={() => { navigate("dashboard"); setMobileOpen(false); }}
                 className="flex-1 rounded-full py-2.5 text-sm font-semibold"
-                style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", color: "#04050d" }}
+                style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", color: "#04050d" }}
               >
                 Dashboard
               </button>

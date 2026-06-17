@@ -14,7 +14,7 @@ export function VerifyEmailPage() {
 
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
 
   useEffect(() => {
     if (countdown <= 0) return;
@@ -38,8 +38,8 @@ export function VerifyEmailPage() {
           <motion.div
             className="w-20 h-20 rounded-2xl flex items-center justify-center"
             style={{
-              background: isDark ? "rgba(0,229,255,0.08)" : "rgba(0,149,191,0.08)",
-              border: `1px solid ${isDark ? "rgba(0,229,255,0.2)" : "rgba(0,149,191,0.2)"}`,
+              background: isDark ? "rgba(58,229,178,0.08)" : "rgba(15,164,126,0.08)",
+              border: `1px solid ${isDark ? "rgba(58,229,178,0.2)" : "rgba(15,164,126,0.2)"}`,
             }}
             animate={{ scale: [1, 1.04, 1] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -51,7 +51,7 @@ export function VerifyEmailPage() {
               key={i}
               className="absolute w-1.5 h-1.5 rounded-full"
               style={{
-                background: i % 2 === 0 ? (isDark ? "#00E5FF" : "#0095bf") : (isDark ? "#6C63FF" : "#6C63FF"),
+                background: i % 2 === 0 ? (isDark ? "#3AE5B2" : "#0FA47E") : (isDark ? "#6C63FF" : "#6C63FF"),
                 top: "50%",
                 left: "50%",
               }}
@@ -86,7 +86,7 @@ export function VerifyEmailPage() {
               ].map((s) => (
                 <div key={s.step} className="flex items-center gap-3">
                   <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ background: isDark ? "rgba(0,229,255,0.1)" : "rgba(0,149,191,0.1)", fontSize: 11, fontWeight: 700, color: cyan, fontFamily: "var(--font-mono)" }}>
+                    style={{ background: isDark ? "rgba(58,229,178,0.1)" : "rgba(15,164,126,0.1)", fontSize: 11, fontWeight: 700, color: cyan, fontFamily: "var(--font-mono)" }}>
                     {s.step}
                   </div>
                   <span style={{ fontSize: 13, color: isDark ? "#c8d3e8" : "#4a5568" }}>{s.label}</span>
@@ -97,7 +97,7 @@ export function VerifyEmailPage() {
             <button
               onClick={() => setVerified(true)}
               className="w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all duration-300"
-              style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", color: "#04050d" }}
+              style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", color: "#04050d" }}
             >
               I've Verified My Email <ArrowRight size={15} />
             </button>
@@ -131,7 +131,7 @@ export function VerifyEmailPage() {
             </div>
             <button onClick={() => navigate("2fa")}
               className="w-full py-3.5 rounded-xl text-sm font-bold"
-              style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", color: "#04050d" }}>
+              style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", color: "#04050d" }}>
               Set Up 2FA Security →
             </button>
             <button onClick={() => navigate("dashboard")} style={{ fontSize: 13, color: muted, background: "none", border: "none", cursor: "pointer", textAlign: "center" }}

@@ -13,7 +13,7 @@
   --popover-foreground: #0d0f1e;
 
   /* Brand */
-  --primary: #0095bf;
+  --primary: #0FA47E;
   --primary-foreground: #ffffff;
   --secondary: #dde2f5;
   --secondary-foreground: #0d0f1e;
@@ -31,13 +31,13 @@
   --input: transparent;
   --input-background: rgba(255, 255, 255, 0.6);
   --switch-background: rgba(108, 99, 255, 0.25);
-  --ring: rgba(0, 149, 191, 0.4);
+  --ring: rgba(15, 164, 126, 0.4);
 
   /* Charts */
-  --chart-1: #0095bf;
+  --chart-1: #0FA47E;
   --chart-2: #6C63FF;
   --chart-3: #4F46E5;
-  --chart-4: #00bcd4;
+  --chart-4: #1FD3A3;
   --chart-5: #a78bfa;
 
   --radius: 1rem;
@@ -45,16 +45,16 @@
   /* Sidebar */
   --sidebar: #dde2f5;
   --sidebar-foreground: #0d0f1e;
-  --sidebar-primary: #0095bf;
+  --sidebar-primary: #0FA47E;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: rgba(108, 99, 255, 0.08);
   --sidebar-accent-foreground: #0d0f1e;
   --sidebar-border: rgba(108, 99, 255, 0.1);
-  --sidebar-ring: rgba(0, 149, 191, 0.4);
+  --sidebar-ring: rgba(15, 164, 126, 0.4);
 
   /* ─── Custom brand tokens ─────────────────────────── */
-  --cyan: #0095bf;
-  --cyan-glow: #00E5FF;
+  --cyan: #0FA47E;
+  --cyan-glow: #3AE5B2;
   --purple: #6C63FF;
   --purple-deep: #4F46E5;
   --neo-shadow-dark: rgba(163, 177, 198, 0.65);
@@ -71,7 +71,7 @@
   --card-foreground: #f0f4ff;
   --popover: #0a0e1e;
   --popover-foreground: #f0f4ff;
-  --primary: #00E5FF;
+  --primary: #3AE5B2;
   --primary-foreground: #04050d;
   --secondary: rgba(108, 99, 255, 0.15);
   --secondary-foreground: #f0f4ff;
@@ -81,32 +81,32 @@
   --accent-foreground: #f0f4ff;
   --destructive: #ff4d6d;
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 229, 255, 0.12);
+  --border: rgba(58, 229, 178, 0.12);
   --input: transparent;
   --input-background: rgba(255, 255, 255, 0.04);
   --switch-background: rgba(108, 99, 255, 0.35);
-  --ring: rgba(0, 229, 255, 0.4);
-  --chart-1: #00E5FF;
+  --ring: rgba(58, 229, 178, 0.4);
+  --chart-1: #3AE5B2;
   --chart-2: #6C63FF;
   --chart-3: #4F46E5;
-  --chart-4: #00BFFF;
+  --chart-4: #14C99A;
   --chart-5: #a78bfa;
   --sidebar: #080b18;
   --sidebar-foreground: #f0f4ff;
-  --sidebar-primary: #00E5FF;
+  --sidebar-primary: #3AE5B2;
   --sidebar-primary-foreground: #04050d;
-  --sidebar-accent: rgba(0, 229, 255, 0.06);
+  --sidebar-accent: rgba(58, 229, 178, 0.06);
   --sidebar-accent-foreground: #f0f4ff;
-  --sidebar-border: rgba(0, 229, 255, 0.08);
-  --sidebar-ring: rgba(0, 229, 255, 0.4);
-  --cyan: #00E5FF;
-  --cyan-glow: #00E5FF;
+  --sidebar-border: rgba(58, 229, 178, 0.08);
+  --sidebar-ring: rgba(58, 229, 178, 0.4);
+  --cyan: #3AE5B2;
+  --cyan-glow: #3AE5B2;
   --purple: #6C63FF;
   --purple-deep: #4F46E5;
   --neo-shadow-dark: transparent;
   --neo-shadow-light: transparent;
   --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(0, 229, 255, 0.15);
+  --glass-border: rgba(58, 229, 178, 0.15);
 }
 
 /* ─── Tailwind token map ──────────────────────────────────────── */

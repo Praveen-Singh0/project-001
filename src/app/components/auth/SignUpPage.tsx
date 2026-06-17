@@ -26,8 +26,8 @@ function Field({ icon: Icon, type = "text", placeholder, value, onChange, label 
         className="relative flex items-center rounded-xl transition-all duration-200"
         style={{
           background: isDark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.7)",
-          border: `1px solid ${focused ? (isDark ? "rgba(0,229,255,0.4)" : "rgba(0,149,191,0.4)") : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.1)")}`,
-          boxShadow: focused ? `0 0 0 3px ${isDark ? "rgba(0,229,255,0.07)" : "rgba(0,149,191,0.07)"}` : "none",
+          border: `1px solid ${focused ? (isDark ? "rgba(58,229,178,0.4)" : "rgba(15,164,126,0.4)") : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.1)")}`,
+          boxShadow: focused ? `0 0 0 3px ${isDark ? "rgba(58,229,178,0.07)" : "rgba(15,164,126,0.07)"}` : "none",
         }}
       >
         <Icon size={15} style={{ position: "absolute", left: 14, color: isDark ? "#8892b0" : "#6271a0" }} />
@@ -61,7 +61,7 @@ export function SignUpPage() {
 
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
   const cardBg = isDark ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.6)";
   const cardBorder = isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.08)";
 
@@ -90,14 +90,14 @@ export function SignUpPage() {
               onClick={() => setPlan(p.id)}
               className="relative flex flex-col items-center gap-1 py-3 rounded-xl text-xs transition-all duration-200"
               style={{
-                background: plan === p.id ? (isDark ? "rgba(0,229,255,0.08)" : "rgba(0,149,191,0.08)") : cardBg,
-                border: `1px solid ${plan === p.id ? (isDark ? "rgba(0,229,255,0.35)" : "rgba(0,149,191,0.35)") : cardBorder}`,
+                background: plan === p.id ? (isDark ? "rgba(58,229,178,0.08)" : "rgba(15,164,126,0.08)") : cardBg,
+                border: `1px solid ${plan === p.id ? (isDark ? "rgba(58,229,178,0.35)" : "rgba(15,164,126,0.35)") : cardBorder}`,
                 color: plan === p.id ? cyan : muted,
               }}
             >
               {p.popular && (
                 <span className="absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full text-[9px] font-bold"
-                  style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", color: "#04050d" }}>
+                  style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", color: "#04050d" }}>
                   POPULAR
                 </span>
               )}
@@ -142,9 +142,9 @@ export function SignUpPage() {
             disabled={loading}
             className="w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all duration-300"
             style={{
-              background: loading ? "rgba(0,229,255,0.4)" : "linear-gradient(135deg, #00E5FF, #6C63FF)",
+              background: loading ? "rgba(58,229,178,0.4)" : "linear-gradient(135deg, #3AE5B2, #6C63FF)",
               color: "#04050d",
-              boxShadow: isDark ? "0 0 25px rgba(0,229,255,0.25)" : "0 6px 20px rgba(0,149,191,0.35)",
+              boxShadow: isDark ? "0 0 25px rgba(58,229,178,0.25)" : "0 6px 20px rgba(15,164,126,0.35)",
             }}
           >
             {loading ? (

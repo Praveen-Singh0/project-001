@@ -26,11 +26,11 @@ export function AIAssistant() {
 
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
 
   const cardStyle = isDark ? {
     background: "rgba(10,14,30,0.85)",
-    border: "1px solid rgba(0,229,255,0.12)",
+    border: "1px solid rgba(58,229,178,0.12)",
     backdropFilter: "blur(20px)",
   } : {
     background: "#f0f4ff",
@@ -65,10 +65,10 @@ export function AIAssistant() {
     <div className="flex flex-col h-full rounded-2xl overflow-hidden" style={cardStyle}>
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b"
-        style={{ borderColor: isDark ? "rgba(0,229,255,0.1)" : "rgba(0,0,0,0.08)" }}>
+        style={{ borderColor: isDark ? "rgba(58,229,178,0.1)" : "rgba(0,0,0,0.08)" }}>
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-xl flex items-center justify-center"
-            style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", boxShadow: isDark ? "0 0 12px rgba(0,229,255,0.3)" : "0 4px 10px rgba(0,149,191,0.2)" }}>
+            style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", boxShadow: isDark ? "0 0 12px rgba(58,229,178,0.3)" : "0 4px 10px rgba(15,164,126,0.2)" }}>
             <Brain size={14} color="#04050d" />
           </div>
           <div>
@@ -110,7 +110,7 @@ export function AIAssistant() {
                 <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
                   {m.role === "ai" && (
                     <div className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center mr-2 mt-0.5"
-                      style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)" }}>
+                      style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)" }}>
                       <Sparkles size={10} color="#04050d" />
                     </div>
                   )}
@@ -118,9 +118,9 @@ export function AIAssistant() {
                     className="max-w-[82%] rounded-2xl px-3.5 py-2.5 text-sm"
                     style={{
                       background: m.role === "user"
-                        ? "linear-gradient(135deg, #00E5FF20, #6C63FF20)"
+                        ? "linear-gradient(135deg, #3AE5B220, #6C63FF20)"
                         : isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)",
-                      border: `1px solid ${m.role === "user" ? (isDark ? "rgba(0,229,255,0.2)" : "rgba(0,149,191,0.2)") : (isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)")}`,
+                      border: `1px solid ${m.role === "user" ? (isDark ? "rgba(58,229,178,0.2)" : "rgba(15,164,126,0.2)") : (isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)")}`,
                       color: fg,
                       lineHeight: 1.6,
                       whiteSpace: "pre-line",
@@ -133,7 +133,7 @@ export function AIAssistant() {
               {loading && (
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center"
-                    style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)" }}>
+                    style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)" }}>
                     <Sparkles size={10} color="#04050d" />
                   </div>
                   <div className="flex gap-1 px-3 py-2.5 rounded-2xl"
@@ -156,9 +156,9 @@ export function AIAssistant() {
                 {suggestions.map((s) => (
                   <button key={s} onClick={() => send(s)}
                     className="text-xs px-2.5 py-1.5 rounded-lg transition-all duration-200"
-                    style={{ background: isDark ? "rgba(0,229,255,0.06)" : "rgba(0,149,191,0.06)", border: `1px solid ${isDark ? "rgba(0,229,255,0.15)" : "rgba(0,149,191,0.15)"}`, color: cyan, cursor: "pointer" }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(0,229,255,0.12)" : "rgba(0,149,191,0.12)"; }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(0,229,255,0.06)" : "rgba(0,149,191,0.06)"; }}>
+                    style={{ background: isDark ? "rgba(58,229,178,0.06)" : "rgba(15,164,126,0.06)", border: `1px solid ${isDark ? "rgba(58,229,178,0.15)" : "rgba(15,164,126,0.15)"}`, color: cyan, cursor: "pointer" }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(58,229,178,0.12)" : "rgba(15,164,126,0.12)"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(58,229,178,0.06)" : "rgba(15,164,126,0.06)"; }}>
                     {s}
                   </button>
                 ))}
@@ -181,7 +181,7 @@ export function AIAssistant() {
                   disabled={!input.trim()}
                   className="w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200"
                   style={{
-                    background: input.trim() ? "linear-gradient(135deg, #00E5FF, #6C63FF)" : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"),
+                    background: input.trim() ? "linear-gradient(135deg, #3AE5B2, #6C63FF)" : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"),
                     color: input.trim() ? "#04050d" : muted,
                     border: "none", cursor: input.trim() ? "pointer" : "not-allowed",
                   }}

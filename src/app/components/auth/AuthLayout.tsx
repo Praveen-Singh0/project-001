@@ -26,7 +26,7 @@ function AnimatedOrb({ isDark }: { isDark: boolean }) {
           key={i}
           className="absolute inset-0 rounded-full"
           style={{
-            border: `1px solid rgba(0,229,255,${0.15 - i * 0.04})`,
+            border: `1px solid rgba(58,229,178,${0.15 - i * 0.04})`,
             scale: 0.6 + i * 0.2,
           }}
           animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
@@ -40,14 +40,14 @@ function AnimatedOrb({ isDark }: { isDark: boolean }) {
         style={{
           width: 100,
           height: 100,
-          background: "linear-gradient(135deg, rgba(0,229,255,0.2), rgba(108,99,255,0.2))",
-          border: "1px solid rgba(0,229,255,0.4)",
-          boxShadow: "0 0 40px rgba(0,229,255,0.2), inset 0 0 30px rgba(108,99,255,0.15)",
+          background: "linear-gradient(135deg, rgba(58,229,178,0.2), rgba(108,99,255,0.2))",
+          border: "1px solid rgba(58,229,178,0.4)",
+          boxShadow: "0 0 40px rgba(58,229,178,0.2), inset 0 0 30px rgba(108,99,255,0.15)",
         }}
       >
         <div
           className="w-12 h-12 rounded-xl flex items-center justify-center"
-          style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", boxShadow: "0 0 20px rgba(0,229,255,0.4)" }}
+          style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", boxShadow: "0 0 20px rgba(58,229,178,0.4)" }}
         >
           <span style={{ fontFamily: "var(--font-mono)", fontWeight: 800, fontSize: 16, color: "#04050d" }}>DX</span>
         </div>
@@ -55,9 +55,9 @@ function AnimatedOrb({ isDark }: { isDark: boolean }) {
 
       {/* Floating dots */}
       {[
-        { top: "8%", left: "50%", color: "#00E5FF", delay: 0 },
+        { top: "8%", left: "50%", color: "#3AE5B2", delay: 0 },
         { top: "50%", left: "4%", color: "#6C63FF", delay: 0.5 },
-        { top: "50%", right: "4%", color: "#00BFFF", delay: 1 },
+        { top: "50%", right: "4%", color: "#14C99A", delay: 1 },
         { top: "88%", left: "50%", color: "#a78bfa", delay: 1.5 },
       ].map((dot, i) => (
         <motion.div
@@ -91,12 +91,12 @@ export function AuthLayout({ children, tagline = "The intelligent enterprise pla
           background: isDark
             ? "linear-gradient(145deg, #0a0e1e 0%, #060914 100%)"
             : "linear-gradient(145deg, #1a1d3a 0%, #0d0f26 100%)",
-          borderRight: isDark ? "1px solid rgba(0,229,255,0.08)" : "1px solid rgba(0,0,0,0.1)",
+          borderRight: isDark ? "1px solid rgba(58,229,178,0.08)" : "1px solid rgba(0,0,0,0.1)",
         }}
       >
         {/* Aurora blobs */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div style={{ position: "absolute", top: "-20%", left: "-20%", width: "80%", height: "80%", background: "radial-gradient(ellipse, rgba(0,229,255,0.06) 0%, transparent 70%)", filter: "blur(40px)" }} />
+          <div style={{ position: "absolute", top: "-20%", left: "-20%", width: "80%", height: "80%", background: "radial-gradient(ellipse, rgba(58,229,178,0.06) 0%, transparent 70%)", filter: "blur(40px)" }} />
           <div style={{ position: "absolute", bottom: "0%", right: "-20%", width: "70%", height: "70%", background: "radial-gradient(ellipse, rgba(108,99,255,0.07) 0%, transparent 70%)", filter: "blur(40px)" }} />
         </div>
 
@@ -109,7 +109,7 @@ export function AuthLayout({ children, tagline = "The intelligent enterprise pla
           >
             <div
               className="w-9 h-9 rounded-xl flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", boxShadow: "0 0 16px rgba(0,229,255,0.3)" }}
+              style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", boxShadow: "0 0 16px rgba(58,229,178,0.3)" }}
             >
               <span style={{ fontFamily: "var(--font-mono)", fontWeight: 800, fontSize: 13, color: "#04050d" }}>DX</span>
             </div>
@@ -137,9 +137,9 @@ export function AuthLayout({ children, tagline = "The intelligent enterprise pla
             >
               <div
                 className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
-                style={{ background: "rgba(0,229,255,0.1)", border: "1px solid rgba(0,229,255,0.2)" }}
+                style={{ background: "rgba(58,229,178,0.1)", border: "1px solid rgba(58,229,178,0.2)" }}
               >
-                <f.icon size={13} color="#00E5FF" />
+                <f.icon size={13} color="#3AE5B2" />
               </div>
               <span style={{ fontSize: 13, color: "rgba(240,244,255,0.65)" }}>{f.text}</span>
             </motion.div>

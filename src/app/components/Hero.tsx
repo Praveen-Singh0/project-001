@@ -18,7 +18,7 @@ function AIGlobe({ isDark }: { isDark: boolean }) {
     const cx = W / 2, cy = H / 2;
     const R = Math.min(W, H) * 0.38;
 
-    const c1 = isDark ? "0,229,255" : "0,149,191";
+    const c1 = isDark ? "58,229,178" : "15,164,126";
     const c2 = isDark ? "108,99,255" : "108,99,255";
 
     function draw() {
@@ -36,10 +36,10 @@ function AIGlobe({ isDark }: { isDark: boolean }) {
       const bodyGrad = ctx.createRadialGradient(cx - R * 0.25, cy - R * 0.25, 0, cx, cy, R);
       if (isDark) {
         bodyGrad.addColorStop(0, "rgba(10,14,30,0.9)");
-        bodyGrad.addColorStop(1, "rgba(0,229,255,0.06)");
+        bodyGrad.addColorStop(1, "rgba(58,229,178,0.06)");
       } else {
         bodyGrad.addColorStop(0, "rgba(220,228,248,0.95)");
-        bodyGrad.addColorStop(1, "rgba(0,149,191,0.06)");
+        bodyGrad.addColorStop(1, "rgba(15,164,126,0.06)");
       }
       ctx.fillStyle = bodyGrad;
       ctx.beginPath();
@@ -149,16 +149,16 @@ function AIGlobe({ isDark }: { isDark: boolean }) {
       width={420}
       height={420}
       className="w-full max-w-[420px] mx-auto"
-      style={{ filter: isDark ? "drop-shadow(0 0 40px rgba(0,229,255,0.2))" : "drop-shadow(0 0 30px rgba(0,149,191,0.15))" }}
+      style={{ filter: isDark ? "drop-shadow(0 0 40px rgba(58,229,178,0.2))" : "drop-shadow(0 0 30px rgba(15,164,126,0.15))" }}
     />
   );
 }
 
 function AIDashboardCard({ isDark }: { isDark: boolean }) {
   const metrics = [
-    { label: "AI Requests/s", value: "12.4K", color: isDark ? "#00E5FF" : "#0095bf" },
+    { label: "AI Requests/s", value: "12.4K", color: isDark ? "#3AE5B2" : "#0FA47E" },
     { label: "Accuracy", value: "98.7%", color: "#6C63FF" },
-    { label: "Latency", value: "24ms", color: isDark ? "#00BFFF" : "#0077a8" },
+    { label: "Latency", value: "24ms", color: isDark ? "#14C99A" : "#0B7D5E" },
   ];
 
   return (
@@ -170,14 +170,14 @@ function AIDashboardCard({ isDark }: { isDark: boolean }) {
       style={{
         background: isDark ? "rgba(10,14,30,0.85)" : "rgba(232,236,247,0.92)",
         backdropFilter: "blur(20px)",
-        border: isDark ? "1px solid rgba(0,229,255,0.2)" : "1px solid rgba(0,149,191,0.2)",
+        border: isDark ? "1px solid rgba(58,229,178,0.2)" : "1px solid rgba(15,164,126,0.2)",
         boxShadow: isDark
-          ? "0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(0,229,255,0.05)"
+          ? "0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(58,229,178,0.05)"
           : "8px 8px 24px rgba(163,177,198,0.5), -8px -8px 24px rgba(255,255,255,0.9)",
       }}
     >
       <div className="flex items-center gap-2 mb-3">
-        <div className="w-2 h-2 rounded-full" style={{ background: isDark ? "#00E5FF" : "#0095bf", boxShadow: `0 0 6px ${isDark ? "#00E5FF" : "#0095bf"}` }} />
+        <div className="w-2 h-2 rounded-full" style={{ background: isDark ? "#3AE5B2" : "#0FA47E", boxShadow: `0 0 6px ${isDark ? "#3AE5B2" : "#0FA47E"}` }} />
         <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: isDark ? "#8892b0" : "#6271a0" }}>AI ENGINE ACTIVE</span>
       </div>
       {metrics.map((m) => (
@@ -213,7 +213,7 @@ function Particles({ isDark }: { isDark: boolean }) {
     size: Math.random() * 2 + 0.5,
     delay: Math.random() * 4,
     dur: 4 + Math.random() * 4,
-    color: i % 2 === 0 ? (isDark ? "rgba(0,229,255,0.5)" : "rgba(0,149,191,0.4)") : (isDark ? "rgba(108,99,255,0.5)" : "rgba(108,99,255,0.4)"),
+    color: i % 2 === 0 ? (isDark ? "rgba(58,229,178,0.5)" : "rgba(15,164,126,0.4)") : (isDark ? "rgba(108,99,255,0.5)" : "rgba(108,99,255,0.4)"),
   }));
 
   return (
@@ -234,7 +234,7 @@ export function Hero() {
 
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -247,8 +247,8 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 w-fit"
             style={{
-              background: isDark ? "rgba(0,229,255,0.08)" : "rgba(0,149,191,0.08)",
-              border: `1px solid ${isDark ? "rgba(0,229,255,0.2)" : "rgba(0,149,191,0.2)"}`,
+              background: isDark ? "rgba(58,229,178,0.08)" : "rgba(15,164,126,0.08)",
+              border: `1px solid ${isDark ? "rgba(58,229,178,0.2)" : "rgba(15,164,126,0.2)"}`,
             }}
           >
             <Zap size={12} color={cyan} />
@@ -260,7 +260,7 @@ export function Hero() {
             style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.03em", color: fg }}
           >
             Building{" "}
-            <span style={{ background: "linear-gradient(135deg, #00E5FF 0%, #6C63FF 60%, #00BFFF 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(135deg, #3AE5B2 0%, #6C63FF 60%, #14C99A 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Intelligent
             </span>{" "}
             Solutions for a Smarter Tomorrow
@@ -278,9 +278,9 @@ export function Hero() {
               onClick={() => navigate("dashboard")}
               className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold"
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: "linear-gradient(135deg, #3AE5B2, #6C63FF)",
                 color: "#04050d",
-                boxShadow: isDark ? "0 0 30px rgba(0,229,255,0.3)" : "0 8px 30px rgba(0,149,191,0.35)",
+                boxShadow: isDark ? "0 0 30px rgba(58,229,178,0.3)" : "0 8px 30px rgba(15,164,126,0.35)",
               }}
             >
               Explore Dashboard <ArrowRight size={15} />
@@ -291,7 +291,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all duration-300"
               style={{
                 background: "transparent",
-                border: `1px solid ${isDark ? "rgba(0,229,255,0.3)" : "rgba(0,149,191,0.3)"}`,
+                border: `1px solid ${isDark ? "rgba(58,229,178,0.3)" : "rgba(15,164,126,0.3)"}`,
                 color: fg,
               }}
             >
@@ -301,7 +301,7 @@ export function Hero() {
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85, duration: 0.6 }} className="flex items-center gap-3">
             <div className="flex">
-              {["#00E5FF", "#6C63FF", "#4F46E5", "#00BFFF"].map((c, i) => (
+              {["#3AE5B2", "#6C63FF", "#4F46E5", "#14C99A"].map((c, i) => (
                 <div key={i} className="w-7 h-7 rounded-full border-2 flex items-center justify-center"
                   style={{ borderColor: isDark ? "#04050d" : "#e8ecf7", background: c, marginLeft: i ? -8 : 0, fontSize: 10, color: "#04050d", fontWeight: 700 }}>
                   {i + 1}

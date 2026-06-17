@@ -4,11 +4,11 @@ import { Bell, CheckCheck, Zap, AlertCircle, TrendingUp, MessageSquare, X } from
 import { useTheme } from "../../contexts/ThemeContext";
 
 const notifications = [
-  { id: 1, type: "ai", icon: Zap, title: "AI Alert: Revenue anomaly detected", desc: "Q4 AI revenue 41% above forecast. HealthBridge contract contributing $22K unexpectedly.", time: "2 min ago", read: false, color: "#00E5FF" },
+  { id: 1, type: "ai", icon: Zap, title: "AI Alert: Revenue anomaly detected", desc: "Q4 AI revenue 41% above forecast. HealthBridge contract contributing $22K unexpectedly.", time: "2 min ago", read: false, color: "#3AE5B2" },
   { id: 2, type: "warning", icon: AlertCircle, title: "Task overdue: Backend API Integration", desc: "Assigned to Dev Team · NovaTrade Analytics project. 3 days overdue.", time: "1 hr ago", read: false, color: "#fbbf24" },
   { id: 3, type: "success", icon: TrendingUp, title: "Project milestone reached", desc: "HealthBridge Healthcare AI — Phase 2 completed on time. Client satisfaction: 5/5.", time: "3 hrs ago", read: false, color: "#10b981" },
   { id: 4, type: "message", icon: MessageSquare, title: "New message: James Okonkwo", desc: "\"The dashboard looks excellent. Can we schedule a call to discuss Phase 3?\"", time: "5 hrs ago", read: false, color: "#6C63FF" },
-  { id: 5, type: "ai", icon: Zap, title: "Weekly AI Summary Ready", desc: "12,400 AI requests processed · 98.7% accuracy · 24ms avg latency. Full report attached.", time: "Yesterday", read: true, color: "#00E5FF" },
+  { id: 5, type: "ai", icon: Zap, title: "Weekly AI Summary Ready", desc: "12,400 AI requests processed · 98.7% accuracy · 24ms avg latency. Full report attached.", time: "Yesterday", read: true, color: "#3AE5B2" },
   { id: 6, type: "success", icon: TrendingUp, title: "Invoice paid: EduSphere Learning", desc: "$14,500 received · Invoice #INV-2024-089 cleared.", time: "Yesterday", read: true, color: "#10b981" },
 ];
 
@@ -19,7 +19,7 @@ export function NotificationCenter() {
 
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
 
   const cardStyle = isDark ? {
     background: "rgba(255,255,255,0.025)",
@@ -47,7 +47,7 @@ export function NotificationCenter() {
           <span style={{ fontSize: 15, fontWeight: 700, color: fg }}>Notifications</span>
           {unreadCount > 0 && (
             <span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold"
-              style={{ background: "#00E5FF", color: "#04050d" }}>{unreadCount}</span>
+              style={{ background: "#3AE5B2", color: "#04050d" }}>{unreadCount}</span>
           )}
         </div>
         <div className="flex items-center gap-2">
@@ -57,7 +57,7 @@ export function NotificationCenter() {
               <button key={f} onClick={() => setFilter(f)}
                 className="px-3 py-1 text-xs font-semibold capitalize transition-all duration-200"
                 style={{
-                  background: filter === f ? (isDark ? "rgba(0,229,255,0.1)" : "rgba(0,149,191,0.1)") : "transparent",
+                  background: filter === f ? (isDark ? "rgba(58,229,178,0.1)" : "rgba(15,164,126,0.1)") : "transparent",
                   color: filter === f ? cyan : muted,
                   border: "none", cursor: "pointer",
                 }}>
@@ -93,13 +93,13 @@ export function NotificationCenter() {
                 className="group relative flex items-start gap-3 px-5 py-4 border-b transition-all duration-200"
                 style={{
                   borderColor: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
-                  background: !notif.read ? (isDark ? "rgba(0,229,255,0.02)" : "rgba(0,149,191,0.02)") : "transparent",
+                  background: !notif.read ? (isDark ? "rgba(58,229,178,0.02)" : "rgba(15,164,126,0.02)") : "transparent",
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = !notif.read ? (isDark ? "rgba(0,229,255,0.02)" : "rgba(0,149,191,0.02)") : "transparent";
+                  (e.currentTarget as HTMLElement).style.background = !notif.read ? (isDark ? "rgba(58,229,178,0.02)" : "rgba(15,164,126,0.02)") : "transparent";
                 }}
               >
                 {!notif.read && (

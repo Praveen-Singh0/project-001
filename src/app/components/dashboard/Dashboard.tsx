@@ -15,13 +15,13 @@ function TopBar({ searchFocused, setSearchFocused }: { searchFocused: boolean; s
   const { isDark, toggle } = useTheme();
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
   const topBg = isDark ? "rgba(4,5,13,0.9)" : "rgba(232,236,247,0.9)";
 
   return (
     <div
       className="flex items-center justify-between px-5 border-b flex-shrink-0"
-      style={{ height: 60, borderColor: isDark ? "rgba(0,229,255,0.08)" : "rgba(108,99,255,0.12)", background: topBg, backdropFilter: "blur(10px)" }}
+      style={{ height: 60, borderColor: isDark ? "rgba(58,229,178,0.08)" : "rgba(108,99,255,0.12)", background: topBg, backdropFilter: "blur(10px)" }}
     >
       <div>
         <span style={{ fontSize: 16, fontWeight: 700, color: fg }}>Good morning, Sarah 👋</span>
@@ -34,7 +34,7 @@ function TopBar({ searchFocused, setSearchFocused }: { searchFocused: boolean; s
           className="flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-200"
           style={{
             background: isDark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.6)",
-            border: `1px solid ${searchFocused ? (isDark ? "rgba(0,229,255,0.35)" : "rgba(0,149,191,0.35)") : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)")}`,
+            border: `1px solid ${searchFocused ? (isDark ? "rgba(58,229,178,0.35)" : "rgba(15,164,126,0.35)") : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)")}`,
             width: searchFocused ? 220 : 160,
             transition: "width 0.3s ease, border-color 0.2s ease",
           }}
@@ -72,14 +72,14 @@ function TopBar({ searchFocused, setSearchFocused }: { searchFocused: boolean; s
           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = muted; }}
         >
           <Bell size={14} />
-          <div className="absolute top-1 right-1 w-2 h-2 rounded-full" style={{ background: "#00E5FF" }} />
+          <div className="absolute top-1 right-1 w-2 h-2 rounded-full" style={{ background: "#3AE5B2" }} />
         </button>
 
         {/* Avatar */}
         <div className="flex items-center gap-2 px-2 py-1.5 rounded-xl cursor-pointer transition-all duration-200"
           style={{ background: isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)", border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.08)" }}>
           <div className="w-6 h-6 rounded-full flex items-center justify-center"
-            style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", fontSize: 9, fontWeight: 700, color: "#04050d" }}>
+            style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", fontSize: 9, fontWeight: 700, color: "#04050d" }}>
             SM
           </div>
           <span style={{ fontSize: 12, fontWeight: 600, color: fg }}>Sarah M.</span>
@@ -105,8 +105,8 @@ export function Dashboard() {
   const [searchFocused, setSearchFocused] = useState(false);
 
   const bg = isDark
-    ? "radial-gradient(ellipse 80% 50% at 80% 0%, rgba(108,99,255,0.06) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0,229,255,0.04) 0%, transparent 60%), #04050d"
-    : "radial-gradient(ellipse 80% 50% at 80% 0%, rgba(108,99,255,0.04) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0,149,191,0.04) 0%, transparent 60%), #e8ecf7";
+    ? "radial-gradient(ellipse 80% 50% at 80% 0%, rgba(108,99,255,0.06) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 20% 80%, rgba(58,229,178,0.04) 0%, transparent 60%), #04050d"
+    : "radial-gradient(ellipse 80% 50% at 80% 0%, rgba(108,99,255,0.04) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 20% 80%, rgba(15,164,126,0.04) 0%, transparent 60%), #e8ecf7";
 
   return (
     <div className="flex h-screen overflow-hidden" style={{ background: bg, fontFamily: "var(--font-sans)" }}>

@@ -24,8 +24,8 @@ export function ParticleField() {
     };
 
     const colors = isDark
-      ? ["rgba(0,229,255,", "rgba(108,99,255,", "rgba(0,191,255,"]
-      : ["rgba(0,149,191,", "rgba(108,99,255,", "rgba(100,120,200,"];
+      ? ["rgba(58,229,178,", "rgba(108,99,255,", "rgba(0,191,255,"]
+      : ["rgba(15,164,126,", "rgba(108,99,255,", "rgba(100,120,200,"];
 
     function init() {
       const count = Math.floor((canvas!.width * canvas!.height) / 20000);
@@ -70,7 +70,7 @@ export function ParticleField() {
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 120) {
             const a = (1 - dist / 120) * (isDark ? 0.08 : 0.06);
-            ctx.strokeStyle = isDark ? `rgba(0,229,255,${a})` : `rgba(0,149,191,${a})`;
+            ctx.strokeStyle = isDark ? `rgba(58,229,178,${a})` : `rgba(15,164,126,${a})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);

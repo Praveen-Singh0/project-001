@@ -18,7 +18,7 @@ function StrengthBar({ password }: { password: string }) {
       { score: 0, label: "", color: "transparent" },
       { score: 1, label: "Weak", color: "#ff4d6d" },
       { score: 2, label: "Fair", color: "#fbbf24" },
-      { score: 3, label: "Good", color: "#00BFFF" },
+      { score: 3, label: "Good", color: "#14C99A" },
       { score: 4, label: "Strong", color: "#10b981" },
     ];
     return map[s] || map[0];
@@ -51,11 +51,11 @@ export function ResetPasswordPage() {
 
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
 
   const inputStyle = (focused: boolean) => ({
     background: isDark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.7)",
-    border: `1px solid ${focused ? (isDark ? "rgba(0,229,255,0.4)" : "rgba(0,149,191,0.4)") : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.1)")}`,
+    border: `1px solid ${focused ? (isDark ? "rgba(58,229,178,0.4)" : "rgba(15,164,126,0.4)") : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.1)")}`,
   });
 
   const [f1, setF1] = useState(false);
@@ -74,7 +74,7 @@ export function ResetPasswordPage() {
         <div className="flex flex-col gap-6">
           <div
             className="w-14 h-14 rounded-2xl flex items-center justify-center"
-            style={{ background: isDark ? "rgba(0,229,255,0.1)" : "rgba(0,149,191,0.1)", border: `1px solid ${isDark ? "rgba(0,229,255,0.2)" : "rgba(0,149,191,0.2)"}` }}
+            style={{ background: isDark ? "rgba(58,229,178,0.1)" : "rgba(15,164,126,0.1)", border: `1px solid ${isDark ? "rgba(58,229,178,0.2)" : "rgba(15,164,126,0.2)"}` }}
           >
             <Lock size={22} color={cyan} />
           </div>
@@ -140,7 +140,7 @@ export function ResetPasswordPage() {
               disabled={loading || password !== confirm || !password}
               className="w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all duration-300"
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)", color: "#04050d",
+                background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", color: "#04050d",
                 opacity: (!password || password !== confirm) ? 0.5 : 1,
               }}
             >
@@ -164,7 +164,7 @@ export function ResetPasswordPage() {
           <button
             onClick={() => navigate("login")}
             className="w-full py-3.5 rounded-xl text-sm font-bold"
-            style={{ background: "linear-gradient(135deg, #00E5FF, #6C63FF)", color: "#04050d" }}
+            style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", color: "#04050d" }}
           >
             Back to Sign In
           </button>

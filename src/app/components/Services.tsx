@@ -6,7 +6,7 @@ const services = [
     icon: Brain,
     title: "AI Solutions",
     desc: "Custom LLMs, AI agents, computer vision, NLP, and intelligent automation tailored to your industry.",
-    color: "#00E5FF",
+    color: "#3AE5B2",
     tag: "Core",
   },
   {
@@ -20,7 +20,7 @@ const services = [
     icon: Globe,
     title: "Web Development",
     desc: "High-performance React, Next.js, and full-stack web applications with enterprise-grade architecture.",
-    color: "#00BFFF",
+    color: "#14C99A",
     tag: "Development",
   },
   {
@@ -66,7 +66,7 @@ export function Services() {
       {/* Glow */}
       <div
         className="absolute top-[30%] right-[-10%] w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%)", filter: "blur(80px)" }}
+        style={{ background: "radial-gradient(ellipse, rgba(58,229,178,0.04) 0%, transparent 70%)", filter: "blur(80px)" }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
@@ -79,9 +79,9 @@ export function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-              style={{ background: "rgba(0,229,255,0.08)", border: "1px solid rgba(0,229,255,0.2)" }}
+              style={{ background: "rgba(58,229,178,0.08)", border: "1px solid rgba(58,229,178,0.2)" }}
             >
-              <span style={{ fontSize: 11, color: "#00E5FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>SERVICES</span>
+              <span style={{ fontSize: 11, color: "#3AE5B2", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>SERVICES</span>
             </motion.div>
 
             <motion.h2
@@ -94,7 +94,7 @@ export function Services() {
               Full-Spectrum{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                  background: "linear-gradient(135deg, #3AE5B2, #6C63FF)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",

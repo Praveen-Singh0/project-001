@@ -21,8 +21,8 @@ function GlassInput({ icon: Icon, type, placeholder, value, onChange, label }: {
         className="relative flex items-center rounded-xl transition-all duration-200"
         style={{
           background: isDark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.7)",
-          border: `1px solid ${focused ? (isDark ? "rgba(0,229,255,0.4)" : "rgba(0,149,191,0.4)") : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.1)")}`,
-          boxShadow: focused ? (isDark ? "0 0 0 3px rgba(0,229,255,0.07), inset 0 0 0 1px rgba(0,229,255,0.1)" : "0 0 0 3px rgba(0,149,191,0.07)") : "none",
+          border: `1px solid ${focused ? (isDark ? "rgba(58,229,178,0.4)" : "rgba(15,164,126,0.4)") : (isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.1)")}`,
+          boxShadow: focused ? (isDark ? "0 0 0 3px rgba(58,229,178,0.07), inset 0 0 0 1px rgba(58,229,178,0.1)" : "0 0 0 3px rgba(15,164,126,0.07)") : "none",
         }}
       >
         <Icon size={15} style={{ position: "absolute", left: 14, color: isDark ? "#8892b0" : "#6271a0", flexShrink: 0 }} />
@@ -66,7 +66,7 @@ export function LoginPage() {
 
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const cyan = isDark ? "#00E5FF" : "#0095bf";
+  const cyan = isDark ? "#3AE5B2" : "#0FA47E";
   const cardBg = isDark ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.6)";
   const cardBorder = isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.08)";
 
@@ -134,9 +134,9 @@ export function LoginPage() {
             disabled={loading}
             className="w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all duration-300 mt-2"
             style={{
-              background: loading ? "rgba(0,229,255,0.4)" : "linear-gradient(135deg, #00E5FF, #6C63FF)",
+              background: loading ? "rgba(58,229,178,0.4)" : "linear-gradient(135deg, #3AE5B2, #6C63FF)",
               color: "#04050d",
-              boxShadow: loading ? "none" : (isDark ? "0 0 25px rgba(0,229,255,0.25)" : "0 6px 20px rgba(0,149,191,0.35)"),
+              boxShadow: loading ? "none" : (isDark ? "0 0 25px rgba(58,229,178,0.25)" : "0 6px 20px rgba(15,164,126,0.35)"),
             }}
           >
             {loading ? (
@@ -154,10 +154,10 @@ export function LoginPage() {
           className="w-full py-3 rounded-xl text-sm font-semibold border transition-all duration-200"
           style={{
             background: "transparent",
-            borderColor: isDark ? "rgba(0,229,255,0.2)" : "rgba(0,149,191,0.25)",
+            borderColor: isDark ? "rgba(58,229,178,0.2)" : "rgba(15,164,126,0.25)",
             color: cyan,
           }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(0,229,255,0.05)" : "rgba(0,149,191,0.06)"; }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(58,229,178,0.05)" : "rgba(15,164,126,0.06)"; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
         >
           Preview Dashboard →
