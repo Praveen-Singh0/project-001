@@ -230,7 +230,7 @@ function AIDashboardCard({ isDark }: { isDark: boolean }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.2, duration: 0.8 }}
       className="absolute bottom-10 right-0 md:right-[-24px] rounded-2xl p-5 w-[252px]"
       style={{
@@ -273,7 +273,7 @@ function AIDashboardCard({ isDark }: { isDark: boolean }) {
           <motion.div
             className="w-1.5 h-1.5 rounded-full"
             style={{ background: green, boxShadow: `0 0 6px ${green}` }}
-            animate={{ opacity: [1, 0.3, 1] }}
+            whileInView={{ opacity: [1, 0.3, 1] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           />
           <span
@@ -312,7 +312,7 @@ function AIDashboardCard({ isDark }: { isDark: boolean }) {
         <motion.div
           className="h-full rounded-full"
           style={{ background: "linear-gradient(90deg, #3AE5B2, #6C63FF)" }}
-          animate={{ width: ["55%", "82%", "62%"] }}
+          whileInView={{ width: ["55%", "82%", "62%"] }}
           transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
@@ -360,7 +360,7 @@ function Particles({ isDark }: { isDark: boolean }) {
             height: p.size,
             background: p.color,
           }}
-          animate={{ opacity: [0.1, 0.8, 0.1], y: [0, -20, 0] }}
+          whileInView={{ opacity: [0.1, 0.8, 0.1], y: [0, -20, 0] }}
           transition={{
             duration: p.dur,
             delay: p.delay,
@@ -416,7 +416,7 @@ export function Hero() {
         <div className="flex flex-col gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 w-fit"
             style={{
@@ -441,7 +441,7 @@ export function Hero() {
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             style={{
               fontSize: "clamp(2.2rem, 5vw, 4rem)",
@@ -470,7 +470,7 @@ export function Hero() {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
             style={{
               fontSize: "1.05rem",
@@ -485,7 +485,7 @@ export function Hero() {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65, duration: 0.6 }}
             className="flex items-center gap-4 flex-wrap"
           >
@@ -518,7 +518,7 @@ export function Hero() {
 
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
             transition={{ delay: 0.85, duration: 0.6 }}
             className="flex items-center gap-3"
           >
@@ -556,7 +556,7 @@ export function Hero() {
         {/* Right: Globe */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1.2 }}
+          whileInView={{ opacity: 1, scale: 1.2 }}
           transition={{ delay: 0.4, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="relative flex items-center justify-center"
         >
@@ -565,7 +565,7 @@ export function Hero() {
 
           <motion.div
             initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.4, duration: 0.6 }}
             className="absolute top-12 left-[20px] rounded-xl px-3 py-2 flex items-center gap-2"
             style={{
@@ -589,7 +589,7 @@ export function Hero() {
 
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.6 }}
         className="py-8"
       >
@@ -605,7 +605,7 @@ export function Hero() {
           />
 
           <motion.div
-            animate={{ x: ["0%", "-50%"] }}
+            whileInView={{ x: ["0%", "-50%"] }}
             transition={{
               duration: 30,
               repeat: Infinity,

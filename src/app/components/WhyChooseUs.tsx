@@ -72,7 +72,7 @@ export function WhyChooseUs() {
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
@@ -83,7 +83,7 @@ export function WhyChooseUs() {
 
           <motion.h2
             initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
             style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: fg, maxWidth: 600, margin: "0 auto" }}
@@ -112,7 +112,7 @@ export function WhyChooseUs() {
             <motion.div
               key={p.title}
               initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="relative rounded-2xl p-6 flex flex-col gap-4 group cursor-default transition-all duration-400"
