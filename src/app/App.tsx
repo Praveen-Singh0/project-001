@@ -21,6 +21,7 @@ import { Footer } from "./components/Footer";
 import { ServicesPage } from "./pages/ServicesPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
 import { ContactPage } from "./pages/ContactPage";
+import { CloudServicesPage } from "./pages/CloudServicesPage";
 import { LoginPage } from "./components/auth/LoginPage";
 import { SignUpPage } from "./components/auth/SignUpPage";
 import { ForgotPasswordPage } from "./components/auth/ForgotPasswordPage";
@@ -100,6 +101,7 @@ function AppInner() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/services" element={<ServicesPage />} />
+                <Route path="/cloud-services" element={<CloudServicesPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/login" element={<LoginPage />} />

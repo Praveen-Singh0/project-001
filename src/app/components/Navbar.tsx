@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Sun, Moon, Home, Layers, FolderKanban, Mail, type LucideIcon } from "lucide-react";
+import { Menu, X, Sun, Moon, Home, Layers, FolderKanban, Mail, Cloud, type LucideIcon } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { MagneticButton } from "./MagneticButton";
 
 const navLinks: { label: string; path: string; icon: LucideIcon }[] = [
   { label: "Home", path: "/", icon: Home },
   { label: "Services", path: "/services", icon: Layers },
+  { label: "Cloud Services", path: "/cloud-services", icon: Cloud },
   { label: "Projects", path: "/projects", icon: FolderKanban },
   { label: "Contact", path: "/contact", icon: Mail },
 ];
