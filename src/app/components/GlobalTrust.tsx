@@ -63,7 +63,6 @@ function StatCard({ value, suffix, label, color, index, started }: typeof stats[
       <div style={{ fontSize: 14, color: labelColor, textAlign: "center", fontWeight: 500 }}>
         {label}
       </div>
-      <div style={{ fontSize: 13, color: "#8892b0", fontWeight: 500, textAlign: "center" }}>{label}</div>
       <div className="w-12 h-px mt-1" style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }} />
     </motion.div>
   );
@@ -235,12 +234,12 @@ export function GlobalTrust() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: "#f0f4ff" }}
+            style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: fg }}
           >
             Trusted Across{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: isDark ? "linear-gradient(135deg, #00E5FF, #6C63FF)" : "linear-gradient(135deg, #0095bf, #6C63FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -259,8 +258,8 @@ export function GlobalTrust() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="rounded-2xl overflow-hidden mb-12 p-6"
           style={{
-            background: "rgba(255,255,255,0.02)",
-            border: "1px solid rgba(0,229,255,0.1)",
+            background: isDark ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0.4)",
+            border: isDark ? "1px solid rgba(0,229,255,0.1)" : "1px solid rgba(0,149,191,0.1)",
           }}
         >
           <WorldMap />
