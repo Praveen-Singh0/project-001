@@ -82,40 +82,62 @@ function AppInner() {
   const [loaded, setLoaded] = useState(false);
   const location = useLocation();
 
+  // Force initial browser repaint after loading
+  useEffect(() => {
+    if (!loaded) return;
+
+    requestAnimationFrame(() => {
+      window.dispatchEvent(new Event("resize"));
+      window.dispatchEvent(new Event("scroll"));
+    });
+  }, [loaded]);
+
   return (
     <>
-      {!loaded && <LoadingScreen onDone={() => setLoaded(true)} />}
-      {loaded && (
-        <>
-          <CustomCursor />
-          <ScrollToTop />
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={location.pathname}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/home" element={<HomePage />} />
-                <Route path="/services" element={<ServicesPage />} />
-                <Route path="/cloud-services" element={<CloudServicesPage />} />
-                <Route path="/projects" element={<ProjectsPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/signup" element={<SignUpPage />} />
-                <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-                <Route path="/reset-password" element={<ResetPasswordPage />} />
-                <Route path="/verify-email" element={<VerifyEmailPage />} />
-                <Route path="/2fa" element={<TwoFAPage />} />
-                {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-              </Routes>
-            </motion.div>
-          </AnimatePresence>
-        </>
+      {!loaded && (
+        <LoadingScreen
+          onDone={() => {
+            setLoaded(true);
+          }}
+        />
       )}
+
+      <div
+        style={{
+          visibility: loaded ? "visible" : "hidden",
+        }}
+      >
+        <CustomCursor />
+        <ScrollToTop />
+
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+          >
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/cloud-services" element={<CloudServicesPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+              <Route path="/reset-password" element={<ResetPasswordPage />} />
+              <Route path="/verify-email" element={<VerifyEmailPage />} />
+              <Route path="/2fa" element={<TwoFAPage />} />
+            </Routes>
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </>
   );
 }

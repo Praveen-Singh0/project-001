@@ -1,14 +1,7 @@
-
-"use client"
-
-import { useState } from "react"
 import { ProjectCard } from "./project-card"
-import { ProjectModal } from "./project-modal"
 import { projects } from "../../components/ui/projectsData"
-import type { Project } from "../../components/ui/projectsData"
 
 export function ProjectsGrid() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   return (
     <>
@@ -18,15 +11,9 @@ export function ProjectsGrid() {
             key={project.id}
             project={project}
             index={index}
-            onClick={setSelectedProject}
           />
         ))}
       </div>
-
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
     </>
   )
 }

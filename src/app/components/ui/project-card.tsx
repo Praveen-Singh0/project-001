@@ -11,10 +11,9 @@ import type { Project } from "../../components/ui/projectsData"
 interface ProjectCardProps {
   project: Project
   index: number
-  onClick: (project: Project) => void
 }
 
-export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
+export function ProjectCard({ project, index }: ProjectCardProps) {
   const [hovered, setHovered] = useState(false)
 
   return (
@@ -32,11 +31,10 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={() => onClick(project)}
       role="button"
       tabIndex={0}
       aria-label={`View ${project.title} project details`}
-      onKeyDown={(e) => e.key === "Enter" && onClick(project)}
+      onKeyDown={(e) => e.key === "Enter"}
     >
       {/* Thumbnail */}
       <div className="relative h-52 overflow-hidden">
