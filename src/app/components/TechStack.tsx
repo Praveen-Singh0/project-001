@@ -1,176 +1,212 @@
+import { useState } from "react";
 import { motion } from "motion/react";
+import { Users, Rocket, Globe, Shield, ArrowRight } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 
-const techItems = [
-  { name: "React", color: "#61DAFB", letter: "⚛" },
-  { name: "Next.js", color: "#f0f4ff", letter: "N" },
-  { name: "TypeScript", color: "#3178C6", letter: "TS" },
-  { name: "Node.js", color: "#68A063", letter: "⬡" },
-  { name: "NestJS", color: "#E0234E", letter: "N" },
-  { name: "Express", color: "#f0f4ff", letter: "Ex" },
-  { name: "AWS", color: "#FF9900", letter: "⌘" },
-  { name: "Azure", color: "#0078D4", letter: "Az" },
-  { name: "GCP", color: "#4285F4", letter: "G" },
-  { name: "React Native", color: "#61DAFB", letter: "RN" },
-  { name: "Flutter", color: "#02569B", letter: "Ft" },
-  { name: "OpenAI", color: "#10A37F", letter: "AI" },
-  { name: "Claude", color: "#CC785C", letter: "Cl" },
-  { name: "LangChain", color: "#1C3C3C", letter: "LC" },
-  { name: "PostgreSQL", color: "#336791", letter: "Pg" },
-  { name: "MongoDB", color: "#47A248", letter: "Mo" },
-  { name: "Redis", color: "#DC382D", letter: "Re" },
+const stats = [
+  { icon: Users, label: "Happy Clients", value: "150+" },
+  { icon: Rocket, label: "Projects Delivered", value: "300+" },
+  { icon: Globe, label: "Countries Served", value: "10+" },
+  { icon: Shield, label: "Client Satisfaction", value: "98%" },
 ];
 
-function TechChip({ name, color, letter, index }: typeof techItems[0] & { index: number }) {
+const categories = [
+  { id: "frontend", name: "Frontend", color: "#00E5FF" },
+  { id: "backend", name: "Backend", color: "#6C63FF" },
+  { id: "cloud", name: "Cloud", color: "#00BFFF" },
+  { id: "ai", name: "AI/ML", color: "#a78bfa" },
+  { id: "mobile", name: "Mobile", color: "#FF6B6B" },
+  { id: "devops", name: "DevOps", color: "#4ECDC4" },
+];
+
+const technologies = [
+  { name: "React", category: "frontend", icon: "⚛" },
+  { name: "Next.js", category: "frontend", icon: "⬡" },
+  { name: "Vue.js", category: "frontend", icon: "✓" },
+  { name: "Angular", category: "frontend", icon: "A" },
+  { name: "TypeScript", category: "frontend", icon: "TS" },
+  { name: "Tailwind CSS", category: "frontend", icon: "🌊" },
+  { name: "JavaScript", category: "frontend", icon: "JS" },
+  { name: "Node.js", category: "backend", icon: "⬡" },
+  { name: "Python", category: "backend", icon: "🐍" },
+  { name: "GraphQL", category: "backend", icon: "◆" },
+  { name: "Firebase", category: "backend", icon: "🔥" },
+  { name: "AWS", category: "cloud", icon: "☁" },
+  { name: "Docker", category: "devops", icon: "🐋" },
+  { name: "Kubernetes", category: "devops", icon: "☸" },
+];
+
+function StatCard({ icon: Icon, label, value, index }: { icon: typeof Users; label: string; value: string; index: number }) {
   const { isDark } = useTheme();
-  const chipBg = isDark ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.5)";
-  const chipBorder = isDark ? "rgba(255,255,255,0.07)" : "rgba(108,99,255,0.14)";
-  const chipHoverBg = isDark ? "rgba(255,255,255,0.07)" : "rgba(255,255,255,0.7)";
-  const textColor = isDark ? "#c8d3e8" : "#6271a0";
-  const shadowDark = isDark ? "0 10px 30px rgba(0,0,0,0.3)" : "0 10px 30px rgba(163,177,198,0.15)";
+  const fg = isDark ? "#f0f4ff" : "#0d0f1e";
+  const muted = isDark ? "#8892b0" : "#6271a0";
+  const iconColor = isDark ? "#00E5FF" : "#0095bf";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="flex items-center gap-4 px-6 py-4"
+    >
+      <div className="flex-shrink-0">
+        <Icon size={32} color={iconColor} />
+      </div>
+      <div>
+        <div style={{ fontSize: 24, fontWeight: 700, color: fg }}>{value}</div>
+        <div style={{ fontSize: 13, color: muted }}>{label}</div>
+      </div>
+    </motion.div>
+  );
+}
+
+function TechCard({ name, icon, index }: { name: string; icon: string; index: number }) {
+  const { isDark } = useTheme();
+  const cardBg = isDark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.5)";
+  const cardBorder = isDark ? "rgba(255,255,255,0.08)" : "rgba(108,99,255,0.14)";
+  const fg = isDark ? "#f0f4ff" : "#0d0f1e";
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.04, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="flex items-center gap-2.5 rounded-xl px-4 py-3 transition-all duration-300 group cursor-default"
+      transition={{ delay: index * 0.03 }}
+      className="rounded-lg p-4 text-center cursor-pointer group"
       style={{
-        background: chipBg,
-        border: chipBorder,
+        background: cardBg,
+        border: cardBorder,
         backdropFilter: "blur(10px)",
       }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.background = chipHoverBg;
-        (e.currentTarget as HTMLElement).style.borderColor = `${color}50`;
-        (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
-        (e.currentTarget as HTMLElement).style.boxShadow = `${shadowDark}, 0 0 15px ${color}20`;
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.background = chipBg;
-        (e.currentTarget as HTMLElement).style.borderColor = chipBorder;
-        (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "none";
+      whileHover={{
+        scale: 1.05,
+        backgroundColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.7)",
       }}
     >
-      <div
-        className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
-        style={{ background: `${color}20`, fontSize: 10, fontWeight: 700, color, fontFamily: "var(--font-mono)" }}
-      >
-        {letter}
-      </div>
-      <span style={{ fontSize: 13, fontWeight: 500, color: textColor }}>{name}</span>
+      <div style={{ fontSize: 32, marginBottom: 8 }}>{icon}</div>
+      <div style={{ fontSize: 13, fontWeight: 600, color: fg }}>{name}</div>
     </motion.div>
   );
 }
 
 export function TechStack() {
   const { isDark } = useTheme();
+  const [activeCategory, setActiveCategory] = useState("frontend");
+
   const bg = isDark ? "#04050d" : "#e8ecf7";
-  const gridColor = isDark ? "rgba(0,229,255,0.08)" : "rgba(0,149,191,0.05)";
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
   const muted = isDark ? "#8892b0" : "#6271a0";
-  const labelColor = isDark ? "#6C63FF" : "#0095bf";
-  const catBg = isDark ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.5)";
-  const catBorder = isDark ? "rgba(255,255,255,0.07)" : "rgba(108,99,255,0.14)";
+  const labelColor = isDark ? "#00E5FF" : "#0095bf";
+  const catBg = isDark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.5)";
+  const catBorder = isDark ? "rgba(255,255,255,0.08)" : "rgba(108,99,255,0.14)";
+  const activeCatBg = isDark ? "rgba(0,229,255,0.15)" : "rgba(0,149,191,0.15)";
+
+  const filteredTechs = technologies.filter((tech) => tech.category === activeCategory);
 
   return (
-    <section id="tech" className="relative py-28 overflow-hidden" style={{ background: bg }}>
-      {/* Grid bg */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-10"
-        style={{
-          backgroundImage: `linear-gradient(${gridColor} 1px, transparent 1px), linear-gradient(90deg, ${gridColor} 1px, transparent 1px)`,
-          backgroundSize: "80px 80px",
-        }}
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-            style={{ background: isDark ? "rgba(108,99,255,0.1)" : "rgba(0,149,191,0.08)", border: isDark ? "1px solid rgba(108,99,255,0.25)" : "1px solid rgba(0,149,191,0.2)" }}
-          >
-            <span style={{ fontSize: 11, color: labelColor, letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>TECHNOLOGY STACK</span>
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: fg, maxWidth: 600, margin: "0 auto" }}
-          >
-            Built on{" "}
-            <span
-              style={{
-                background: isDark ? "linear-gradient(135deg, #00E5FF, #6C63FF)" : "linear-gradient(135deg, #0095bf, #6C63FF)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Best-in-Class
-            </span>{" "}
-            Technology
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            style={{ fontSize: 15, color: muted, maxWidth: 480, margin: "16px auto 0", lineHeight: 1.7 }}
-          >
-            We choose battle-tested tools from the most trusted vendors in the ecosystem — and integrate them into coherent, maintainable architectures.
-          </motion.p>
-        </div>
-
-        {/* Tech chips */}
-        <div className="flex flex-wrap gap-3 justify-center">
-          {techItems.map((item, i) => (
-            <TechChip key={item.name} {...item} index={i} />
-          ))}
-        </div>
-
-        {/* Categories row */}
+    <section id="tech" className="relative py-24 overflow-hidden" style={{ background: bg }}>
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Stats Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-14"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 pb-8"
+          style={{
+            borderBottom: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(108,99,255,0.14)",
+          }}
         >
-          {[
-            { label: "Frontend", techs: "React · Next.js · TypeScript", color: "#00E5FF" },
-            { label: "Backend", techs: "Node.js · NestJS · Express", color: "#6C63FF" },
-            { label: "Cloud & Infra", techs: "AWS · Azure · GCP", color: "#00BFFF" },
-            { label: "AI & Data", techs: "OpenAI · Claude · LangChain", color: "#a78bfa" },
-          ].map((cat) => (
-            <div
-              key={cat.label}
-              className="rounded-xl p-4"
-              style={{
-                background: catBg,
-                border: catBorder,
-              }}
-            >
-              <div
-                className="text-xs font-semibold mb-2"
-                style={{ color: cat.color, fontFamily: "var(--font-mono)", letterSpacing: "0.08em" }}
-              >
-                {cat.label}
-              </div>
-              <div style={{ fontSize: 12, color: muted }}>{cat.techs}</div>
-            </div>
+          {stats.map((stat, idx) => (
+            <StatCard key={stat.label} {...stat} index={idx} />
           ))}
         </motion.div>
+
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-3 gap-12 items-start">
+          {/* Left Side - Title and Description */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div style={{ fontSize: 11, fontWeight: 700, color: labelColor, letterSpacing: "0.15em", marginBottom: 12, fontFamily: "var(--font-mono)", textTransform: "uppercase" }}>
+              Tech Stack
+            </div>
+            <h2 style={{ fontSize: 32, fontWeight: 700, color: fg, marginBottom: 12, lineHeight: 1.2 }}>
+              Built for Speed & Reliability
+            </h2>
+            <p style={{ fontSize: 14, color: muted, lineHeight: 1.7, marginBottom: 24 }}>
+              We leverage the best tools and technologies to build future-ready, scalable solutions.
+            </p>
+
+            {/* Illustration Placeholder */}
+            <div
+              className="w-full h-48 rounded-lg flex items-center justify-center"
+              style={{
+                background: isDark ? "rgba(0,229,255,0.08)" : "rgba(0,149,191,0.08)",
+                border: isDark ? "1px solid rgba(0,229,255,0.15)" : "1px solid rgba(0,149,191,0.15)",
+              }}
+            >
+              <div style={{ textAlign: "center", color: muted }}>
+                <div style={{ fontSize: 48, marginBottom: 8 }}>☁️ 💻 ⚙️</div>
+                <div style={{ fontSize: 12 }}>Tech Illustration</div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Side - Categories and Technologies */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-2"
+          >
+            {/* Category Pills */}
+            <div className="flex flex-wrap gap-3 mb-12">
+              {categories.map((cat) => (
+                <motion.button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className="px-4 py-2 rounded-full font-medium text-sm transition-all"
+                  style={{
+                    background: activeCategory === cat.id ? activeCatBg : catBg,
+                    border: activeCategory === cat.id ? `2px solid ${cat.color}` : `1px solid ${catBorder}`,
+                    color: activeCategory === cat.id ? cat.color : muted,
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {cat.name}
+                </motion.button>
+              ))}
+            </div>
+
+            {/* Technologies Grid */}
+            <div className="grid grid-cols-3 gap-4 mb-8">
+              {filteredTechs.map((tech, idx) => (
+                <TechCard key={tech.name} name={tech.name} icon={tech.icon} index={idx} />
+              ))}
+            </div>
+
+            {/* View All Button */}
+            <motion.button
+              whileHover={{ scale: 1.02, x: 4 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-2 px-6 py-3 rounded-full font-semibold"
+              style={{
+                background: isDark ? "rgba(0,229,255,0.1)" : "rgba(0,149,191,0.1)",
+                border: isDark ? "1px solid rgba(0,229,255,0.3)" : "1px solid rgba(0,149,191,0.3)",
+                color: labelColor,
+              }}
+            >
+              View All Technologies
+              <ArrowRight size={16} />
+            </motion.button>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
