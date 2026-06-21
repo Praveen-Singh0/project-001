@@ -17,6 +17,9 @@ import { GlobalTrust } from "./components/GlobalTrust";
 import { Testimonials } from "./components/Testimonials";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { ServicesPage } from "./pages/ServicesPage";
+import { ProjectsPage } from "./pages/ProjectsPage";
+import { ContactPage } from "./pages/ContactPage";
 import { LoginPage } from "./components/auth/LoginPage";
 import { SignUpPage } from "./components/auth/SignUpPage";
 import { ForgotPasswordPage } from "./components/auth/ForgotPasswordPage";
@@ -94,9 +97,9 @@ function AppInner() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/home" element={<HomePage />} />
-                <Route path="/services" element={<HomePage />} />
-                <Route path="/projects" element={<HomePage />} />
-                <Route path="/contact" element={<HomePage />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/contact" element={<ContactPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/forgot-password" element={<ForgotPasswordPage />} />
