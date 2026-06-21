@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Brain, Cloud, Layers, BarChart3, ArrowRight } from "lucide-react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const pillars = [
   {
@@ -33,12 +34,25 @@ const pillars = [
 ];
 
 export function WhyChooseUs() {
+  const { isDark } = useTheme();
+  const bg = isDark 
+    ? "linear-gradient(180deg, #04050d 0%, rgba(6,9,20,1) 50%, #04050d 100%)"
+    : "linear-gradient(180deg, #e8ecf7 0%, rgba(240,244,255,1) 50%, #e8ecf7 100%)";
+  const fg = isDark ? "#f0f4ff" : "#0d0f1e";
+  const muted = isDark ? "#8892b0" : "#6271a0";
+  const gridColor = isDark ? "rgba(0,229,255,0.06)" : "rgba(0,149,191,0.05)";
+  const glowBg = isDark 
+    ? "radial-gradient(ellipse at top right, rgba(0,229,255,0.05) 0%, transparent 70%)"
+    : "radial-gradient(ellipse at top right, rgba(0,149,191,0.04) 0%, transparent 70%)";
+  const cardBg = isDark ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.6)";
+  const cardBorder = isDark ? "rgba(255,255,255,0.08)" : "rgba(108,99,255,0.14)";
+  
   return (
     <section
       id="why"
       className="relative py-28 overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #04050d 0%, rgba(6,9,20,1) 50%, #04050d 100%)",
+        background: bg,
       }}
     >
       {/* Decorative grid lines */}
@@ -46,8 +60,8 @@ export function WhyChooseUs() {
         className="absolute inset-0 pointer-events-none opacity-20"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(0,229,255,0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,229,255,0.06) 1px, transparent 1px)
+            linear-gradient(${gridColor} 1px, transparent 1px),
+            linear-gradient(90deg, ${gridColor} 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -62,9 +76,9 @@ export function WhyChooseUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-            style={{ background: "rgba(0,229,255,0.08)", border: "1px solid rgba(0,229,255,0.2)" }}
+            style={{ background: isDark ? "rgba(0,229,255,0.08)" : "rgba(0,149,191,0.08)", border: isDark ? "1px solid rgba(0,229,255,0.2)" : "1px solid rgba(0,149,191,0.2)" }}
           >
-            <span style={{ fontSize: 11, color: "#00E5FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>WHY CHOOSE US</span>
+            <span style={{ fontSize: 11, color: isDark ? "#00E5FF" : "#0095bf", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>WHY CHOOSE US</span>
           </motion.div>
 
           <motion.h2
@@ -72,12 +86,12 @@ export function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: "#f0f4ff", maxWidth: 600, margin: "0 auto" }}
+            style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: fg, maxWidth: 600, margin: "0 auto" }}
           >
             Turning Ideas into{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: isDark ? "linear-gradient(135deg, #00E5FF, #6C63FF)" : "linear-gradient(135deg, #0095bf, #6C63FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -101,17 +115,17 @@ export function WhyChooseUs() {
               className="relative rounded-2xl p-6 flex flex-col gap-4 group cursor-default transition-all duration-400"
               style={{
                 background: p.gradient,
-                border: "1px solid rgba(255,255,255,0.08)",
+                border: cardBorder,
                 backdropFilter: "blur(10px)",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)";
                 (e.currentTarget as HTMLElement).style.borderColor = `${p.color}40`;
-                (e.currentTarget as HTMLElement).style.boxShadow = `0 30px 60px rgba(0,0,0,0.4), 0 0 30px ${p.color}10`;
+                (e.currentTarget as HTMLElement).style.boxShadow = isDark ? `0 30px 60px rgba(0,0,0,0.4), 0 0 30px ${p.color}10` : `0 30px 60px rgba(163,177,198,0.2), 0 0 30px ${p.color}10`;
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";
+                (e.currentTarget as HTMLElement).style.borderColor = cardBorder;
                 (e.currentTarget as HTMLElement).style.boxShadow = "none";
               }}
             >
@@ -136,8 +150,8 @@ export function WhyChooseUs() {
               </div>
 
               <div>
-                <h3 style={{ fontSize: 16, fontWeight: 600, color: "#f0f4ff", marginBottom: 8 }}>{p.title}</h3>
-                <p style={{ fontSize: 13, color: "#8892b0", lineHeight: 1.65 }}>{p.desc}</p>
+                <h3 style={{ fontSize: 16, fontWeight: 600, color: fg, marginBottom: 8 }}>{p.title}</h3>
+                <p style={{ fontSize: 13, color: muted, lineHeight: 1.65 }}>{p.desc}</p>
               </div>
 
               <div className="flex items-center gap-2 mt-auto pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

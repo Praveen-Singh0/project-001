@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowUpRight, Star } from "lucide-react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const projects = [
   {
@@ -61,11 +62,25 @@ const projects = [
 ];
 
 export function Projects() {
+  const { isDark } = useTheme();
+  const bg = isDark ? "#04050d" : "#e8ecf7";
+  const glowBg = isDark
+    ? "radial-gradient(ellipse, rgba(108,99,255,0.05) 0%, transparent 70%)"
+    : "radial-gradient(ellipse, rgba(0,149,191,0.04) 0%, transparent 70%)";
+  const fg = isDark ? "#f0f4ff" : "#0d0f1e";
+  const muted = isDark ? "#8892b0" : "#6271a0";
+  const labelColor = isDark ? "#00E5FF" : "#0095bf";
+  const cardBorder = isDark ? "rgba(255,255,255,0.07)" : "rgba(108,99,255,0.14)";
+  const cardShadow = isDark ? "0 30px 80px rgba(0,0,0,0.4)" : "0 30px 80px rgba(163,177,198,0.2)";
+  const textStack = isDark ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.6)";
+  const textStackBorder = isDark ? "rgba(255,255,255,0.1)" : "rgba(108,99,255,0.14)";
+  const textStackColor = isDark ? "#8892b0" : "#6271a0";
+
   return (
-    <section id="projects" className="relative py-28 overflow-hidden" style={{ background: "#04050d" }}>
+    <section id="projects" className="relative py-28 overflow-hidden" style={{ background: bg }}>
       <div
         className="absolute top-[20%] left-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(108,99,255,0.05) 0%, transparent 70%)", filter: "blur(80px)" }}
+        style={{ background: glowBg, filter: "blur(80px)" }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
@@ -77,10 +92,10 @@ export function Projects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-            style={{ background: "rgba(0,229,255,0.08)", border: "1px solid rgba(0,229,255,0.2)" }}
+            style={{ background: isDark ? "rgba(0,229,255,0.08)" : "rgba(0,149,191,0.08)", border: isDark ? "1px solid rgba(0,229,255,0.2)" : "1px solid rgba(0,149,191,0.2)" }}
           >
-            <Star size={11} color="#00E5FF" />
-            <span style={{ fontSize: 11, color: "#00E5FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>PROJECT SHOWCASE</span>
+            <Star size={11} color={labelColor} />
+            <span style={{ fontSize: 11, color: labelColor, letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>PROJECT SHOWCASE</span>
           </motion.div>
 
           <motion.h2
@@ -88,12 +103,12 @@ export function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: "#f0f4ff" }}
+            style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: fg }}
           >
             Work That Speaks{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: isDark ? "linear-gradient(135deg, #00E5FF, #6C63FF)" : "linear-gradient(135deg, #0095bf, #6C63FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -116,15 +131,15 @@ export function Projects() {
               className={`grid lg:grid-cols-2 gap-8 rounded-2xl overflow-hidden transition-all duration-300 group ${i % 2 === 1 ? "lg:[direction:rtl]" : ""}`}
               style={{
                 background: project.bgGradient,
-                border: "1px solid rgba(255,255,255,0.07)",
+                border: cardBorder,
                 backdropFilter: "blur(10px)",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.borderColor = `${project.accent}30`;
-                (e.currentTarget as HTMLElement).style.boxShadow = `0 30px 80px rgba(0,0,0,0.4)`;
+                (e.currentTarget as HTMLElement).style.boxShadow = cardShadow;
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.07)";
+                (e.currentTarget as HTMLElement).style.borderColor = cardBorder;
                 (e.currentTarget as HTMLElement).style.boxShadow = "none";
               }}
             >
@@ -154,10 +169,10 @@ export function Projects() {
               {/* Content */}
               <div className={`p-8 flex flex-col justify-center gap-5 ${i % 2 === 1 ? "lg:[direction:ltr]" : ""}`}>
                 <div>
-                  <h3 style={{ fontSize: 22, fontWeight: 700, color: "#f0f4ff", marginBottom: 10, letterSpacing: "-0.01em" }}>
+                  <h3 style={{ fontSize: 22, fontWeight: 700, color: fg, marginBottom: 10, letterSpacing: "-0.01em" }}>
                     {project.title}
                   </h3>
-                  <p style={{ fontSize: 14, color: "#8892b0", lineHeight: 1.7 }}>{project.desc}</p>
+                  <p style={{ fontSize: 14, color: muted, lineHeight: 1.7 }}>{project.desc}</p>
                 </div>
 
                 {/* Metrics */}
@@ -165,7 +180,7 @@ export function Projects() {
                   {project.metrics.map((m) => (
                     <div key={m.label}>
                       <div style={{ fontFamily: "var(--font-mono)", fontSize: 18, fontWeight: 700, color: project.accent }}>{m.value}</div>
-                      <div style={{ fontSize: 11, color: "#8892b0", marginTop: 2 }}>{m.label}</div>
+                      <div style={{ fontSize: 11, color: muted, marginTop: 2 }}>{m.label}</div>
                     </div>
                   ))}
                 </div>
@@ -176,7 +191,7 @@ export function Projects() {
                     <span
                       key={tech}
                       className="px-2 py-1 rounded text-xs"
-                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "#8892b0", fontFamily: "var(--font-mono)" }}
+                      style={{ background: textStack, border: `1px solid ${textStackBorder}`, color: textStackColor, fontFamily: "var(--font-mono)" }}
                     >
                       {tech}
                     </span>

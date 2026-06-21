@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Twitter, Linkedin, Github, Youtube, ArrowUpRight } from "lucide-react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const footerLinks = {
   Company: ["About Us", "Careers", "Blog", "Press", "Partners"],
@@ -16,18 +17,33 @@ const socials = [
 ];
 
 export function Footer() {
+  const { isDark } = useTheme();
+  const bg = isDark ? "#04050d" : "#e8ecf7";
+  const borderTop = isDark ? "1px solid rgba(0,229,255,0.1)" : "1px solid rgba(0,149,191,0.1)";
+  const glowGradient = isDark 
+    ? "linear-gradient(90deg, transparent, rgba(0,229,255,0.4), rgba(108,99,255,0.4), transparent)"
+    : "linear-gradient(90deg, transparent, rgba(0,149,191,0.3), rgba(108,99,255,0.3), transparent)";
+  const fg = isDark ? "#f0f4ff" : "#0d0f1e";
+  const muted = isDark ? "#8892b0" : "#6271a0";
+  const labelColor = isDark ? "#00E5FF" : "#0095bf";
+  const ctaBg = isDark ? "rgba(0,229,255,0.04)" : "rgba(0,149,191,0.04)";
+  const ctaBorder = isDark ? "1px solid rgba(0,229,255,0.15)" : "1px solid rgba(0,149,191,0.15)";
+  const linkBg = isDark ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.5)";
+  const linkHoverBg = isDark ? "rgba(0,229,255,0.1)" : "rgba(0,149,191,0.1)";
+  const linkHoverColor = isDark ? "#00E5FF" : "#0095bf";
+
   return (
     <footer
       className="relative overflow-hidden"
       style={{
-        background: "#04050d",
-        borderTop: "1px solid rgba(0,229,255,0.1)",
+        background: bg,
+        borderTop: borderTop,
       }}
     >
       {/* Top separator glow */}
       <div
         className="absolute top-0 left-[20%] right-[20%] h-px"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(0,229,255,0.4), rgba(108,99,255,0.4), transparent)" }}
+        style={{ background: glowGradient }}
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 pt-16 pb-10">
@@ -48,11 +64,11 @@ export function Footer() {
                 <span style={{ fontFamily: "var(--font-mono)", fontWeight: 700, fontSize: 15, color: "#04050d" }}>DX</span>
               </div>
               <div>
-                <div style={{ fontWeight: 700, fontSize: 18, color: "#f0f4ff", letterSpacing: "-0.01em" }}>DTECHEX</div>
-                <div style={{ fontSize: 11, color: "#8892b0" }}>Doon Technology Expert</div>
+                <div style={{ fontWeight: 700, fontSize: 18, color: fg, letterSpacing: "-0.01em" }}>DTECHEX</div>
+                <div style={{ fontSize: 11, color: muted }}>Doon Technology Expert</div>
               </div>
             </div>
-            <p style={{ fontSize: 13, color: "#8892b0", maxWidth: 280, lineHeight: 1.7 }}>
+            <p style={{ fontSize: 13, color: muted, maxWidth: 280, lineHeight: 1.7 }}>
               AI-first technology partner for forward-thinking enterprises. Building intelligent solutions since 2018.
             </p>
           </div>
@@ -60,11 +76,11 @@ export function Footer() {
           {/* CTA */}
           <div
             className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-6 rounded-2xl"
-            style={{ background: "rgba(0,229,255,0.04)", border: "1px solid rgba(0,229,255,0.15)" }}
+            style={{ background: ctaBg, border: ctaBorder }}
           >
             <div>
-              <div style={{ fontWeight: 600, fontSize: 15, color: "#f0f4ff", marginBottom: 4 }}>Ready to transform your business?</div>
-              <div style={{ fontSize: 13, color: "#8892b0" }}>Join 150+ companies already scaling with DTECHEX.</div>
+              <div style={{ fontWeight: 600, fontSize: 15, color: fg, marginBottom: 4 }}>Ready to transform your business?</div>
+              <div style={{ fontSize: 13, color: muted }}>Join 150+ companies already scaling with DTECHEX.</div>
             </div>
             <a
               href="#contact"
@@ -85,7 +101,7 @@ export function Footer() {
                 style={{
                   fontSize: 11,
                   fontWeight: 600,
-                  color: "#00E5FF",
+                  color: labelColor,
                   letterSpacing: "0.1em",
                   fontFamily: "var(--font-mono)",
                   marginBottom: 16,
@@ -99,9 +115,9 @@ export function Footer() {
                     <a
                       href="#"
                       className="text-sm transition-colors duration-200"
-                      style={{ color: "#8892b0" }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#f0f4ff"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#8892b0"; }}
+                      style={{ color: muted }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = fg; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = muted; }}
                     >
                       {link}
                     </a>
@@ -115,9 +131,9 @@ export function Footer() {
         {/* Bottom bar */}
         <div
           className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ borderTop: isDark ? "1px solid rgba(255,255,255,0.06)" : "1px solid rgba(108,99,255,0.1)" }}
         >
-          <div style={{ fontSize: 12, color: "#8892b0" }}>
+          <div style={{ fontSize: 12, color: muted }}>
             © 2024 DTECHEX — Doon Technology Expert. All rights reserved.
           </div>
 
@@ -128,14 +144,14 @@ export function Footer() {
                 href={s.href}
                 aria-label={s.label}
                 className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200"
-                style={{ background: "rgba(255,255,255,0.05)", color: "#8892b0" }}
+                style={{ background: linkBg, color: muted }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "rgba(0,229,255,0.1)";
-                  (e.currentTarget as HTMLElement).style.color = "#00E5FF";
+                  (e.currentTarget as HTMLElement).style.background = linkHoverBg;
+                  (e.currentTarget as HTMLElement).style.color = linkHoverColor;
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)";
-                  (e.currentTarget as HTMLElement).style.color = "#8892b0";
+                  (e.currentTarget as HTMLElement).style.background = linkBg;
+                  (e.currentTarget as HTMLElement).style.color = muted;
                 }}
               >
                 <s.icon size={14} />
@@ -149,9 +165,9 @@ export function Footer() {
                 key={item}
                 href="#"
                 className="text-xs transition-colors duration-200"
-                style={{ color: "#8892b0" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#f0f4ff"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#8892b0"; }}
+                style={{ color: muted }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = fg; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = muted; }}
               >
                 {item}
               </a>

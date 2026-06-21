@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const testimonials = [
   {
@@ -51,7 +52,20 @@ const testimonials = [
 ];
 
 export function Testimonials() {
+  const { isDark } = useTheme();
   const [active, setActive] = useState(0);
+
+  const bg = isDark ? "#04050d" : "#e8ecf7";
+  const glowBg = isDark 
+    ? "radial-gradient(ellipse, rgba(108,99,255,0.05) 0%, transparent 70%)"
+    : "radial-gradient(ellipse, rgba(0,149,191,0.04) 0%, transparent 70%)";
+  const fg = isDark ? "#f0f4ff" : "#0d0f1e";
+  const muted = isDark ? "#8892b0" : "#6271a0";
+  const labelColor = isDark ? "#6C63FF" : "#0095bf";
+  const cardBg = isDark ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.6)";
+  const cardBorder = isDark ? "rgba(255,255,255,0.08)" : "rgba(108,99,255,0.14)";
+  const buttonBg = isDark ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.5)";
+  const buttonHover = isDark ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.7)";
 
   const prev = () => setActive((a) => (a - 1 + testimonials.length) % testimonials.length);
   const next = () => setActive((a) => (a + 1) % testimonials.length);
@@ -59,10 +73,10 @@ export function Testimonials() {
   const t = testimonials[active];
 
   return (
-    <section id="testimonials" className="relative py-28 overflow-hidden" style={{ background: "#04050d" }}>
+    <section id="testimonials" className="relative py-28 overflow-hidden" style={{ background: bg }}>
       <div
         className="absolute top-[30%] right-[-10%] w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(108,99,255,0.05) 0%, transparent 70%)", filter: "blur(80px)" }}
+        style={{ background: glowBg, filter: "blur(80px)" }}
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10">
@@ -74,9 +88,9 @@ export function Testimonials() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-            style={{ background: "rgba(108,99,255,0.1)", border: "1px solid rgba(108,99,255,0.25)" }}
+            style={{ background: isDark ? "rgba(108,99,255,0.1)" : "rgba(0,149,191,0.08)", border: isDark ? "1px solid rgba(108,99,255,0.25)" : "1px solid rgba(0,149,191,0.2)" }}
           >
-            <span style={{ fontSize: 11, color: "#6C63FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>CLIENT TESTIMONIALS</span>
+            <span style={{ fontSize: 11, color: labelColor, letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>CLIENT TESTIMONIALS</span>
           </motion.div>
 
           <motion.h2
@@ -84,12 +98,12 @@ export function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: "#f0f4ff" }}
+            style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: fg }}
           >
             What Our{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: isDark ? "linear-gradient(135deg, #00E5FF, #6C63FF)" : "linear-gradient(135deg, #0095bf, #6C63FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -105,8 +119,8 @@ export function Testimonials() {
         <div
           className="relative rounded-3xl p-8 md:p-12"
           style={{
-            background: "rgba(255,255,255,0.03)",
-            border: "1px solid rgba(255,255,255,0.08)",
+            background: cardBg,
+            border: cardBorder,
             backdropFilter: "blur(20px)",
           }}
         >
@@ -115,7 +129,7 @@ export function Testimonials() {
             className="absolute top-8 right-8 w-12 h-12 rounded-xl flex items-center justify-center opacity-20"
             style={{ background: t.avatarColor }}
           >
-            <Quote size={20} color="#04050d" />
+            <Quote size={20} color={isDark ? "#04050d" : "#e8ecf7"} />
           </div>
 
           <AnimatePresence mode="wait">
@@ -135,7 +149,7 @@ export function Testimonials() {
               </div>
 
               {/* Quote */}
-              <blockquote style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", color: "#c8d3e8", lineHeight: 1.75, fontStyle: "italic" }}>
+              <blockquote style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", color: muted, lineHeight: 1.75, fontStyle: "italic" }}>
                 "{t.quote}"
               </blockquote>
 
@@ -155,8 +169,8 @@ export function Testimonials() {
                   {t.avatar}
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, color: "#f0f4ff", fontSize: 15 }}>{t.name}</div>
-                  <div style={{ fontSize: 12, color: "#8892b0" }}>
+                  <div style={{ fontWeight: 600, color: fg, fontSize: 15 }}>{t.name}</div>
+                  <div style={{ fontSize: 12, color: muted }}>
                     {t.role} · {t.company}
                   </div>
                 </div>
@@ -176,7 +190,7 @@ export function Testimonials() {
                   style={{
                     width: i === active ? 24 : 8,
                     height: 8,
-                    background: i === active ? t.avatarColor : "rgba(255,255,255,0.15)",
+                    background: i === active ? t.avatarColor : isDark ? "rgba(255,255,255,0.15)" : "rgba(108,99,255,0.2)",
                   }}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
@@ -188,14 +202,14 @@ export function Testimonials() {
               <button
                 onClick={prev}
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
-                style={{ border: "1px solid rgba(255,255,255,0.1)", color: "#8892b0" }}
+                style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.1)" : "rgba(108,99,255,0.1)"}`, color: muted }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,229,255,0.4)";
-                  (e.currentTarget as HTMLElement).style.color = "#00E5FF";
+                  (e.currentTarget as HTMLElement).style.borderColor = isDark ? "rgba(0,229,255,0.4)" : "rgba(0,149,191,0.4)";
+                  (e.currentTarget as HTMLElement).style.color = isDark ? "#00E5FF" : "#0095bf";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.1)";
-                  (e.currentTarget as HTMLElement).style.color = "#8892b0";
+                  (e.currentTarget as HTMLElement).style.borderColor = isDark ? "rgba(255,255,255,0.1)" : "rgba(108,99,255,0.1)";
+                  (e.currentTarget as HTMLElement).style.color = muted;
                 }}
                 aria-label="Previous"
               >

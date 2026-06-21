@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { MapPin, Phone, Mail, Send, Calendar, CheckCircle } from "lucide-react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const contactInfo = [
   { icon: MapPin, label: "Office", value: "Dehradun, Uttarakhand, India — 248001", color: "#00E5FF" },
@@ -9,9 +10,23 @@ const contactInfo = [
 ];
 
 export function Contact() {
+  const { isDark } = useTheme();
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const bg = isDark ? "#04050d" : "#e8ecf7";
+  const fg = isDark ? "#f0f4ff" : "#0d0f1e";
+  const muted = isDark ? "#8892b0" : "#6271a0";
+  const labelColor = isDark ? "#00E5FF" : "#0095bf";
+  const inputBg = isDark ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.6)";
+  const inputBorder = isDark ? "rgba(255,255,255,0.1)" : "rgba(108,99,255,0.14)";
+  const glowGradient = isDark
+    ? "linear-gradient(90deg, transparent, rgba(0,229,255,0.3), transparent)"
+    : "linear-gradient(90deg, transparent, rgba(0,149,191,0.2), transparent)";
+  const glowBg = isDark
+    ? "radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%)"
+    : "radial-gradient(ellipse, rgba(0,149,191,0.03) 0%, transparent 70%)";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,14 +38,14 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-28 overflow-hidden" style={{ background: "#04050d" }}>
+    <section id="contact" className="relative py-28 overflow-hidden" style={{ background: bg }}>
       <div
         className="absolute top-0 left-0 right-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(0,229,255,0.3), transparent)" }}
+        style={{ background: glowGradient }}
       />
       <div
         className="absolute top-[10%] left-[20%] w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%)", filter: "blur(80px)" }}
+        style={{ background: glowBg, filter: "blur(80px)" }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-16 items-start">
@@ -42,10 +57,10 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-            style={{ background: "rgba(0,229,255,0.08)", border: "1px solid rgba(0,229,255,0.2)" }}
+            style={{ background: isDark ? "rgba(0,229,255,0.08)" : "rgba(0,149,191,0.08)", border: isDark ? "1px solid rgba(0,229,255,0.2)" : "1px solid rgba(0,149,191,0.2)" }}
           >
-            <Calendar size={11} color="#00E5FF" />
-            <span style={{ fontSize: 11, color: "#00E5FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>GET IN TOUCH</span>
+            <Calendar size={11} color={labelColor} />
+            <span style={{ fontSize: 11, color: labelColor, letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>GET IN TOUCH</span>
           </motion.div>
 
           <motion.h2

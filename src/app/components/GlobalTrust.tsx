@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
+import { useTheme } from "../contexts/ThemeContext";
 
 function useCounter(target: number, duration: number, start: boolean) {
   const [value, setValue] = useState(0);
@@ -26,7 +27,12 @@ const stats = [
 ];
 
 function StatCard({ value, suffix, label, color, index, started }: typeof stats[0] & { index: number; started: boolean }) {
+  const { isDark } = useTheme();
   const count = useCounter(value, 2000 + index * 200, started);
+  const cardBg = isDark ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.5)";
+  const cardBorder = isDark ? "rgba(255,255,255,0.07)" : "rgba(108,99,255,0.14)";
+  const labelColor = isDark ? "#8892b0" : "#6271a0";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -35,8 +41,8 @@ function StatCard({ value, suffix, label, color, index, started }: typeof stats[
       transition={{ delay: index * 0.1, duration: 0.6 }}
       className="flex flex-col items-center gap-2 p-8 rounded-2xl"
       style={{
-        background: "rgba(255,255,255,0.025)",
-        border: "1px solid rgba(255,255,255,0.07)",
+        background: cardBg,
+        border: cardBorder,
         backdropFilter: "blur(10px)",
       }}
     >
@@ -52,7 +58,10 @@ function StatCard({ value, suffix, label, color, index, started }: typeof stats[
         }}
       >
         {count}
-        {suffix}
+        <span style={{ color, fontSize: "0.7em", marginLeft: 2 }}>{suffix}</span>
+      </div>
+      <div style={{ fontSize: 14, color: labelColor, textAlign: "center", fontWeight: 500 }}>
+        {label}
       </div>
       <div style={{ fontSize: 13, color: "#8892b0", fontWeight: 500, textAlign: "center" }}>{label}</div>
       <div className="w-12 h-px mt-1" style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }} />
@@ -62,8 +71,13 @@ function StatCard({ value, suffix, label, color, index, started }: typeof stats[
 
 /* Simplified animated world map using canvas dots */
 function WorldMap() {
+  const { isDark } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number>(0);
+
+  const dotColor = isDark ? "rgba(0,229,255," : "rgba(0,149,191,";
+  const arcColor = isDark ? "rgba(108,99,255," : "rgba(0,149,191,";
+  const arcMoveColor = isDark ? "rgba(0,229,255,0.9)" : "rgba(0,149,191,0.9)";
 
   /* Approximate world landmass dot positions (normalized 0-1) */
   const dots = [
@@ -107,7 +121,7 @@ function WorldMap() {
         const x = nx * W;
         const y = ny * H;
         const pulse = 0.4 + 0.2 * Math.sin(t * 1.5 + i * 0.5);
-        ctx.fillStyle = `rgba(0,229,255,${pulse * 0.6})`;
+        ctx.fillStyle = `${dotColor}${pulse * 0.6})`;
         ctx.beginPath();
         ctx.arc(x, y, 2, 0, Math.PI * 2);
         ctx.fill();
@@ -128,7 +142,7 @@ function WorldMap() {
         const my = Math.min(ay, by) - 40 - Math.abs(bx - ax) * 0.15;
 
         // Draw arc
-        ctx.strokeStyle = `rgba(108,99,255,${0.3 * (1 - Math.abs(progress - 0.5) * 2)})`;
+        ctx.strokeStyle = `${arcColor}${0.3 * (1 - Math.abs(progress - 0.5) * 2)})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(ax, ay);
@@ -138,7 +152,7 @@ function WorldMap() {
         // Moving dot
         const px = (1 - progress) * (1 - progress) * ax + 2 * (1 - progress) * progress * mx + progress * progress * bx;
         const py = (1 - progress) * (1 - progress) * ay + 2 * (1 - progress) * progress * my + progress * progress * by;
-        ctx.fillStyle = "rgba(0,229,255,0.9)";
+        ctx.fillStyle = arcMoveColor;
         ctx.beginPath();
         ctx.arc(px, py, 3, 0, Math.PI * 2);
         ctx.fill();
@@ -164,8 +178,21 @@ function WorldMap() {
 }
 
 export function GlobalTrust() {
+  const { isDark } = useTheme();
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  const bg = isDark
+    ? "linear-gradient(180deg, #04050d 0%, rgba(6,9,20,1) 50%, #04050d 100%)"
+    : "linear-gradient(180deg, #e8ecf7 0%, #f0f4ff 50%, #e8ecf7 100%)";
+  const glowBg = isDark
+    ? "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,229,255,0.04) 0%, transparent 70%)"
+    : "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,149,191,0.03) 0%, transparent 70%)";
+  const fg = isDark ? "#f0f4ff" : "#0d0f1e";
+  const muted = isDark ? "#8892b0" : "#6271a0";
+  const labelColor = isDark ? "#00E5FF" : "#0095bf";
+  const labelBg = isDark ? "rgba(0,229,255,0.08)" : "rgba(0,149,191,0.08)";
+  const labelBorder = isDark ? "rgba(0,229,255,0.2)" : "rgba(0,149,191,0.2)";
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -180,12 +207,12 @@ export function GlobalTrust() {
     <section
       id="trust"
       className="relative py-28 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #04050d 0%, rgba(6,9,20,1) 50%, #04050d 100%)" }}
+      style={{ background: bg }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,229,255,0.04) 0%, transparent 70%)",
+          background: glowBg,
         }}
       />
 
@@ -198,9 +225,9 @@ export function GlobalTrust() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-            style={{ background: "rgba(0,229,255,0.08)", border: "1px solid rgba(0,229,255,0.2)" }}
+            style={{ background: labelBg, border: `1px solid ${labelBorder}` }}
           >
-            <span style={{ fontSize: 11, color: "#00E5FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>GLOBAL PRESENCE</span>
+            <span style={{ fontSize: 11, color: labelColor, letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>GLOBAL PRESENCE</span>
           </motion.div>
 
           <motion.h2

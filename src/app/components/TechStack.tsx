@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const techItems = [
   { name: "React", color: "#61DAFB", letter: "⚛" },
@@ -21,6 +22,13 @@ const techItems = [
 ];
 
 function TechChip({ name, color, letter, index }: typeof techItems[0] & { index: number }) {
+  const { isDark } = useTheme();
+  const chipBg = isDark ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.5)";
+  const chipBorder = isDark ? "rgba(255,255,255,0.07)" : "rgba(108,99,255,0.14)";
+  const chipHoverBg = isDark ? "rgba(255,255,255,0.07)" : "rgba(255,255,255,0.7)";
+  const textColor = isDark ? "#c8d3e8" : "#6271a0";
+  const shadowDark = isDark ? "0 10px 30px rgba(0,0,0,0.3)" : "0 10px 30px rgba(163,177,198,0.15)";
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -29,19 +37,19 @@ function TechChip({ name, color, letter, index }: typeof techItems[0] & { index:
       transition={{ delay: index * 0.04, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       className="flex items-center gap-2.5 rounded-xl px-4 py-3 transition-all duration-300 group cursor-default"
       style={{
-        background: "rgba(255,255,255,0.03)",
-        border: "1px solid rgba(255,255,255,0.07)",
+        background: chipBg,
+        border: chipBorder,
         backdropFilter: "blur(10px)",
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)";
+        (e.currentTarget as HTMLElement).style.background = chipHoverBg;
         (e.currentTarget as HTMLElement).style.borderColor = `${color}50`;
         (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
-        (e.currentTarget as HTMLElement).style.boxShadow = `0 10px 30px rgba(0,0,0,0.3), 0 0 15px ${color}20`;
+        (e.currentTarget as HTMLElement).style.boxShadow = `${shadowDark}, 0 0 15px ${color}20`;
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.03)";
-        (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.07)";
+        (e.currentTarget as HTMLElement).style.background = chipBg;
+        (e.currentTarget as HTMLElement).style.borderColor = chipBorder;
         (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
         (e.currentTarget as HTMLElement).style.boxShadow = "none";
       }}
@@ -52,19 +60,28 @@ function TechChip({ name, color, letter, index }: typeof techItems[0] & { index:
       >
         {letter}
       </div>
-      <span style={{ fontSize: 13, fontWeight: 500, color: "#c8d3e8" }}>{name}</span>
+      <span style={{ fontSize: 13, fontWeight: 500, color: textColor }}>{name}</span>
     </motion.div>
   );
 }
 
 export function TechStack() {
+  const { isDark } = useTheme();
+  const bg = isDark ? "#04050d" : "#e8ecf7";
+  const gridColor = isDark ? "rgba(0,229,255,0.08)" : "rgba(0,149,191,0.05)";
+  const fg = isDark ? "#f0f4ff" : "#0d0f1e";
+  const muted = isDark ? "#8892b0" : "#6271a0";
+  const labelColor = isDark ? "#6C63FF" : "#0095bf";
+  const catBg = isDark ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.5)";
+  const catBorder = isDark ? "rgba(255,255,255,0.07)" : "rgba(108,99,255,0.14)";
+
   return (
-    <section id="tech" className="relative py-28 overflow-hidden" style={{ background: "#04050d" }}>
+    <section id="tech" className="relative py-28 overflow-hidden" style={{ background: bg }}>
       {/* Grid bg */}
       <div
         className="absolute inset-0 pointer-events-none opacity-10"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,229,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.08) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(${gridColor} 1px, transparent 1px), linear-gradient(90deg, ${gridColor} 1px, transparent 1px)`,
           backgroundSize: "80px 80px",
         }}
       />
@@ -78,9 +95,9 @@ export function TechStack() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-            style={{ background: "rgba(108,99,255,0.1)", border: "1px solid rgba(108,99,255,0.25)" }}
+            style={{ background: isDark ? "rgba(108,99,255,0.1)" : "rgba(0,149,191,0.08)", border: isDark ? "1px solid rgba(108,99,255,0.25)" : "1px solid rgba(0,149,191,0.2)" }}
           >
-            <span style={{ fontSize: 11, color: "#6C63FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>TECHNOLOGY STACK</span>
+            <span style={{ fontSize: 11, color: labelColor, letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>TECHNOLOGY STACK</span>
           </motion.div>
 
           <motion.h2
@@ -88,12 +105,12 @@ export function TechStack() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: "#f0f4ff", maxWidth: 600, margin: "0 auto" }}
+            style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: fg, maxWidth: 600, margin: "0 auto" }}
           >
             Built on{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                background: isDark ? "linear-gradient(135deg, #00E5FF, #6C63FF)" : "linear-gradient(135deg, #0095bf, #6C63FF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -109,7 +126,7 @@ export function TechStack() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            style={{ fontSize: 15, color: "#8892b0", maxWidth: 480, margin: "16px auto 0", lineHeight: 1.7 }}
+            style={{ fontSize: 15, color: muted, maxWidth: 480, margin: "16px auto 0", lineHeight: 1.7 }}
           >
             We choose battle-tested tools from the most trusted vendors in the ecosystem — and integrate them into coherent, maintainable architectures.
           </motion.p>
@@ -140,8 +157,8 @@ export function TechStack() {
               key={cat.label}
               className="rounded-xl p-4"
               style={{
-                background: "rgba(255,255,255,0.025)",
-                border: "1px solid rgba(255,255,255,0.07)",
+                background: catBg,
+                border: catBorder,
               }}
             >
               <div
@@ -150,7 +167,7 @@ export function TechStack() {
               >
                 {cat.label}
               </div>
-              <div style={{ fontSize: 12, color: "#8892b0" }}>{cat.techs}</div>
+              <div style={{ fontSize: 12, color: muted }}>{cat.techs}</div>
             </div>
           ))}
         </motion.div>

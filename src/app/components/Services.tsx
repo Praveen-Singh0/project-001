@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Brain, Cloud, Globe, Smartphone, Palette, Cog, Megaphone, Building2, ArrowUpRight } from "lucide-react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const services = [
   {
@@ -61,12 +62,32 @@ const services = [
 ];
 
 export function Services() {
+  const { isDark } = useTheme();
+  const bg = isDark ? "#04050d" : "#e8ecf7";
+  const glowBg = isDark 
+    ? "radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%)"
+    : "radial-gradient(ellipse, rgba(0,149,191,0.04) 0%, transparent 70%)";
+  const fg = isDark ? "#f0f4ff" : "#0d0f1e";
+  const muted = isDark ? "#8892b0" : "#6271a0";
+  const labelColor = isDark ? "#00E5FF" : "#0095bf";
+  const tagBg = isDark ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.5)";
+  const tagBorder = isDark ? "rgba(255,255,255,0.07)" : "rgba(108,99,255,0.14)";
+  const cardBg = isDark 
+    ? "rgba(255,255,255,0.025)"
+    : "rgba(255,255,255,0.6)";
+  const cardBorder = isDark
+    ? "rgba(255,255,255,0.07)"
+    : "rgba(108,99,255,0.14)";
+  const cardHoverBg = isDark
+    ? "rgba(255,255,255,0.05)"
+    : "rgba(255,255,255,0.8)";
+
   return (
-    <section id="services" className="relative py-28 overflow-hidden" style={{ background: "#04050d" }}>
+    <section id="services" className="relative py-28 overflow-hidden" style={{ background: bg }}>
       {/* Glow */}
       <div
         className="absolute top-[30%] right-[-10%] w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%)", filter: "blur(80px)" }}
+        style={{ background: glowBg, filter: "blur(80px)" }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
@@ -79,9 +100,9 @@ export function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-              style={{ background: "rgba(0,229,255,0.08)", border: "1px solid rgba(0,229,255,0.2)" }}
+              style={{ background: isDark ? "rgba(0,229,255,0.08)" : "rgba(0,149,191,0.08)", border: isDark ? "1px solid rgba(0,229,255,0.2)" : "1px solid rgba(0,149,191,0.2)" }}
             >
-              <span style={{ fontSize: 11, color: "#00E5FF", letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>SERVICES</span>
+              <span style={{ fontSize: 11, color: labelColor, letterSpacing: "0.1em", fontFamily: "var(--font-mono)" }}>SERVICES</span>
             </motion.div>
 
             <motion.h2
@@ -89,12 +110,12 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: "#f0f4ff" }}
+              style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em", color: fg }}
             >
               Full-Spectrum{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #00E5FF, #6C63FF)",
+                  background: isDark ? "linear-gradient(135deg, #00E5FF, #6C63FF)" : "linear-gradient(135deg, #0095bf, #6C63FF)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -111,7 +132,7 @@ export function Services() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            style={{ fontSize: 14, color: "#8892b0", maxWidth: 340, lineHeight: 1.7 }}
+            style={{ fontSize: 14, color: muted, maxWidth: 340, lineHeight: 1.7 }}
           >
             Eight practice areas. One seamless delivery model. From strategy to execution to operations.
           </motion.p>
@@ -128,20 +149,22 @@ export function Services() {
               transition={{ delay: i * 0.07, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="relative rounded-2xl p-6 flex flex-col gap-4 group cursor-default transition-all duration-300 overflow-hidden"
               style={{
-                background: "rgba(255,255,255,0.025)",
-                border: "1px solid rgba(255,255,255,0.07)",
+                background: cardBg,
+                border: cardBorder,
                 backdropFilter: "blur(10px)",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)";
-                (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)";
+                (e.currentTarget as HTMLElement).style.background = cardHoverBg;
                 (e.currentTarget as HTMLElement).style.borderColor = `${s.color}35`;
-                (e.currentTarget as HTMLElement).style.boxShadow = `0 20px 50px rgba(0,0,0,0.4), 0 0 25px ${s.color}0D`;
+                (e.currentTarget as HTMLElement).style.boxShadow = isDark 
+                  ? `0 20px 50px rgba(0,0,0,0.4), 0 0 25px ${s.color}0D`
+                  : `0 20px 50px rgba(163,177,198,0.2), 0 0 25px ${s.color}0D`;
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.025)";
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.07)";
+                (e.currentTarget as HTMLElement).style.background = cardBg;
+                (e.currentTarget as HTMLElement).style.borderColor = cardBorder;
                 (e.currentTarget as HTMLElement).style.boxShadow = "none";
               }}
             >
@@ -175,8 +198,8 @@ export function Services() {
               </div>
 
               <div>
-                <h3 style={{ fontSize: 15, fontWeight: 600, color: "#f0f4ff", marginBottom: 8 }}>{s.title}</h3>
-                <p style={{ fontSize: 12.5, color: "#8892b0", lineHeight: 1.65 }}>{s.desc}</p>
+                <h3 style={{ fontSize: 15, fontWeight: 600, color: fg, marginBottom: 8 }}>{s.title}</h3>
+                <p style={{ fontSize: 12.5, color: muted, lineHeight: 1.65 }}>{s.desc}</p>
               </div>
 
               {/* Bottom line */}
