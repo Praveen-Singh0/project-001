@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { CustomCursor } from "./components/CustomCursor";
+import { ScrollToTop } from "./components/ScrollToTop";
 import { AuroraBackground } from "./components/AuroraBackground";
 import { ParticleField } from "./components/ParticleField";
 import { Navbar } from "./components/Navbar";
@@ -86,6 +87,7 @@ function AppInner() {
       {loaded && (
         <>
           <CustomCursor />
+          <ScrollToTop />
           <AnimatePresence mode="wait">
             <motion.div
               key={location.pathname}
