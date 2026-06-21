@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
-import { NavigationProvider, useNavigation } from "./contexts/NavigationContext";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { CustomCursor } from "./components/CustomCursor";
 import { AuroraBackground } from "./components/AuroraBackground";
@@ -73,41 +73,40 @@ function HomePage() {
   );
 }
 
-function AppRouter() {
-  const { page } = useNavigation();
-
-  if (page === "dashboard") return <Dashboard />;
-
-  return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={page}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        {page === "home" && <HomePage />}
-        {page === "login" && <LoginPage />}
-        {page === "signup" && <SignUpPage />}
-        {page === "forgot-password" && <ForgotPasswordPage />}
-        {page === "reset-password" && <ResetPasswordPage />}
-        {page === "verify-email" && <VerifyEmailPage />}
-        {page === "2fa" && <TwoFAPage />}
-      </motion.div>
-    </AnimatePresence>
-  );
-}
-
 function AppInner() {
   const [loaded, setLoaded] = useState(false);
+  const location = useLocation();
+
   return (
     <>
       {!loaded && <LoadingScreen onDone={() => setLoaded(true)} />}
       {loaded && (
         <>
           <CustomCursor />
-          <AppRouter />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={location.pathname}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/services" element={<HomePage />} />
+                <Route path="/projects" element={<HomePage />} />
+                <Route path="/contact" element={<HomePage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignUpPage />} />
+                <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+                <Route path="/reset-password" element={<ResetPasswordPage />} />
+                <Route path="/verify-email" element={<VerifyEmailPage />} />
+                <Route path="/2fa" element={<TwoFAPage />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+              </Routes>
+            </motion.div>
+          </AnimatePresence>
         </>
       )}
     </>
@@ -116,10 +115,10 @@ function AppInner() {
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <NavigationProvider>
+    <BrowserRouter>
+      <ThemeProvider>
         <AppInner />
-      </NavigationProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }

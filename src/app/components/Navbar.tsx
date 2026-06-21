@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, Sun, Moon, Home, Layers, FolderKanban, Mail, type LucideIcon } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
-import { useNavigation, type Page } from "../contexts/NavigationContext";
 import { MagneticButton } from "./MagneticButton";
 
-const navLinks: { label: string; page: Page; icon: LucideIcon }[] = [
-  { label: "Home", page: "home", icon: Home },
-  { label: "Services", page: "services", icon: Layers },
-  { label: "Projects", page: "projects", icon: FolderKanban },
-  { label: "Contact", page: "contact", icon: Mail },
+const navLinks: { label: string; path: string; icon: LucideIcon }[] = [
+  { label: "Home", path: "/", icon: Home },
+  { label: "Services", path: "/services", icon: Layers },
+  { label: "Projects", path: "/projects", icon: FolderKanban },
+  { label: "Contact", path: "/contact", icon: Mail },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { isDark, toggle } = useTheme();
-  const { page, navigate } = useNavigation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
@@ -59,7 +60,7 @@ export function Navbar() {
       >
         {/* Logo */}
         <button
-          onClick={() => navigate("home")}
+          onClick={() => navigate("/")}
           className="flex items-center gap-3 select-none"
           style={{ cursor: "pointer", background: "none", border: "none" }}
         >
@@ -80,12 +81,12 @@ export function Navbar() {
         {/* Desktop nav */}
         <ul className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => {
-            const isActive = page === link.page;
+            const isActive = location.pathname === link.path || (link.path === "/" && location.pathname === "/home");
             const Icon = link.icon;
             return (
-              <li key={link.page}>
+              <li key={link.path}>
                 <motion.button
-                  onClick={() => navigate(link.page)}
+                  onClick={() => navigate(link.path)}
                   whileHover={{ scale: 1.06 }}
                   whileTap={{ scale: 0.96 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -152,7 +153,7 @@ export function Navbar() {
 
           {/* Login */}
           <button
-            onClick={() => navigate("login")}
+            onClick={() => navigate("/login")}
             className="text-sm font-semibold px-4 py-2 rounded-full transition-all duration-200"
             style={{
               background: "transparent",
@@ -172,7 +173,7 @@ export function Navbar() {
           </button>
 
           <MagneticButton
-            onClick={() => navigate("dashboard")}
+            onClick={() => navigate("/dashboard")}
             className="rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300"
             style={{
               background: "linear-gradient(135deg, #3AE5B2, #6C63FF)",
@@ -225,11 +226,11 @@ export function Navbar() {
           >
             {navLinks.map((link) => {
               const Icon = link.icon;
-              const isActive = page === link.page;
+              const isActive = location.pathname === link.path || (link.path === "/" && location.pathname === "/home");
               return (
                 <button
-                  key={link.page}
-                  onClick={() => { navigate(link.page); setMobileOpen(false); }}
+                  key={link.path}
+                  onClick={() => { navigate(link.path); setMobileOpen(false); }}
                   className="flex items-center gap-3 py-3 px-3 rounded-xl text-sm font-medium text-left"
                   style={{
                     color: isActive ? (isDark ? "#f0f4ff" : "#0d0f1e") : textColor,
@@ -243,14 +244,14 @@ export function Navbar() {
             })}
             <div className="flex gap-3 mt-3">
               <button
-                onClick={() => { navigate("login"); setMobileOpen(false); }}
+                onClick={() => { navigate("/login"); setMobileOpen(false); }}
                 className="flex-1 rounded-full py-2.5 text-sm font-semibold"
                 style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.12)"}`, color: isDark ? "#f0f4ff" : "#0d0f1e" }}
               >
                 Log In
               </button>
               <button
-                onClick={() => { navigate("dashboard"); setMobileOpen(false); }}
+                onClick={() => { navigate("/dashboard"); setMobileOpen(false); }}
                 className="flex-1 rounded-full py-2.5 text-sm font-semibold"
                 style={{ background: "linear-gradient(135deg, #3AE5B2, #6C63FF)", color: "#04050d" }}
               >

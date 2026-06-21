@@ -1,32 +1,44 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { useNavigate, useLocation } from "react-router";
 
-export type Page =
-  | "home"
-  | "login"
-  | "signup"
-  | "forgot-password"
-  | "reset-password"
-  | "verify-email"
-  | "2fa"
-  | "dashboard";
+export function useNavigation() {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-interface NavCtx {
-  page: Page;
-  navigate: (p: Page) => void;
+  // Map current path to page name for compatibility
+  const pathToPage: Record<string, string> = {
+    "/": "home",
+    "/home": "home",
+    "/login": "login",
+    "/signup": "signup",
+    "/forgot-password": "forgot-password",
+    "/reset-password": "reset-password",
+    "/verify-email": "verify-email",
+    "/2fa": "2fa",
+    "/dashboard": "dashboard",
+    "/services": "services",
+    "/projects": "projects",
+    "/contact": "contact",
+  };
+
+  const currentPage = pathToPage[location.pathname] || "home";
+
+  return {
+    page: currentPage,
+    navigate: (page: string) => {
+      const pageToPath: Record<string, string> = {
+        home: "/",
+        login: "/login",
+        signup: "/signup",
+        "forgot-password": "/forgot-password",
+        "reset-password": "/reset-password",
+        "verify-email": "/verify-email",
+        "2fa": "/2fa",
+        dashboard: "/dashboard",
+        services: "/services",
+        projects: "/projects",
+        contact: "/contact",
+      };
+      navigate(pageToPath[page] || "/");
+    },
+  };
 }
-
-const NavigationContext = createContext<NavCtx>({
-  page: "home",
-  navigate: () => {},
-});
-
-export function NavigationProvider({ children }: { children: ReactNode }) {
-  const [page, setPage] = useState<Page>("home");
-  return (
-    <NavigationContext.Provider value={{ page, navigate: setPage }}>
-      {children}
-    </NavigationContext.Provider>
-  );
-}
-
-export const useNavigation = () => useContext(NavigationContext);
