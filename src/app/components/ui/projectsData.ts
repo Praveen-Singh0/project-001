@@ -1,0 +1,430 @@
+export interface Metric {
+  label: string
+  value: string
+}
+
+export interface Testimonial {
+  author: string
+  designation: string
+  company: string
+  review: string
+}
+
+export interface Project {
+  id: string
+  title: string
+  subtitle: string
+  category: string
+  industry: string
+  location: string
+  budget: string
+  color: string
+  overview: string
+  description: string
+  scope: string[]
+  technologies: string[]
+  tags: string[]
+  challenge: string
+  solution: string
+  features: string[]
+  results: string[]
+  businessValue: string[]
+  metrics: Metric[]
+  testimonial: Testimonial
+  deliverables: string[]
+  projectType: string
+  status: string
+  platform: string
+  productLink: string
+  images: string[]
+}
+
+export const projects: Project[] = [
+  {
+    id: "sig2-labs",
+    title: "Sig2 Labs",
+    subtitle: "Location-Based Geofence Messaging Platform",
+    category: "Mobile Application",
+    industry: "Geofence Messaging",
+    location: "Canada",
+    budget: "$5,000",
+    color: "#42DEB9",
+    overview:
+      "Sig2 Labs is a geofence-powered messaging application that automatically delivers and reads messages aloud when users enter predefined geographic locations. The platform focuses on hands-free communication, secure message delivery, and safe driving experiences.",
+    description:
+      "Designed and developed a location-aware Android application that combines geofencing, text-to-speech, push notifications, and secure authentication to deliver messages at the right place and time.",
+    scope: [
+      "Frontend Development",
+      "UI/UX Design",
+      "Mobile Application Development",
+      "Authentication Integration",
+      "Geofencing Integration",
+    ],
+    technologies: [
+      "Kotlin",
+      "Android",
+      "Node.js",
+      "Firebase Cloud Messaging",
+      "MSG91 SMS",
+      "Geofence API",
+      "Text-to-Speech",
+      "JWT Authentication",
+    ],
+    tags: [
+      "Android",
+      "Geofencing",
+      "Location Tracking",
+      "Firebase",
+      "Node.js",
+      "Kotlin",
+      "TTS",
+      "Mobile App",
+    ],
+    challenge:
+      "Building a reliable geofence-based messaging platform capable of delivering location-triggered audio messages with secure authentication and a distraction-free experience for drivers.",
+    solution:
+      "Integrated Geofence APIs for precise location detection, Firebase Cloud Messaging for notifications, Text-to-Speech for hands-free playback, and secure phone verification with token-based authentication.",
+    features: [
+      "Location-Based Message Triggering",
+      "Geofence Detection",
+      "Text-to-Speech Playback",
+      "Audio Controls",
+      "Push Notifications",
+      "Phone Verification",
+      "Token Authentication",
+      "Multi-Language Support",
+      "Replay & Skip Controls",
+    ],
+    results: [
+      "Improved geofence message delivery accuracy",
+      "Enhanced hands-free driving experience",
+      "Reduced user interaction while driving",
+      "Improved accessibility through TTS",
+      "Strengthened platform security",
+      "Higher customer satisfaction",
+    ],
+    businessValue: [
+      "Enhanced functionality",
+      "Improved user experience",
+      "Increased customer engagement",
+      "Competitive market advantage",
+      "Scalable mobile architecture",
+    ],
+    metrics: [
+      { label: "Platform", value: "Android" },
+      { label: "Notifications", value: "Real-Time" },
+      { label: "Languages", value: "Multi" },
+    ],
+    testimonial: {
+      author: "Nik Edmiidz",
+      designation: "Chief Technology Officer",
+      company: "Sig2 Labs",
+      review:
+        "Ashish and team were a pleasure to work with. He was friendly, responsive, and highly adaptive to changing project requirements. We look forward to future collaborations.",
+    },
+    deliverables: [
+      "Android Mobile App",
+      "UI/UX Design",
+      "Geofence Integration",
+      "TTS Integration",
+      "Authentication System",
+      "Push Notification System",
+      "Multi-Language Settings",
+    ],
+    projectType: "Client Project",
+    status: "Completed",
+    platform: "Android",
+    productLink: "Google Play Store",
+    images: [
+      "/projects/sig2-labs-hero.png",
+      "/projects/sig2-labs-1.png",
+      "/projects/sig2-labs-2.png",
+      "/projects/sig2-labs-3.png",
+    ],
+  },
+  {
+    id: "fintech-ai",
+    title: "FinTech AI Platform",
+    subtitle: "Intelligent Trading Revolution",
+    category: "AI & Finance",
+    industry: "Financial Technology",
+    location: "United States",
+    budget: "$45,000",
+    color: "#6C63FF",
+    overview:
+      "Revolutionized algorithmic trading with predictive AI models that process millions of data points in real-time to deliver actionable insights and automated trade execution for institutional clients.",
+    description:
+      "Built a full-stack AI-powered trading platform with real-time market data feeds, ML-driven signal generation, and a high-performance execution engine capable of handling millions of transactions daily.",
+    scope: [
+      "Backend Architecture",
+      "Machine Learning Pipeline",
+      "Real-time Data Engineering",
+      "Frontend Dashboard",
+      "API Design",
+    ],
+    technologies: [
+      "Python",
+      "TensorFlow",
+      "WebSockets",
+      "PostgreSQL",
+      "Redis",
+      "React",
+      "FastAPI",
+      "Docker",
+    ],
+    tags: [
+      "Machine Learning",
+      "Real-time Data",
+      "Trading",
+      "Python",
+      "AI",
+      "Finance",
+    ],
+    challenge:
+      "Build a real-time trading platform that processes millions of data points with AI-driven insights while maintaining sub-millisecond latency and 99.99% uptime.",
+    solution:
+      "Custom ML models with low-latency infrastructure, real-time WebSocket connections, and distributed processing for concurrent market data streams.",
+    features: [
+      "AI Signal Generation",
+      "Real-time Market Feed",
+      "Automated Execution",
+      "Risk Management Engine",
+      "Performance Analytics",
+      "Portfolio Dashboard",
+      "Backtesting Suite",
+      "Alert System",
+    ],
+    results: [
+      "40% ROI Increase",
+      "99.99% Uptime",
+      "2M+ Daily Transactions",
+      "Sub-millisecond latency",
+      "Zero data breaches",
+    ],
+    businessValue: [
+      "Reduced manual trading overhead",
+      "Higher trade accuracy",
+      "Scalable to institutional volume",
+      "Real-time decision making",
+    ],
+    metrics: [
+      { label: "ROI Increase", value: "40%" },
+      { label: "Uptime", value: "99.99%" },
+      { label: "Daily Trades", value: "2M+" },
+    ],
+    testimonial: {
+      author: "James Carter",
+      designation: "Head of Quantitative Strategy",
+      company: "FinTech AI Platform",
+      review:
+        "The AI trading platform exceeded our expectations in every way. The team delivered a production-grade system that processes our entire trade book with remarkable accuracy and speed.",
+    },
+    deliverables: [
+      "AI/ML Pipeline",
+      "Real-time Dashboard",
+      "Trading API",
+      "Risk Engine",
+      "Backtesting Module",
+      "Performance Reports",
+    ],
+    projectType: "Client Project",
+    status: "Completed",
+    platform: "Web",
+    productLink: "Private Platform",
+    images: [
+      "/projects/sig2-labs-hero.png",
+      "/projects/sig2-labs-1.png",
+      "/projects/sig2-labs-2.png",
+    ],
+  },
+  {
+    id: "healthcare-data",
+    title: "Healthcare Data System",
+    subtitle: "HIPAA-Compliant Cloud Innovation",
+    category: "Cloud & Security",
+    industry: "Healthcare",
+    location: "United States",
+    budget: "$80,000",
+    color: "#00E5FF",
+    overview:
+      "Engineered a HIPAA-compliant cloud platform managing 2M+ patient records across 50+ regions with enterprise-grade security, audit trails, and zero breach record since launch.",
+    description:
+      "Designed and deployed a secure, scalable healthcare data platform on AWS with end-to-end encryption, role-based access control, and comprehensive compliance reporting for major hospital networks.",
+    scope: [
+      "Cloud Architecture",
+      "Security Engineering",
+      "HIPAA Compliance",
+      "Backend Development",
+      "DevOps",
+    ],
+    technologies: [
+      "AWS",
+      "Node.js",
+      "PostgreSQL",
+      "Terraform",
+      "Docker",
+      "Kubernetes",
+      "React",
+      "TypeScript",
+    ],
+    tags: [
+      "Healthcare",
+      "Cloud",
+      "Security",
+      "AWS",
+      "HIPAA",
+      "Compliance",
+    ],
+    challenge:
+      "Create an enterprise healthcare platform with strict HIPAA compliance, end-to-end encryption, and availability across 50+ geographic regions without compromising performance.",
+    solution:
+      "AWS-based multi-region architecture with end-to-end encryption, automated audit trails, role-based access controls, and continuous compliance monitoring.",
+    features: [
+      "End-to-End Encryption",
+      "HIPAA Audit Trails",
+      "Multi-Region Replication",
+      "Role-Based Access",
+      "Data Masking",
+      "Compliance Dashboard",
+      "Automated Backups",
+      "Incident Response",
+    ],
+    results: [
+      "2M+ Patient Records Managed",
+      "50+ Regions Supported",
+      "Zero Security Breaches",
+      "100% HIPAA Compliance",
+      "99.9% System Availability",
+    ],
+    businessValue: [
+      "Full regulatory compliance",
+      "Reduced risk of data breaches",
+      "Scalable across regions",
+      "Automated compliance reporting",
+    ],
+    metrics: [
+      { label: "Records", value: "2M+" },
+      { label: "Regions", value: "50+" },
+      { label: "Breaches", value: "Zero" },
+    ],
+    testimonial: {
+      author: "Dr. Sarah Mitchell",
+      designation: "Chief Information Officer",
+      company: "MedCore Systems",
+      review:
+        "The healthcare data system transformed how we manage patient information. The security and compliance features are world-class, and our team has complete confidence in the platform.",
+    },
+    deliverables: [
+      "Cloud Infrastructure",
+      "Security Framework",
+      "Compliance Reports",
+      "Admin Dashboard",
+      "API Documentation",
+      "Disaster Recovery Plan",
+    ],
+    projectType: "Client Project",
+    status: "Completed",
+    platform: "Cloud (AWS)",
+    productLink: "Enterprise Platform",
+    images: [
+      "/projects/sig2-labs-hero.png",
+      "/projects/sig2-labs-2.png",
+      "/projects/sig2-labs-3.png",
+    ],
+  },
+  {
+    id: "ecommerce-intelligence",
+    title: "E-Commerce Intelligence",
+    subtitle: "Personalization at Scale",
+    category: "Full-Stack & Analytics",
+    industry: "E-Commerce",
+    location: "Global",
+    budget: "$60,000",
+    color: "#0FA47E",
+    overview:
+      "Built an ML-powered personalization engine serving 10M+ users by processing 1B+ daily behavioral events to deliver hyper-relevant product recommendations and drive a 35% uplift in conversion rates.",
+    description:
+      "Engineered a distributed recommendation system with real-time ML inference, A/B testing infrastructure, and a real-time analytics dashboard to optimize the shopping experience at massive scale.",
+    scope: [
+      "Machine Learning",
+      "Data Engineering",
+      "Backend Development",
+      "Frontend Dashboard",
+      "A/B Testing Framework",
+    ],
+    technologies: [
+      "Python",
+      "Apache Kafka",
+      "Spark",
+      "Elasticsearch",
+      "React",
+      "Node.js",
+      "Redis",
+      "PostgreSQL",
+    ],
+    tags: [
+      "E-commerce",
+      "ML",
+      "Analytics",
+      "Personalization",
+      "Python",
+      "Kafka",
+    ],
+    challenge:
+      "Build a personalization engine for 10M+ users processing 1B+ daily events with sub-second recommendation latency and continuous model improvement.",
+    solution:
+      "Distributed ML pipeline with real-time recommendations, Kafka for event streaming, Elasticsearch for product search, and advanced A/B testing for model validation.",
+    features: [
+      "Real-time Recommendations",
+      "Behavioral Event Tracking",
+      "A/B Testing Framework",
+      "Search Personalization",
+      "Dynamic Pricing",
+      "Churn Prediction",
+      "Revenue Analytics",
+      "User Segmentation",
+    ],
+    results: [
+      "+35% Conversion Rate",
+      "1B+ Events/Day Processed",
+      "10M+ Users Served",
+      "20% Increase in AOV",
+      "Sub-100ms Latency",
+    ],
+    businessValue: [
+      "Significant revenue uplift",
+      "Reduced cart abandonment",
+      "Higher lifetime value",
+      "Data-driven merchandising",
+    ],
+    metrics: [
+      { label: "Conversion", value: "+35%" },
+      { label: "Events/Day", value: "1B+" },
+      { label: "Users", value: "10M+" },
+    ],
+    testimonial: {
+      author: "Maria Chen",
+      designation: "VP of Product",
+      company: "ShopSphere",
+      review:
+        "The personalization engine delivered beyond our projections. The 35% conversion increase directly translated into millions in additional revenue within the first quarter of launch.",
+    },
+    deliverables: [
+      "ML Recommendation Engine",
+      "Data Pipeline",
+      "Analytics Dashboard",
+      "A/B Testing Tool",
+      "API Integration",
+      "Performance Reports",
+    ],
+    projectType: "Client Project",
+    status: "Completed",
+    platform: "Web / Cloud",
+    productLink: "Live Platform",
+    images: [
+      "/projects/sig2-labs-hero.png",
+      "/projects/sig2-labs-1.png",
+      "/projects/sig2-labs-3.png",
+    ],
+  },
+]
