@@ -1,0 +1,423 @@
+"use client";
+
+import { useState } from "react";
+import { MapPin, Phone, Mail, Send, Calendar, CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { useTheme } from "@/contexts/ThemeContext";
+import { fadeUp, viewportOnce } from "@/lib/motion";
+
+const contactInfo = [
+  {
+    icon: MapPin,
+    label: "Office",
+    value: "Dehradun, Uttarakhand, India — 248001",
+    color: "#00E5FF",
+  },
+  { icon: Phone, label: "Phone", value: "+91 135 000 0000", color: "#6C63FF" },
+  { icon: Mail, label: "Email", value: "hello@dtechex.com", color: "#00BFFF" },
+];
+
+export function Contact() {
+  const { isDark } = useTheme();
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const bg = isDark ? "#04050d" : "#e8ecf7";
+  const fg = isDark ? "#f0f4ff" : "#0d0f1e";
+  const muted = isDark ? "#8892b0" : "#6271a0";
+  const labelColor = isDark ? "#00E5FF" : "#0095bf";
+  const inputBg = isDark ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.6)";
+  const inputBorder = isDark
+    ? "rgba(255,255,255,0.1)"
+    : "rgba(108,99,255,0.14)";
+  const glowGradient = isDark
+    ? "linear-gradient(90deg, transparent, rgba(0,229,255,0.3), transparent)"
+    : "linear-gradient(90deg, transparent, rgba(0,149,191,0.2), transparent)";
+  const glowBg = isDark
+    ? "radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%)"
+    : "radial-gradient(ellipse, rgba(0,149,191,0.03) 0%, transparent 70%)";
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+    }, 1800);
+  };
+
+  return (
+    <section
+      id="contact"
+      className="relative py-28 overflow-hidden"
+      style={{ background: bg }}
+    >
+      <div
+        className="absolute top-0 left-0 right-0 h-px"
+        style={{ background: glowGradient }}
+      />
+      <div
+        className="absolute top-[10%] left-[20%] w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{ background: glowBg, filter: "blur(80px)" }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-16 items-start">
+        {/* Left: Info */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
+          <div
+            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
+            style={{
+              background: isDark
+                ? "rgba(0,229,255,0.08)"
+                : "rgba(0,149,191,0.08)",
+              border: isDark
+                ? "1px solid rgba(0,229,255,0.2)"
+                : "1px solid rgba(0,149,191,0.2)",
+            }}
+          >
+            <Calendar size={11} color={labelColor} />
+            <span
+              style={{
+                fontSize: 11,
+                color: labelColor,
+                letterSpacing: "0.1em",
+                fontFamily: "var(--font-mono)",
+              }}
+            >
+              GET IN TOUCH
+            </span>
+          </div>
+
+          <h2
+            style={{
+              fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+              fontWeight: 700,
+              lineHeight: 1.2,
+              letterSpacing: "-0.02em",
+              color: "#f0f4ff",
+              marginBottom: 16,
+            }}
+          >
+            Schedule a{" "}
+            <span
+              className="
+    inline-block
+    bg-gradient-to-r
+    from-[#3AE5B2]
+    via-[#6C63FF]
+    to-[#00E5FF]
+    bg-clip-text
+    text-transparent
+  "
+            >
+              Consultation
+            </span>
+          </h2>
+
+          <p
+            style={{
+              fontSize: 15,
+              color: "#8892b0",
+              lineHeight: 1.75,
+              marginBottom: 32,
+              maxWidth: 420,
+            }}
+          >
+            Tell us about your challenge. Our team will respond within 24 hours
+            with a tailored proposal or schedule a free 30-minute strategy
+            session.
+          </p>
+
+          {/* Contact info cards */}
+          <div className="flex flex-col gap-4">
+            {contactInfo.map((item, i) => (
+              <div
+                key={item.label}
+                className="flex items-start gap-4 p-4 rounded-xl"
+                style={{
+                  background: "rgba(255,255,255,0.025)",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                }}
+              >
+                <div
+                  className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{
+                    background: `${item.color}15`,
+                    border: `1px solid ${item.color}25`,
+                  }}
+                >
+                  <item.icon size={15} color={item.color} />
+                </div>
+                <div>
+                  <div
+                    style={{
+                      fontSize: 11,
+                      color: item.color,
+                      fontFamily: "var(--font-mono)",
+                      marginBottom: 2,
+                    }}
+                  >
+                    {item.label}
+                  </div>
+                  <div style={{ fontSize: 14, color: "#c8d3e8" }}>
+                    {item.value}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Response time badge */}
+          <div
+            className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full"
+            style={{
+              background: "rgba(52,211,153,0.1)",
+              border: "1px solid rgba(52,211,153,0.25)",
+            }}
+          >
+            <div
+              className="w-2 h-2 rounded-full"
+              style={{ background: "#34d399" }}
+            />
+            <span style={{ fontSize: 12, color: "#34d399" }}>
+              Average response time: under 4 hours
+            </span>
+          </div>
+        </motion.div>
+
+        {/* Right: Form */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={{
+            hidden: { opacity: 0, y: 16 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.45, delay: 0.1, ease: [0.16, 1, 0.3, 1] },
+            },
+          }}
+          className="rounded-2xl p-8"
+          style={{
+            background: "rgba(255,255,255,0.03)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            backdropFilter: "blur(20px)",
+          }}
+        >
+          {submitted ? (
+            <div className="flex flex-col items-center justify-center gap-5 py-12 text-center">
+              <div
+                className="w-16 h-16 rounded-full flex items-center justify-center"
+                style={{
+                  background: "rgba(0,229,255,0.12)",
+                  border: "1px solid rgba(0,229,255,0.3)",
+                }}
+              >
+                <CheckCircle size={28} color="#00E5FF" />
+              </div>
+              <div>
+                <h3
+                  style={{
+                    fontSize: 20,
+                    fontWeight: 700,
+                    color: "#f0f4ff",
+                    marginBottom: 8,
+                  }}
+                >
+                  Message Received
+                </h3>
+                <p style={{ fontSize: 14, color: "#8892b0", lineHeight: 1.7 }}>
+                  Thank you for reaching out. Our team will be in touch within
+                  24 hours to discuss your project.
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  setSubmitted(false);
+                  setForm({ name: "", email: "", company: "", message: "" });
+                }}
+                className="text-sm transition-colors"
+                style={{ color: "#00E5FF" }}
+              >
+                Send another message
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <h3
+                style={{
+                  fontSize: 18,
+                  fontWeight: 600,
+                  color: "#f0f4ff",
+                  marginBottom: 4,
+                }}
+              >
+                Start the Conversation
+              </h3>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  {
+                    key: "name",
+                    label: "Full Name",
+                    placeholder: "Sarah Mitchell",
+                  },
+                  {
+                    key: "company",
+                    label: "Company",
+                    placeholder: "Acme Corp",
+                  },
+                ].map((field) => (
+                  <div key={field.key}>
+                    <label
+                      style={{
+                        fontSize: 12,
+                        color: "#8892b0",
+                        display: "block",
+                        marginBottom: 6,
+                      }}
+                    >
+                      {field.label}
+                    </label>
+                    <input
+                      type="text"
+                      placeholder={field.placeholder}
+                      required
+                      value={form[field.key as keyof typeof form]}
+                      onChange={(e) =>
+                        setForm((f) => ({ ...f, [field.key]: e.target.value }))
+                      }
+                      className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none"
+                      style={{
+                        background: "rgba(255,255,255,0.04)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        color: "#f0f4ff",
+                      }}
+                      onFocus={(e) => {
+                        e.target.style.borderColor = "rgba(0,229,255,0.4)";
+                        e.target.style.boxShadow =
+                          "0 0 0 3px rgba(0,229,255,0.06)";
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.borderColor = "rgba(255,255,255,0.1)";
+                        e.target.style.boxShadow = "none";
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div>
+                <label
+                  style={{
+                    fontSize: 12,
+                    color: "#8892b0",
+                    display: "block",
+                    marginBottom: 6,
+                  }}
+                >
+                  Business Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="sarah@company.com"
+                  required
+                  value={form.email}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, email: e.target.value }))
+                  }
+                  className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    color: "#f0f4ff",
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = "rgba(0,229,255,0.4)";
+                    e.target.style.boxShadow = "0 0 0 3px rgba(0,229,255,0.06)";
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = "rgba(255,255,255,0.1)";
+                    e.target.style.boxShadow = "none";
+                  }}
+                />
+              </div>
+
+              <div>
+                <label
+                  style={{
+                    fontSize: 12,
+                    color: "#8892b0",
+                    display: "block",
+                    marginBottom: 6,
+                  }}
+                >
+                  Tell us about your project
+                </label>
+                <textarea
+                  placeholder="We're looking to build an AI-powered analytics platform for our logistics operations..."
+                  required
+                  rows={5}
+                  value={form.message}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, message: e.target.value }))
+                  }
+                  className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none resize-none"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    color: "#f0f4ff",
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = "rgba(0,229,255,0.4)";
+                    e.target.style.boxShadow = "0 0 0 3px rgba(0,229,255,0.06)";
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = "rgba(255,255,255,0.1)";
+                    e.target.style.boxShadow = "none";
+                  }}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-300"
+                style={{
+                  background: loading
+                    ? "#24a585ff"
+                    : "linear-gradient(105deg, #259f80ff, #25999fff)",
+                  boxShadow: loading ? "none" : "0 0 30px rgba(0,229,255,0.25)",
+                  color: "#000", // Black text
+                }}
+              >
+                {loading ? (
+                  <div
+                    className="w-4 h-4 border-2 rounded-full"
+                  />
+                ) : (
+                  <>
+                    <Send size={15} />
+                    Send Message
+                  </>
+                )}
+              </button>
+            </form>
+          )}
+        </motion.div>
+      </div>
+    </section>
+  );
+}

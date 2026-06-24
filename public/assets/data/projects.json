@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Enterprise CRM Platform",
+    "category": "AI + Cloud",
+    "desc": "A next-generation CRM built for a 2,000-seat global sales team. Real-time deal scoring via ML, GPT-powered meeting summaries, and a unified customer data graph reduced sales cycle by 34%.",
+    "stack": ["React", "NestJS", "PostgreSQL", "OpenAI", "AWS"],
+    "metrics": [
+      { "label": "Faster Close Rate", "value": "34%" },
+      { "label": "Users", "value": "2K+" },
+      { "label": "Uptime", "value": "99.99%" }
+    ],
+    "accent": "#00E5FF",
+    "bgGradient": "linear-gradient(135deg, rgba(0,229,255,0.08) 0%, rgba(108,99,255,0.05) 100%)",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=380&fit=crop&auto=format"
+  },
+  {
+    "title": "Healthcare Automation System",
+    "category": "AI + Automation",
+    "desc": "End-to-end patient workflow automation for a regional hospital network. AI triage, intelligent scheduling, and NLP-powered clinical notes cut administrative overhead by 60% across 12 facilities.",
+    "stack": ["Next.js", "Python", "Claude API", "Azure", "PostgreSQL"],
+    "metrics": [
+      { "label": "Admin Time Saved", "value": "60%" },
+      { "label": "Facilities", "value": "12" },
+      { "label": "Patient Records", "value": "500K" }
+    ],
+    "accent": "#6C63FF",
+    "bgGradient": "linear-gradient(135deg, rgba(108,99,255,0.08) 0%, rgba(0,229,255,0.04) 100%)",
+    "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&h=380&fit=crop&auto=format"
+  },
+  {
+    "title": "FinTech Analytics Dashboard",
+    "category": "Data Intelligence",
+    "desc": "Real-time risk and portfolio analytics platform for a mid-market hedge fund. Sub-50ms data pipelines, predictive volatility models, and executive dashboards that visualize $2B+ AUM in real time.",
+    "stack": ["React", "Python", "Redis", "GCP", "LangChain"],
+    "metrics": [
+      { "label": "Data Latency", "value": "<50ms" },
+      { "label": "AUM Tracked", "value": "$2B+" },
+      { "label": "Accuracy", "value": "94.2%" }
+    ],
+    "accent": "#00BFFF",
+    "bgGradient": "linear-gradient(135deg, rgba(0,191,255,0.08) 0%, rgba(79,70,229,0.04) 100%)",
+    "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=700&h=380&fit=crop&auto=format"
+  },
+  {
+    "title": "E-Commerce Growth Engine",
+    "category": "Full-Stack + AI",
+    "desc": "Headless commerce platform with AI-driven personalization for a D2C brand doing $80M ARR. Recommendation engine, dynamic pricing, and predictive inventory management boosted revenue 28% YoY.",
+    "stack": ["Next.js", "Node.js", "MongoDB", "Redis", "OpenAI"],
+    "metrics": [
+      { "label": "Revenue Growth", "value": "28%" },
+      { "label": "Annual Revenue", "value": "$80M" },
+      { "label": "SKUs Managed", "value": "50K+" }
+    ],
+    "accent": "#a78bfa",
+    "bgGradient": "linear-gradient(135deg, rgba(167,139,250,0.08) 0%, rgba(0,229,255,0.03) 100%)",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=380&fit=crop&auto=format"
+  }
+]
