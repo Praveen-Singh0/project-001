@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Sun, Moon, Home, Layers, FolderKanban, Mail, Cloud, type LucideIcon } from "lucide-react";
+import { Menu, X, Sun, Moon, Home, Layers, FolderKanban, Mail, Briefcase, type LucideIcon } from "lucide-react";
 import Image from "next/image";
 import { useTheme } from "@/contexts/ThemeContext";
 
 const navLinks: { label: string; path: string; icon: LucideIcon }[] = [
   { label: "Home", path: "/", icon: Home },
   { label: "Services", path: "/services", icon: Layers },
-  { label: "Cloud Services", path: "/cloud-services", icon: Cloud },
+  { label: "Careers", path: "/careers", icon: Briefcase },
   { label: "Projects", path: "/projects", icon: FolderKanban },
   { label: "Contact", path: "/contact", icon: Mail },
 ];

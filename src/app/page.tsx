@@ -9,6 +9,7 @@ import { TechStack } from "@/components/TechStack";
 import { Projects } from "@/components/Projects";
 import { GlobalTrust } from "@/components/GlobalTrust";
 import { Testimonials } from "@/components/Testimonials";
+import { ITConsulting } from "@/components/ITConsulting";
 import { Contact } from "@/components/Contact";
 import { HomeEffects } from "@/components/home/HomeEffects";
 
@@ -35,6 +36,7 @@ export default function HomePage() {
         <Projects />
         <GlobalTrust />
         <Testimonials />
+        <ITConsulting />
         <Contact />
         <Footer />
       </div>

@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ArrowUpRight,
   MapPin,
@@ -487,6 +487,18 @@ function CaseStudyDetail({ project, onBack }: { project: Project; onBack: () => 
 
 export default function ProjectsPage() {
   const [selected, setSelected] = useState<Project | null>(null);
+
+  // Scroll to top when project selection changes
+  useEffect(() => {
+    const scrollFrame = requestAnimationFrame(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto",
+      });
+    });
+    return () => cancelAnimationFrame(scrollFrame);
+  }, [selected]);
 
   if (selected) {
     return <CaseStudyDetail project={selected} onBack={() => setSelected(null)} />;
