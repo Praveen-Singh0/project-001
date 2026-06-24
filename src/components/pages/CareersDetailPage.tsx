@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { ArrowLeft, MapPin, DollarSign, Clock, CheckCircle } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
+import { ApplicationFormModal } from "@/components/ApplicationFormModal";
 import type { Job } from "@/lib/careers";
 
 interface CareersDetailPageProps {
@@ -11,6 +13,7 @@ interface CareersDetailPageProps {
 
 export function CareersDetailPage({ job, onBack }: CareersDetailPageProps) {
   const { isDark } = useTheme();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const bg = isDark ? "#04050d" : "#e8ecf7";
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
@@ -88,6 +91,7 @@ export function CareersDetailPage({ job, onBack }: CareersDetailPageProps) {
           </div>
 
           <button
+            onClick={() => setIsModalOpen(true)}
             style={{
               background: `linear-gradient(135deg, ${accentColor}, ${labelColor})`,
               color: "#fff",
@@ -221,9 +225,7 @@ export function CareersDetailPage({ job, onBack }: CareersDetailPageProps) {
               Take the next step in your career. We'd love to hear from you!
             </p>
             <button
-              onClick={() => {
-                /* Handle apply logic */
-              }}
+              onClick={() => setIsModalOpen(true)}
               style={{
                 background: `linear-gradient(135deg, ${accentColor}, ${labelColor})`,
                 color: "#fff",
@@ -240,6 +242,14 @@ export function CareersDetailPage({ job, onBack }: CareersDetailPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Application Modal */}
+      <ApplicationFormModal
+        jobTitle={job.title}
+        jobId={job.id}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </main>
   );
 }
