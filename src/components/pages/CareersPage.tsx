@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Briefcase, MapPin, DollarSign, Clock, ChevronRight } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { jobs, type Job } from "@/lib/careers";
@@ -10,6 +10,18 @@ export function CareersPage() {
   const { isDark } = useTheme();
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
   const [departmentFilter, setDepartmentFilter] = useState<string>("All");
+
+  // Scroll to top when job selection changes
+  useEffect(() => {
+    const scrollFrame = requestAnimationFrame(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto",
+      });
+    });
+    return () => cancelAnimationFrame(scrollFrame);
+  }, [selectedJob]);
 
   const bg = isDark ? "#04050d" : "#e8ecf7";
   const fg = isDark ? "#f0f4ff" : "#0d0f1e";
