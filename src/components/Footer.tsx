@@ -8,14 +8,14 @@ import { useTheme } from "@/contexts/ThemeContext";
 const footerLinks: Record<string, { label: string; href: string }[]> = {
   Company: [
     { label: "About Us", href: "/about" },
-    { label: "Careers", href: "#" },
+    { label: "Careers", href: "/careers" },
     { label: "Blog", href: "#" },
     { label: "Press", href: "#" },
     { label: "Partners", href: "#" },
   ],
   Services: [
     { label: "AI Solutions", href: "/services" },
-    { label: "Cloud Services", href: "/cloud-services" },
+    { label: "Staff Augmentation", href: "/staff-augmentation" },
     { label: "Web Development", href: "/services" },
     { label: "Mobile Apps", href: "/services" },
     { label: "UI/UX Design", href: "/services" },
